@@ -4,16 +4,42 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <!--CSS-->
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-4.0.0-alpha.6-dist/css/bootstrap-grid.min.css">
+
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="vendor/jquery-3.2.1.js"></script>
 </head>
 <body>
 
-<div class="map-view">
-    <div id="map"></div>
-</div>
+<!--<div class="container-fluid">-->
+    <!--<div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-3"></div>-->
+            <!--<div class="col-9 map-view">-->
+                <div class="map-view">
+                    <div id="map"></div>
+                </div>
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
 
 
 <script src="javascript/script.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+<script src="vendor/bootstrap-4.0.0-alpha.6-dist/js/bootstrap.min.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONFCSlpnxRLIsXaxQARMnLI9CJXZu4oE&libraries=visualization&callback=initMap">
 </script>

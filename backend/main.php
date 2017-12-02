@@ -2,6 +2,7 @@
 //title, date, username, lat, lng, description
 
 $file = fopen('../data/testData.csv', 'r');
+//$file = fopen('../data/editedData.csv', 'r');
 $lineNumber = 0;
 $allDataArray = array();
 $attributes = array();
