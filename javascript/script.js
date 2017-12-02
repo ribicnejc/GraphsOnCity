@@ -3,46 +3,49 @@ var map;
 
 function reqListner() {
     var content = JSON.parse(this.responseText);
-    console.log(this.code);
     findPaths(content);
 }
 
 function findPaths(data) {
-    var prevUser = "";
     var paths = {};
     for (var i = 0; i < data.length; i++) {
         var userLine = data[i];
-        if (userLine.username === prevUser) {
-            var coordTuple = {};
-            coordTuple.lat = userLine.lat;
-            coordTuple.lng = userLine.lng;
+        var usernme = userLine.username;
+        var coordTuple = {};
+        coordTuple.lat = userLine.lat;
+        coordTuple.lng = userLine.lng;
 
-            var tmpPath = paths.username;
-            tmpPath.push(coordTuple);
-            paths.username = tmpPath;
-        }else {
-            if (paths.username === undefined) {
-                paths.username = [];
-            }
+        if (paths[usernme] === undefined) {
+            paths[usernme] = [];
+            var tmp = paths[usernme];
+            tmp.push(coordTuple);
+            paths[usernme] = tmp;
+        } else {
+            var tmp2 = paths[usernme];
+            tmp2.push(coordTuple);
+            paths[usernme] = tmp2;
         }
-        prevUser = userLine.username;
     }
+
+
     //TODO paths.username is actually on attr, so I have to make HASHMap by username and then iterate over and draw graph!!!
     for (var username in paths) {
         if (paths.hasOwnProperty(username)) {
-            drawGraph(paths.username);
+            if (paths[username] === undefined) continue;
+            drawGraph(paths[username]);
         }
     }
-
 }
+
+
 
 function drawGraph(pathData) {
     var userPath = new google.maps.Polyline({
         path: pathData,
         geodesic: true,
-        strokeColor: '#FFFF00',
-        strokeOpacity: 10.5,
-        strokeWeight: 5,
+        strokeColor: '#0000FF',
+        strokeOpacity: 1.0,
+        strokeWeight: 1,
         map: map
     });
     // userPath.setMap(map);
