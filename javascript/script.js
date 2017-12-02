@@ -6,6 +6,7 @@ function reqListner() {
     findPaths(content);
 }
 
+
 function findPaths(data) {
     var paths = {};
     for (var i = 0; i < data.length; i++) {
