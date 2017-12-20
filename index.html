@@ -7,6 +7,10 @@
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="stylesheets/app.css"/>
 
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendor/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/bootstrap-4.0.0-alpha.6-dist/css/bootstrap-grid.min.css">
@@ -24,6 +28,35 @@
                 <div class="panel shadow">
                     <div>
                         <div class="map-tools">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slidecontainer">
+                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                        <p>Value: <span id="demo"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 filter-buttons">
+                                    <button type="button" class="btn btn-primary btn-lg">Apply Filters</button>
+                                    <button type="button" class="btn btn-secondary btn-lg">Clear</button>
+                                </div>
+                            </div>
+
+                            <!--<div id="mySidenav" class="sidenav">-->
+                                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+                                <!--<a href="#">About</a>-->
+                                <!--<a href="#">Services</a>-->
+                                <!--<a href="#">Clients</a>-->
+                                <!--<a href="#">Contact</a>-->
+                            <!--</div>-->
+
+                            <!--<div id="main">-->
+                                <!--<h2>Sidenav Push Example</h2>-->
+                                <!--<p>Click on the element below to open the side navigation menu, and push this content to the right.</p>-->
+                                <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
+                            <!--</div>-->
 
                         </div>
                     </div>
@@ -40,7 +73,7 @@
 
 
 <script src="javascript/script.js"></script>
-
+<script src="javascript/side-menu.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
