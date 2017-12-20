@@ -50,14 +50,36 @@ function addMarker(coords) {
 }
 
 function drawGraph(pathData) {
-    var userPath = new google.maps.Polyline({
+    this.userPath = new google.maps.Polyline({
         path: pathData,
         geodesic: true,
         strokeColor: "#0000FF",//randomColor(),
         strokeOpacity: 1.0,
-        strokeWeight: 1
+        strokeWeight: 5
     });
-    userPath.setMap(map);
+
+    google.maps.event.addListener(this.userPath, 'mouseover', function() {
+        this.setOptions({
+            strokeOpacity : 0.5
+        });
+    });
+    google.maps.event.addListener(this.userPath, 'click', function() {
+        alert("Test click");
+    });
+    google.maps.event.addListener(this.userPath, 'mouseout', function() {
+        this.setOptions({
+            strokeOpacity : 1
+        });
+    });
+
+    // map.addListener(this.userPath, 'click', function(){
+    //     console.log("test");
+    // });
+    this.userPath.setMap(map);
+}
+
+function testClick(){
+    console.log("test");
 }
 
 var oReq = new XMLHttpRequest();
