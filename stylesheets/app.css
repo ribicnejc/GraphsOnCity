@@ -1,0 +1,55 @@
+/* line 1, ../sass/_extends.sass */
+.shadow {
+  /*box-shadow: 7px 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12); */
+  box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* line 1, ../sass/base/_base.sass */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 6, ../sass/base/_base.sass */
+body {
+  min-height: 100%;
+}
+
+/* line 1, ../sass/layout/_tools-layout.sass */
+div.panel {
+  height: 100%;
+  background-color: #fff;
+}
+
+/* line 5, ../sass/layout/_tools-layout.sass */
+div.map-tools {
+  height: 100%;
+}
+
+/* line 7, ../sass/layout/_tools-layout.sass */
+div.main-content {
+  height: 100%;
+}
+
+/* line 10, ../sass/layout/_tools-layout.sass */
+.fullscreen {
+  height: 100%;
+}
+
+/* line 1, ../sass/layout/_map-layout.sass */
+div.map-view, #map {
+  height: 100%;
+  padding: 0;
+}
+
+/* line 5, ../sass/layout/_map-layout.sass */
+#map {
+  height: 100%;
+}
+
+/* line 8, ../sass/layout/_map-layout.sass */
+#no_padding {
+  padding: 0;
+  z-index: 5;
+}
