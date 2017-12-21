@@ -44,6 +44,12 @@ div.main-content {
   margin: auto;
 }
 
+/* line 20, ../sass/layout/_tools-layout.sass */
+.button-group-center {
+  display: block;
+  margin: auto;
+}
+
 /* line 1, ../sass/layout/_map-layout.sass */
 div.map-view, #map {
   height: 100%;
