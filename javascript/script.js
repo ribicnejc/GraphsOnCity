@@ -82,11 +82,7 @@ function testClick(){
     console.log("test");
 }
 
-var oReq = new XMLHttpRequest();
-oReq.addEventListener("load", reqListner);
-oReq.open("GET", "" +
-    "backend/main.php");
-oReq.send();
+
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -94,6 +90,11 @@ function initMap() {
         center: {lat: 46.0548178, lng: 14.5042642},
         mapTypeId: 'terrain'
     });
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListner);
+    oReq.open("GET", "" +
+        "backend/main.php");
+    oReq.send();
 }
 
 function randomColor() {

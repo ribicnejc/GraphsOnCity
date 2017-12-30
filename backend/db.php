@@ -3,9 +3,15 @@
 class db
 {
     // Properties
+//    private $dbhost = "localhost";
+//    private $dbuser = "nejcribic_nejc";
+//    private $dbpass = "*piF5(QE4xlKw";
+//    private $dbname = "nejcribic_test";
+
+    // Local Properties
     private $dbhost = "localhost";
-    private $dbuser = "nejcribic_nejc";
-    private $dbpass = "*piF5(QE4xlKw";
+    private $dbuser = "root";
+    private $dbpass = "";
     private $dbname = "nejcribic_test";
 
     // Connect
