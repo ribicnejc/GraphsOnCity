@@ -93,7 +93,7 @@ function initMap() {
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListner);
     oReq.open("GET", "" +
-        "backend/main.php");
+        "backend/main.php?api=nejc&key=Code");
     oReq.send();
 }
 

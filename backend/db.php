@@ -2,13 +2,13 @@
 
 class db
 {
-    // Properties
+    // Host
 //    private $dbhost = "localhost";
 //    private $dbuser = "nejcribic_nejc";
 //    private $dbpass = "*piF5(QE4xlKw";
 //    private $dbname = "nejcribic_test";
 
-    // Local Properties
+    // Local
     private $dbhost = "localhost";
     private $dbuser = "root";
     private $dbpass = "";
