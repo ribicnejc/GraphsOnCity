@@ -1,5 +1,7 @@
 var map;
 
+
+
 function reqListner() {
     var content = JSON.parse(this.responseText);
     findPaths(content);
@@ -9,10 +11,10 @@ function findPaths(data) {
     var paths = {};
     for (var i = 0; i < data.length; i++) {
         var userLine = data[i];
-        var usernme = userLine.username;
+        var usernme = userLine.USERNAME;
         var coordTuple = {};
-        coordTuple.lat = userLine.lat;
-        coordTuple.lng = userLine.lng;
+        coordTuple.lat = parseFloat(userLine.LAT);
+        coordTuple.lng = parseFloat(userLine.LNG);
 
         addMarker(coordTuple);
 
@@ -36,16 +38,6 @@ function addMarker(coords) {
         position: coords,
         title: 'Hello World!'
     });
-
-    // var markers = [];
-    // window.setTimeout(function() {
-    //     markers.push(new google.maps.Marker({
-    //         position: coords,
-    //         map: map,
-    //         animation: google.maps.Animation.DROP
-    //     }));
-    // }, 100);
-
     marker.setMap(map);
 }
 
@@ -90,11 +82,7 @@ function initMap() {
         center: {lat: 46.0548178, lng: 14.5042642},
         mapTypeId: 'terrain'
     });
-    var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListner);
-    oReq.open("GET", "" +
-        "backend/main.php?api=nejc&key=Code");
-    oReq.send();
+    requestData();
 }
 
 function randomColor() {
@@ -104,4 +92,12 @@ function randomColor() {
         color += parts[Math.floor(Math.random() * 15)];
     }
     return color;
+}
+
+function requestData(){
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListner);
+    oReq.open("GET", "" +
+        "backend/api.php");
+    oReq.send();
 }
