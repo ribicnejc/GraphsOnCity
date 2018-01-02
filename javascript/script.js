@@ -11,24 +11,24 @@ function findPaths(data) {
     var paths = {};
     for (var i = 0; i < data.length; i++) {
         var userLine = data[i];
-        var usernme = userLine.USERNAME;
+        var uid = userLine.UID;
         var coordTuple = {};
         coordTuple.lat = parseFloat(userLine.LAT);
         coordTuple.lng = parseFloat(userLine.LNG);
 
         addMarker(coordTuple);
 
-        if (paths[usernme] === undefined) paths[usernme] = [];
+        if (paths[uid] === undefined) paths[uid] = [];
 
-        var tmp = paths[usernme];
+        var tmp = paths[uid];
         tmp.push(coordTuple);
-        paths[usernme] = tmp;
+        paths[uid] = tmp;
     }
 
-    for (var username in paths) {
-        if (paths.hasOwnProperty(username)) {
-            if (paths[username] === undefined) continue;
-            drawGraph(paths[username]);
+    for (var uidKey in paths) {
+        if (paths.hasOwnProperty(uidKey)) {
+            if (paths[uidKey] === undefined) continue;
+            drawGraph(paths[uidKey]);
         }
     }
 }
