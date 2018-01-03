@@ -16,7 +16,7 @@ function findPaths(data) {
         coordTuple.lat = parseFloat(userLine.LAT);
         coordTuple.lng = parseFloat(userLine.LNG);
 
-        addMarker(coordTuple);
+        addMarker(coordTuple, userLine.PLACE_NAME);
 
         if (paths[uid] === undefined) paths[uid] = [];
 
@@ -33,10 +33,10 @@ function findPaths(data) {
     }
 }
 
-function addMarker(coords) {
+function addMarker(coords, placeName) {
     var marker = new google.maps.Marker({
         position: coords,
-        title: 'Hello World!'
+        title: placeName
     });
     marker.setMap(map);
 }
@@ -47,12 +47,13 @@ function drawGraph(pathData) {
         geodesic: true,
         strokeColor: "#0000FF",//randomColor(),
         strokeOpacity: 1.0,
-        strokeWeight: 5
+        strokeWeight: 2
     });
 
     google.maps.event.addListener(this.userPath, 'mouseover', function() {
         this.setOptions({
-            strokeOpacity : 0.5
+            strokeOpacity : 0.5,
+            strokeWeight: 5
         });
     });
     google.maps.event.addListener(this.userPath, 'click', function() {
@@ -60,7 +61,8 @@ function drawGraph(pathData) {
     });
     google.maps.event.addListener(this.userPath, 'mouseout', function() {
         this.setOptions({
-            strokeOpacity : 1
+            strokeOpacity : 1,
+            strokeWeight: 2
         });
     });
 
