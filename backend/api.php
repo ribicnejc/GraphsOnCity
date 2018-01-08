@@ -11,7 +11,7 @@ try {
     $users = array();
     //TODO here make objects like example bellow
 
-    $pathTimeSpan = 5; //Means five days
+    $pathTimeSpan = 50000000; //Means five days
 
     $lastDate = 0;
     $newData = array();
@@ -78,8 +78,8 @@ try {
         }
 
     }
-//    echo json_encode($newData, JSON_UNESCAPED_UNICODE);
-    echo json_encode($data, JSON_UNESCAPED_UNICODE);
+    echo json_encode($newData, JSON_UNESCAPED_UNICODE);
+//    echo json_encode($data, JSON_UNESCAPED_UNICODE);
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

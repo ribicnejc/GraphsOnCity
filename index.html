@@ -31,11 +31,33 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="slidecontainer">
+                                        <p>Minimum number of same path: <span id="pathRepeat"></span></p>
                                         <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                                        <p>Value: <span id="demo"></span></p>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slidecontainer">
+                                        <p>Minimum length of path: <span id="pathLength"></span></p>
+                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--https://codepen.io/Val_Ery/pen/MyEvNr-->
+                            <!--Double sided slider-->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slidecontainer">
+                                        <p>Maximum day length of path: <span id="pathSpanOfDays"></span></p>
+                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="row">
                                 <div class="col-12">
                                     <!--<div class="btn-group" role="group" aria-label="Basic example">-->
@@ -67,6 +89,7 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-8 map-view">
+                <!--<div class="loader"></div>-->
                 <div class="map-view">
                     <div id="map"></div>
                 </div>
