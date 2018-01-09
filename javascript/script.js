@@ -1,10 +1,75 @@
 var map;
-
-
+var mainPaths = {};
+var mainUsers = {};
+var quickStat = {};
 
 function reqListner() {
     var content = JSON.parse(this.responseText);
-    findPaths(content);
+    //here make object with keys, so the keys are paths separated with dot or ;
+    //Becase the main thing user see is PATH not username or other stuff
+    //Here you will get diffrent paths from php and php will get you paths and paths will be keys, so you will be
+    //able to regenerate path fast and search for important data and show it if user press on path
+    // findPaths(content);
+    parseResponse(content);
+}
+
+/** here we create path and put them together as key
+ * value must be statistic of that path
+ * that is number of users, type of users, but just unique types
+ * then length of that path and dates of that path because users can
+ * go through one path different times
+ */
+function parseResponse(data) {
+    //Here we read paths which we get from call response
+    for (var uidKey in data) {
+        if (data.hasOwnProperty(uidKey)) {
+            var tmpObject = data[uidKey];
+            mainUsers[uidKey] = tmpObject;
+            var paths = tmpObject["PATHS"];
+
+            //Here we generate coords and create legit path for google maps
+            for (var i = 0; i < paths.length; i++) {
+                var path = paths[0];
+                var pathToDraw = [];
+                var pathKey = "";
+                for (var j = 0; j < path.length; j++) {
+                    var point = path[j];
+                    var lat = point["LAT"];
+                    var lng = point["LNG"];
+                    pathKey += lat + lng;
+                    var coordTuple = {};
+                    coordTuple.lat = parseFloat(lat);
+                    coordTuple.lng = parseFloat(lng);
+                    pathToDraw.push(coordTuple);
+
+                    addMarker(coordTuple, point.PLACE_NAME);
+                }
+                //Here is calculated statistics for path
+                //TODO add more elements for later analysis
+                if (mainPaths[pathKey] === undefined){
+                    var pathStatisticData = {};
+                    pathStatisticData["SAME_PATH_NUM"] = 1;
+                    pathStatisticData["PATH"] = pathToDraw;
+                    mainPaths[pathKey] = pathStatisticData;
+                }else {
+                    var pathStatisticData2 = mainPaths[pathKey];
+                    pathStatisticData2["SAME_PATH_NUM"] = pathStatisticData2["SAME_PATH_NUM"] + 1;
+                    mainPaths[pathKey] = pathStatisticData2;
+                }
+
+            }
+        }
+    }
+
+    //Here we draw paths which are stored in mainPaths
+    for (var pathKEY in mainPaths) {
+        if (mainPaths.hasOwnProperty(pathKEY)) {
+            var pathToDrawOn = mainPaths[pathKEY];
+            var path2 = pathToDrawOn["PATH"];
+            var numOfColor = pathToDrawOn["SAME_PATH_NUM"];
+            drawGraph(path2, numOfColor);
+        }
+    }
 }
 
 function findPaths(data) {
@@ -41,27 +106,27 @@ function addMarker(coords, placeName) {
     marker.setMap(map);
 }
 
-function drawGraph(pathData) {
+function drawGraph(pathData, num) {
     this.userPath = new google.maps.Polyline({
         path: pathData,
         geodesic: true,
-        strokeColor: "#0000FF",//randomColor(),
+        strokeColor: colorLine(num),//"#0000FF",//randomColor(),
         strokeOpacity: 1.0,
         strokeWeight: 2
     });
 
-    google.maps.event.addListener(this.userPath, 'mouseover', function() {
+    google.maps.event.addListener(this.userPath, 'mouseover', function () {
         this.setOptions({
-            strokeOpacity : 0.5,
+            strokeOpacity: 0.5,
             strokeWeight: 5
         });
     });
-    google.maps.event.addListener(this.userPath, 'click', function() {
-        alert("Test click");
+    google.maps.event.addListener(this.userPath, 'click', function () {
+        alert(JSON.stringify(pathData));
     });
-    google.maps.event.addListener(this.userPath, 'mouseout', function() {
+    google.maps.event.addListener(this.userPath, 'mouseout', function () {
         this.setOptions({
-            strokeOpacity : 1,
+            strokeOpacity: 1,
             strokeWeight: 2
         });
     });
@@ -72,10 +137,9 @@ function drawGraph(pathData) {
     this.userPath.setMap(map);
 }
 
-function testClick(){
+function testClick() {
     console.log("test");
 }
-
 
 
 function initMap() {
@@ -96,7 +160,26 @@ function randomColor() {
     return color;
 }
 
-function requestData(){
+function colorLine(amount){
+    if (quickStat[amount] === undefined) {
+        quickStat[amount] = 1;
+    }else{
+        quickStat[amount] = quickStat[amount]+1;
+    }
+    console.log(amount);
+    if (amount < 3) {
+        return "#000";
+    } else if (amount < 7) {
+        return "#400";
+    } else if (amount < 10) {
+        return "#800";
+    } else if (amount < 15) {
+        return "#a00";
+    } else
+        return "#f00";
+}
+
+function requestData() {
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListner);
     oReq.open("GET", "" +
