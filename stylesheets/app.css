@@ -47,7 +47,12 @@ div.main-content {
 /* line 20, ../sass/layout/_tools-layout.sass */
 .button-group-center {
   display: block;
-  margin: auto;
+  margin: 20px auto auto;
+}
+
+/* line 24, ../sass/layout/_tools-layout.sass */
+.tool-content {
+  margin: 10px 10px 0;
 }
 
 /* line 1, ../sass/layout/_map-layout.sass */
@@ -110,6 +115,16 @@ div.map-view, #map {
   cursor: pointer;
 }
 
+/* line 34, ../sass/modules/_sliders.sass */
+div.slidecontainer p {
+  margin-bottom: 0;
+}
+
+/* line 37, ../sass/modules/_sliders.sass */
+p {
+  margin: 0;
+}
+
 /* line 1, ../sass/modules/_loaders.sass */
 .loader {
   border: 16px solid #f3f3f3;
@@ -121,4 +136,9 @@ div.map-view, #map {
   /* Safari */
   animation: spin 2s linear infinite;
   z-index: 10;
+}
+
+/* line 1, ../sass/modules/_date-pickers.sass */
+.date-input {
+  width: 100%;
 }

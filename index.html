@@ -6,7 +6,7 @@
 
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="stylesheets/app.css"/>
-
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
 
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
@@ -18,6 +18,8 @@
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="vendor/jquery-3.2.1.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -28,20 +30,30 @@
                 <div class="panel shadow">
                     <div>
                         <div class="map-tools">
+
+                            <!--SLIDER1-->
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="slidecontainer">
-                                        <p>Minimum number of same path: <span id="pathRepeat"></span></p>
-                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                    <div class="tool-content">
+                                        <div class="slidecontainer">
+                                            <p class="no-margin">Minimum number of same path: <b><span
+                                                    id="numberOfSamePathValue">50</span></b></p>
+                                            <input type="range" min="1" max="100" value="50" class="slider"
+                                                   id="sliderNumberOfPaths">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
+                            <!--SLIDER2-->
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="slidecontainer">
-                                        <p>Minimum length of path: <span id="pathLength"></span></p>
-                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                    <div class="tool-content">
+                                        <div class="slidecontainer">
+                                            <p>Minimum length of path: <b><span id="numberOfPathLength">50</span></b>
+                                            </p>
+                                            <input type="range" min="1" max="100" value="50" class="slider"
+                                                   id="sliderNumOfPathLength">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -49,31 +61,101 @@
                             <!--add input on each side-->
                             <!--https://codepen.io/Val_Ery/pen/MyEvNr-->
                             <!--Double sided slider-->
+                            <!--SLIDER3-->
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="slidecontainer">
-                                        <p>Maximum day length of path: <span id="pathSpanOfDays"></span></p>
-                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                    <div class="tool-content">
+                                        <div class="slidecontainer">
+                                            <p>Maximum day length of path: <b><span id="numberOfDay">50</span></b></p>
+                                            <input type="range" min="1" max="100" value="50" class="slider"
+                                                   id="sliderNumOfDay">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--DATE PICKERS-->
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="tool-content">
+                                        <p>Enter Start Date: <input class="date-input" type="text" id="datepicker-8">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="tool-content">
+                                        <p>Enter End Date: <input class="date-input" type="text" id="datepicker-9"></p>
                                     </div>
                                 </div>
                             </div>
 
 
+                            <!--TYPE SELECTORS-->
+                            <!--TODO when user click element from dropDown you dinamicly add tpye to list and that for place type also-->
                             <div class="row">
                                 <div class="col-12">
-                                    <!--<div class="btn-group" role="group" aria-label="Basic example">-->
-                                        <button type="button" class="btn btn-secondary">Foodie</button>
-                                        <button type="button" class="btn btn-secondary">Nature Lover</button>
-                                        <button type="button" class="btn btn-secondary">Like a Local</button>
-                                        <button type="button" class="btn btn-secondary">History Buff</button>
-                                        <button type="button" class="btn btn-secondary">Luxury Traveler</button>
-                                        <button type="button" class="btn btn-secondary">Peace and Quiet Seeker</button>
-                                        <button type="button" class="btn btn-secondary">Art and Architecture Lover</button>
+                                    <div class="tool-content">
+                                        <div class="card text-center">
+                                            <div class="card-header">
+                                                Travel type
+                                            </div>
+                                            <div class="card-block">
+                                                <div id="travelTypeElements">
+                                                    <!--<span><button type="button" class="btn btn-secondary">Foodie</button><button type="button" class="btn btn-danger">X</button></span>-->
+                                                </div>
+                                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                        id="dropdownMenuTravelType" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Add type
+                                                </button>
+                                                <div id="dropdownMenuTravelTypeContent" class="dropdown-menu"
+                                                     aria-labelledby="dropdownMenuTravelType">
+                                                    <button type="button" class="dropdown-item">Foodie</button>
+                                                    <button type="button" class="dropdown-item">Nature Lover</button>
+                                                    <button type="button" class="dropdown-item">Like a Local</button>
+                                                    <button type="button" class="dropdown-item">History Buff</button>
+                                                    <button type="button" class="dropdown-item">Luxury Traveler</button>
+                                                    <button type="button" class="dropdown-item">Peace and Quiet Seeker
+                                                    </button>
+                                                    <button type="button" class="dropdown-item">Art and Architecture
+                                                        Lover
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div class="col-6">
+                                    <!--<div class="dropdown">-->
+                                    <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                    <!--Add travel type-->
+                                    <!--</button>-->
+                                    <!--<div class="dropdown-menu" aria-labelledby="dropdownMenu2">-->
+                                    <!--<button class="dropdown-item" type="button">Action</button>-->
+                                    <!--<button class="dropdown-item" type="button">Another action</button>-->
+                                    <!--<button class="dropdown-item" type="button">Something else here</button>-->
+                                    <!--</div>-->
                                     <!--</div>-->
                                 </div>
                             </div>
+
+                            <!--<div class="row">-->
+                            <!--<div class="col-12">-->
+                            <!--&lt;!&ndash;<div class="btn-group" role="group" aria-label="Basic example">&ndash;&gt;-->
+                            <!--<button type="button" class="btn btn-secondary">Foodie</button>-->
+                            <!--<button type="button" class="btn btn-secondary">Nature Lover</button>-->
+                            <!--<button type="button" class="btn btn-secondary">Like a Local</button>-->
+                            <!--<button type="button" class="btn btn-secondary">History Buff</button>-->
+                            <!--<button type="button" class="btn btn-secondary">Luxury Traveler</button>-->
+                            <!--<button type="button" class="btn btn-secondary">Peace and Quiet Seeker</button>-->
+                            <!--<button type="button" class="btn btn-secondary">Art and Architecture Lover</button>-->
+
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--</div>-->
+                            <!--</div>-->
                             <div class="row">
+                                <!--<div class=" tool-content">-->
                                 <div class="button-group-center">
                                     <div class="col-12 filter-buttons">
                                         <div>
@@ -82,6 +164,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--</div>-->
                             </div>
 
 
@@ -102,6 +185,7 @@
 
 <script src="javascript/script.js"></script>
 <script src="javascript/side-menu.js"></script>
+<script src="javascript/tools.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
@@ -110,6 +194,7 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONFCSlpnxRLIsXaxQARMnLI9CJXZu4oE&libraries=visualization&callback=initMap">
 </script>
+
 </body>
 </html>
 
