@@ -3,6 +3,7 @@ var mainPaths = {};
 var mainUsers = {};
 var quickStat = {};
 var travelStyles = {};
+var polyLines = [];
 
 function reqListner() {
     var content = JSON.parse(this.responseText);
@@ -118,6 +119,8 @@ function drawGraph(pathData, num) {
         strokeWeight: 2
     });
 
+    polyLines.push(this.userPath);
+
     google.maps.event.addListener(this.userPath, 'mouseover', function () {
         this.setOptions({
             strokeOpacity: 0.5,
@@ -212,4 +215,28 @@ function fillTravelStylesDropdown(){
             div.appendChild(button);
         }
     }
+}
+
+
+function applyFilters(){
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: {lat: 46.0548178, lng: 14.5042642},
+        mapTypeId: 'terrain'
+    });
+
+    var firstDate = document.getElementById("datepicker-8");
+    var secondDate = document.getElementById("datepicker-9");
+    var date1 = getDateFormat(firstDate.value);
+    var date2 = getDateFormat(secondDate.value);
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListner);
+    oReq.open("GET", "" +
+        "backend/api.php?dateFrom=20170114&dateTo=20180225&pathSpan=500");
+    oReq.send();
+}
+
+function getDateFormat(strDate){
+    var dateParts = strDate.split("/");
+    return dateParts[2] + dateParts[0] + dateParts[1];
 }

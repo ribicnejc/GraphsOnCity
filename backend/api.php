@@ -1,6 +1,38 @@
 <?php
 require 'db.php';
-$sql = "SELECT * FROM trip ORDER BY UID, REVIEW_DATE ASC";
+
+$dateTo = "notSet";
+$dateFrom = "notSet";
+$pathSpan = "notSet";
+$sqlClause1 = "notSet";
+$sqlClause2 = "notSet";
+if (isset($_GET['dateTo'])) {
+    $dateTo = intval($_GET['dateTo']);
+    $sqlClause1 = "REVIEW_DATE > $dateTo";
+}
+if (isset($_GET['dateFrom'])) {
+    $dateFrom = intval($_GET['dateFrom']);
+    $sqlClause2 = "REVIEW_DATE < $dateFrom";
+}
+
+if (isset($_GET['pathSpan'])) {
+    $pathSpan = intval($_GET['pathSpan']);
+}
+
+$sqlClause = "notSet";
+if ($sqlClause1 != "notSet" && $sqlClause2 != "notSet") {
+    $sqlClause = "$sqlClause1 AND $sqlClause2";
+} else if ($sqlClause1 != "notSet") {
+    $sqlClause = "$sqlClause1";
+} else if ($sqlClause2 != "notSet") {
+    $sqlClause = "$sqlClause2";
+}
+
+if ($sqlClause == "notSet")
+    $sql = "SELECT * FROM trip ORDER BY UID, REVIEW_DATE ASC";
+else {
+    $sql = "SELECT * FROM trip WHERE $sqlClause ORDER BY UID, REVIEW_DATE ASC";
+}
 try {
     $db = new db();
     $db = $db->connect();
@@ -9,7 +41,6 @@ try {
     $db = null;
     $a = 0;
     $users = array();
-    //TODO here make objects like example bellow
 
     $pathTimeSpan = 50000000; //Means five days
 
