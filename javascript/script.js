@@ -2,6 +2,7 @@ var map;
 var mainPaths = {};
 var mainUsers = {};
 var quickStat = {};
+var travelStyles = {};
 
 function reqListner() {
     var content = JSON.parse(this.responseText);
@@ -26,7 +27,8 @@ function parseResponse(data) {
             var tmpObject = data[uidKey];
             mainUsers[uidKey] = tmpObject;
             var paths = tmpObject["PATHS"];
-
+            var travleStyleUser = tmpObject["TRAVEL_STYLE"];
+            collectTravelTypes(travleStyleUser);
             //Here we generate coords and create legit path for google maps
             for (var i = 0; i < paths.length; i++) {
                 var path = paths[0];
@@ -70,6 +72,7 @@ function parseResponse(data) {
             drawGraph(path2, numOfColor);
         }
     }
+    fillTravelStylesDropdown();
 }
 
 function findPaths(data) {
@@ -185,4 +188,26 @@ function requestData() {
     oReq.open("GET", "" +
         "backend/api.php");
     oReq.send();
+}
+
+// collectTravelTypes("Like a Local & History Buff & Art and Architecture Lover");
+function collectTravelTypes(nameOfTravelType){
+    var travelStyleParts = nameOfTravelType.split(" & ");
+    for (var i = 0; i < travelStyleParts.length; i++) {
+        travelStyles[travelStyleParts[i]] = true;
+    }
+}
+
+
+function fillTravelStylesDropdown(){
+    for (var styleKey in travelStyles) {
+        if (travelStyles.hasOwnProperty(styleKey)) {
+            var div = document.getElementById("dropdownMenuTravelTypeContent");
+            var button = document.createElement("button");
+            button.className = "dropdown-item";
+            var text = document.createTextNode(styleKey + "");
+            button.appendChild(text);
+            div.appendChild(button);
+        }
+    }
 }
