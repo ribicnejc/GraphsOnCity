@@ -204,7 +204,9 @@ function fillTravelStylesDropdown(){
         if (travelStyles.hasOwnProperty(styleKey)) {
             var div = document.getElementById("dropdownMenuTravelTypeContent");
             var button = document.createElement("button");
+            button.setAttribute("id", styleKey);
             button.className = "dropdown-item";
+            button.setAttribute("onclick", "fillTravelStyle(this.id)");
             var text = document.createTextNode(styleKey + "");
             button.appendChild(text);
             div.appendChild(button);
