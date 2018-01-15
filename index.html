@@ -145,13 +145,19 @@
                             <!--&lt;!&ndash;</div>&ndash;&gt;-->
                             <!--</div>-->
                             <!--</div>-->
+
+                            <!--APPLY FILTERS AND CANCEL BUTTON-->
                             <div class="row">
                                 <!--<div class=" tool-content">-->
                                 <div class="button-group-center">
                                     <div class="col-12 filter-buttons">
                                         <div>
-                                            <button type="button" onclick="applyFilters()" class="btn btn-primary btn-lg">Apply Filters</button>
-                                            <button type="button" onclick="resetSettings()" class="btn btn-secondary btn-lg">Clear</button>
+                                            <button type="button" onclick="applyFilters()"
+                                                    class="btn btn-primary btn-lg">Apply Filters
+                                            </button>
+                                            <button type="button" onclick="resetSettings()"
+                                                    class="btn btn-secondary btn-lg">Clear
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -173,6 +179,30 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="dialog-map" id="mapDialog"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="javascript/script.js"></script>
 <script src="javascript/side-menu.js"></script>

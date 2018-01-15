@@ -128,7 +128,19 @@ function drawGraph(pathData, num) {
         });
     });
     google.maps.event.addListener(this.userPath, 'click', function () {
-        alert(JSON.stringify(pathData));
+        // alert(JSON.stringify(pathData));
+        var dialogMap = new google.maps.Map(document.getElementById('mapDialog'), {
+            zoom: 13,
+            center: {lat: 46.0548178, lng: 14.5042642},
+            mapTypeId: 'terrain'
+        });
+
+        var modal = $('#myModal');
+        modal.modal();
+        modal.on('shown.bs.modal', function () {
+            google.maps.event.trigger(dialogMap, "resize");
+        });
+
     });
     google.maps.event.addListener(this.userPath, 'mouseout', function () {
         this.setOptions({

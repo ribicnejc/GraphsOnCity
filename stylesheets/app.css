@@ -142,3 +142,9 @@ p {
 .date-input {
   width: 100%;
 }
+
+/* line 1, ../sass/modules/_dialogs.sass */
+.dialog-map {
+  height: 250px;
+  width: 100%;
+}
