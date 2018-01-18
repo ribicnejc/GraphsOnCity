@@ -140,10 +140,11 @@ function drawGraph(pathData, num) {
         });
 
 
-        //TODO calculate with average parameters center of map
+        var center = getCenter(pathData);
         var dialogMap = new google.maps.Map(document.getElementById('mapDialog'), {
-            zoom: 13,
-            center: {lat: 46.0548178, lng: 14.5042642},
+            zoom: 12,
+            center: center,
+            // center: {lat: 46.0548178, lng: 14.5042642},
             mapTypeId: 'terrain'
         });
 
@@ -152,6 +153,7 @@ function drawGraph(pathData, num) {
         modal.modal();
         modal.on('shown.bs.modal', function () {
             google.maps.event.trigger(dialogMap, "resize");
+            dialogMap.setCenter(center);
         });
 
     });
@@ -257,11 +259,24 @@ function applyFilters(){
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListner);
     oReq.open("GET", "" +
-        "backend/api.php?dateFrom=20170114&dateTo=20180225&pathSpan=500");
+        "backend/api.php?dateFrom="+date1+"&dateTo="+date2+"&pathSpan=500");
     oReq.send();
 }
 
 function getDateFormat(strDate){
     var dateParts = strDate.split("/");
     return dateParts[2] + dateParts[0] + dateParts[1];
+}
+
+function getCenter(pathDataToCalc){
+    var latTmp = 0;
+    var lngTmp = 0;
+    for (var i = 0; i < pathDataToCalc.length; i++){
+        latTmp += pathDataToCalc[i]["lat"];
+        lngTmp += pathDataToCalc[i]["lng"];
+    }
+    var centerCoord = {};
+    centerCoord["lat"] = latTmp / pathDataToCalc.length;
+    centerCoord["lng"] = lngTmp / pathDataToCalc.length;
+    return centerCoord;
 }
