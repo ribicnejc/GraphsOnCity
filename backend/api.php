@@ -8,11 +8,11 @@ $sqlClause1 = "notSet";
 $sqlClause2 = "notSet";
 if (isset($_GET['dateTo'])) {
     $dateTo = intval($_GET['dateTo']);
-    $sqlClause1 = "REVIEW_DATE > $dateTo";
+    $sqlClause1 = "REVIEW_DATE < $dateTo";
 }
 if (isset($_GET['dateFrom'])) {
     $dateFrom = intval($_GET['dateFrom']);
-    $sqlClause2 = "REVIEW_DATE < $dateFrom";
+    $sqlClause2 = "REVIEW_DATE > $dateFrom";
 }
 
 if (isset($_GET['pathSpan'])) {
@@ -42,7 +42,9 @@ try {
     $a = 0;
     $users = array();
 
-    $pathTimeSpan = 50000000; //Means five days
+    if ($pathSpan == "notSet")
+        $pathTimeSpan = 50000000; //Means five days
+    else $pathTimeSpan = $pathSpan;
 
     $lastDate = 0;
     $newData = array();
