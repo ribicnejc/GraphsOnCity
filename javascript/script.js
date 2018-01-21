@@ -31,6 +31,13 @@ function reqListner() {
  * go through one path different times
  */
 function parseResponse(data) {
+    var travelStyleForUser = [];
+    var travelTypeElements = document.getElementsByClassName("selected-travel-style");
+    for (var btnI = 0; btnI < travelTypeElements.length; btnI++) {
+        var travelText = travelTypeElements[btnI].innerHTML;
+        travelStyleForUser.push(travelText);
+    }
+
     //Here we read paths which we get from call response
     for (var uidKey in data) {
         if (data.hasOwnProperty(uidKey)) {
@@ -42,6 +49,18 @@ function parseResponse(data) {
             //Collect and different travel style only first time
             if (firstLoad)
                 collectTravelTypes(travleStyleUser);
+            //here we check if user has all necesery properties
+            //TODO check after you add several and then add none, why points are not shown maybe because we dont event get any because CONTINUE
+            else {
+                var allGoodChecker = true;
+                for (var sui = 0; sui < travelStyleForUser.length; sui++) {
+                    if (!travleStyleUser.includes(travelStyleForUser[sui])) {
+                        allGoodChecker = false;
+                    }
+                }
+                if (!allGoodChecker) continue;
+
+            }
             //Here we generate coords and create legit path for google maps
             for (var i = 0; i < paths.length; i++) {
                 var path = paths[0];

@@ -54,7 +54,8 @@ $(function(){
 function fillTravelStyle(name) {
     var div = document.getElementById("travelTypeElements");
     var button = document.createElement("button");
-    button.className = "btn btn-secondary";
+    //selected-travel-style class is so I can retrieve selected elements in script.js
+    button.className = "btn btn-secondary selected-travel-style";
     var text = document.createTextNode(name);
     button.appendChild(text);
     div.appendChild(button);
