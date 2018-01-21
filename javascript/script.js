@@ -4,6 +4,15 @@ var mainUsers = {};
 var quickStat = {};
 var travelStyles = {};
 var polyLines = [];
+var sliderProperties = {
+    maxNumberOfSamePaths: 0,
+    maxLengthOfPath: 0
+};
+var dateProperties = {
+    minimumDate: 20181212,
+    maximumDate: 0
+};
+var firstLoad = true;
 
 function reqListner() {
     var content = JSON.parse(this.responseText);
@@ -29,16 +38,32 @@ function parseResponse(data) {
             mainUsers[uidKey] = tmpObject;
             var paths = tmpObject["PATHS"];
             var travleStyleUser = tmpObject["TRAVEL_STYLE"];
-            collectTravelTypes(travleStyleUser);
+
+            //Collect and different travel style only first time
+            if (firstLoad)
+                collectTravelTypes(travleStyleUser);
             //Here we generate coords and create legit path for google maps
             for (var i = 0; i < paths.length; i++) {
                 var path = paths[0];
+
+                //Count and get longest path. This is for sliders setup
+                if (sliderProperties.maxLengthOfPath < path.length && path.length > 1)
+                    sliderProperties.maxLengthOfPath = path.length;
+
                 var pathToDraw = [];
                 var pathKey = "";
                 for (var j = 0; j < path.length; j++) {
                     var point = path[j];
                     var lat = point["LAT"];
                     var lng = point["LNG"];
+                    var date = parseInt(point["REVIEW_DATE"]);
+
+                    //Calc max and min date
+                    if (dateProperties.maximumDate < date)
+                        dateProperties.maximumDate = date;
+                    if (dateProperties.minimumDate > date)
+                        dateProperties.minimumDate = date;
+
                     pathKey += lat + lng;
                     var coordTuple = {};
                     coordTuple.lat = parseFloat(lat);
@@ -64,16 +89,31 @@ function parseResponse(data) {
         }
     }
 
+    if (firstLoad){
+        updateSlidersSettings();
+        fillTravelStylesDropdown();
+    }
+    if (!firstLoad){
+        var sliderNumOfSamePaths = document.getElementById("sliderNumberOfPaths");
+        var maxNumOfSamePaths = parseInt(sliderNumOfSamePaths.value);
+    }
     //Here we draw paths which are stored in mainPaths
+    /*TODO fix, so the first time graphs are shown, set slider to that value with which they are shown
+        that means to set minimum date and maximum date of reviews, and set correct slider*/
+    //TODO add filter for TRAVEL_STYLE also!!!!!
+    //TODO CHECK ALL FILTERS AND CHECK LEGITNES OF IT
     for (var pathKEY in mainPaths) {
         if (mainPaths.hasOwnProperty(pathKEY)) {
             var pathToDrawOn = mainPaths[pathKEY];
             var path2 = pathToDrawOn["PATH"];
-            var numOfColor = pathToDrawOn["SAME_PATH_NUM"];
-            drawGraph(path2, numOfColor);
+            var numOfSamePaths = pathToDrawOn["SAME_PATH_NUM"];
+            if (firstLoad)
+                drawGraph(path2, numOfSamePaths);
+            else if (numOfSamePaths >= maxNumOfSamePaths)
+                drawGraph(path2, numOfSamePaths);
         }
     }
-    fillTravelStylesDropdown();
+    firstLoad = false;
 }
 
 function findPaths(data) {
@@ -252,15 +292,34 @@ function applyFilters(){
         mapTypeId: 'terrain'
     });
 
+    resetGlobalValues();
     var firstDate = document.getElementById("datepicker-8");
     var secondDate = document.getElementById("datepicker-9");
-    var date1 = getDateFormat(firstDate.value);
-    var date2 = getDateFormat(secondDate.value);
+    var slider3 = document.getElementById("sliderNumOfDay");
+
+    var query1 = "";
+    var query2 = "";
+    if (firstDate.value !== "") {
+        query1 = "&dateTo=" + getDateFormat(firstDate.value);
+    }
+    if (secondDate.value !== "") {
+        query2 = "&dateFrom" + getDateFormat(secondDate.value);
+    }
+
+    var pathSpan = slider3.value;
     var oReq = new XMLHttpRequest();
+    var requestUrl =  "backend/api.php?"+query2+query1+"&pathSpan="+pathSpan;
     oReq.addEventListener("load", reqListner);
-    oReq.open("GET", "" +
-        "backend/api.php?dateFrom="+date1+"&dateTo="+date2+"&pathSpan=500");
+    oReq.open("GET", requestUrl);
     oReq.send();
+}
+
+function resetGlobalValues() {
+    mainPaths = {};
+    mainUsers = {};
+    quickStat = {};
+    travelStyles = {};
+    polyLines = [];
 }
 
 function getDateFormat(strDate){
@@ -279,4 +338,25 @@ function getCenter(pathDataToCalc){
     centerCoord["lat"] = latTmp / pathDataToCalc.length;
     centerCoord["lng"] = lngTmp / pathDataToCalc.length;
     return centerCoord;
+}
+
+function maxLengthOfPaths(){
+    for (var p in mainPaths) {
+        if (mainPaths.hasOwnProperty(p)) {
+            var pathToDrawOn = mainPaths[p];
+            var numOfSamePaths = pathToDrawOn["SAME_PATH_NUM"];
+            if (sliderProperties.maxNumberOfSamePaths < numOfSamePaths) {
+                sliderProperties.maxNumberOfSamePaths = numOfSamePaths;
+            }
+        }
+    }
+}
+
+function updateSlidersSettings() {
+    var slider1 = document.getElementById("sliderNumberOfPaths");
+    var slider2 = document.getElementById("sliderNumOfPathLength");
+    // var slider3 = document.getElementById("sliderNumOfDay");
+    maxLengthOfPaths();
+    slider1.max = sliderProperties.maxNumberOfSamePaths;
+    slider2.max = sliderProperties.maxLengthOfPath;
 }
