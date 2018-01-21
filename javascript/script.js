@@ -90,12 +90,16 @@ function parseResponse(data) {
     }
 
     if (firstLoad){
-        updateSlidersSettings();
+        //uncomment this line if you want to set data of sliders in style of data
+        //updateSlidersSettings();
         fillTravelStylesDropdown();
+        updateDateSelections();
     }
     if (!firstLoad){
         var sliderNumOfSamePaths = document.getElementById("sliderNumberOfPaths");
-        var maxNumOfSamePaths = parseInt(sliderNumOfSamePaths.value);
+        var minNumOfSamePaths = parseInt(sliderNumOfSamePaths.value);
+        var sliderPathLength = document.getElementById("sliderNumOfPathLength");
+        var minNumOfLength = parseInt(sliderPathLength.value);
     }
     //Here we draw paths which are stored in mainPaths
     /*TODO fix, so the first time graphs are shown, set slider to that value with which they are shown
@@ -109,7 +113,7 @@ function parseResponse(data) {
             var numOfSamePaths = pathToDrawOn["SAME_PATH_NUM"];
             if (firstLoad)
                 drawGraph(path2, numOfSamePaths);
-            else if (numOfSamePaths >= maxNumOfSamePaths)
+            else if (numOfSamePaths >= minNumOfSamePaths && path2.length >= minNumOfLength)
                 drawGraph(path2, numOfSamePaths);
         }
     }
@@ -195,6 +199,7 @@ function drawGraph(pathData, num) {
             google.maps.event.trigger(dialogMap, "resize");
             dialogMap.setCenter(center);
         });
+        alert(JSON.stringify(pathData));
 
     });
     google.maps.event.addListener(this.userPath, 'mouseout', function () {
@@ -300,10 +305,10 @@ function applyFilters(){
     var query1 = "";
     var query2 = "";
     if (firstDate.value !== "") {
-        query1 = "&dateTo=" + getDateFormat(firstDate.value);
+        query1 = "&dateFrom=" + getDateFormat(firstDate.value);
     }
     if (secondDate.value !== "") {
-        query2 = "&dateFrom" + getDateFormat(secondDate.value);
+        query2 = "&dateTo" + getDateFormat(secondDate.value);
     }
 
     var pathSpan = slider3.value;
@@ -359,4 +364,13 @@ function updateSlidersSettings() {
     maxLengthOfPaths();
     slider1.max = sliderProperties.maxNumberOfSamePaths;
     slider2.max = sliderProperties.maxLengthOfPath;
+}
+
+function updateDateSelections() {
+    var date1 = dateProperties.minimumDate + "";
+    var date2 = dateProperties.maximumDate + "";
+    date1 = date1[4] + date1[5] + "/" + date1[6] + date1[7] + "/" + date1[0] + date1[1] + date1[2] + date1[3];
+    date2 = date2[4] + date2[5] + "/" + date2[6] + date2[7] + "/" + date2[0] + date2[1] + date2[2] + date2[3];
+    document.getElementById("datepicker-8").value = date1;
+    document.getElementById("datepicker-9").value = date2;
 }
