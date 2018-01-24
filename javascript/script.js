@@ -92,14 +92,35 @@ function parseResponse(data) {
                     addMarker(coordTuple, point.PLACE_NAME);
                 }
                 //Here is calculated statistics for path
+                //DONE First we calculate num of path repeated
+                //DONE Second we calculate num of each travel type for this path
+                //TODO Third we calculate num of gender for that path
+                //TODO Fourth we calculate num of age for that path
                 //TODO add more elements for later analysis
                 if (mainPaths[pathKey] === undefined){
                     var pathStatisticData = {};
+                    var styleStatisticData = {};
                     pathStatisticData["SAME_PATH_NUM"] = 1;
                     pathStatisticData["PATH"] = pathToDraw;
+                    var travelTypeStat = travleStyleUser.split(" & ");
+                    for (var tmpI = 0; tmpI < travelTypeStat.length; tmpI++) {
+                        styleStatisticData[travelTypeStat[tmpI]] = 1;
+                    }
+                    pathStatisticData["TRAVEL_STYLE"] = styleStatisticData;
                     mainPaths[pathKey] = pathStatisticData;
                 }else {
                     var pathStatisticData2 = mainPaths[pathKey];
+                    var tmpStat = pathStatisticData2["TRAVEL_STYLE"];
+                    travelTypeStat = travleStyleUser.split(" & ");
+                    console.log(travleStyleUser);
+                    for(var tmpJ = 0; tmpJ < travelTypeStat.length; tmpJ++) {
+                        if (tmpStat[travelTypeStat[tmpJ]] === undefined) {
+                            tmpStat[travelTypeStat[tmpJ]] = 1;
+                        }else {
+                            tmpStat[travelTypeStat[tmpJ]] = tmpStat[travelTypeStat[tmpJ]] + 1;
+                        }
+                    }
+                    pathStatisticData2["TRAVEL_STYLE"] = tmpStat;
                     pathStatisticData2["SAME_PATH_NUM"] = pathStatisticData2["SAME_PATH_NUM"] + 1;
                     mainPaths[pathKey] = pathStatisticData2;
                 }
@@ -123,8 +144,6 @@ function parseResponse(data) {
     //Here we draw paths which are stored in mainPaths
     /*TODO fix, so the first time graphs are shown, set slider to that value with which they are shown
         that means to set minimum date and maximum date of reviews, and set correct slider*/
-    //TODO add filter for TRAVEL_STYLE also!!!!!
-    //TODO CHECK ALL FILTERS AND CHECK LEGITNES OF IT
     for (var pathKEY in mainPaths) {
         if (mainPaths.hasOwnProperty(pathKEY)) {
             var pathToDrawOn = mainPaths[pathKEY];
@@ -217,8 +236,9 @@ function drawGraph(pathData, num) {
         modal.on('shown.bs.modal', function () {
             google.maps.event.trigger(dialogMap, "resize");
             dialogMap.setCenter(center);
+            histo();
         });
-        alert(JSON.stringify(pathData));
+        // alert(JSON.stringify(pathData));
 
     });
     google.maps.event.addListener(this.userPath, 'mouseout', function () {

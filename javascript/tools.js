@@ -85,3 +85,26 @@ function resetSettings(){
     var dropDown = document.getElementById("travelTypeElements");
     dropDown.innerHTML = "";
 }
+
+
+function histo() {
+    google.charts.load('current', {packages: ['corechart']});
+    function drawChart() {
+        // Define the chart to be drawn.
+        var data = google.visualization.arrayToDataTable([
+            ['Type', 'Number'],
+            ['Foodie', 900],
+            ['Like a local', 1000],
+            ['NihtTimeSeeker', 1170],
+            ['Pussy banger', 1250],
+            ['Kebab Eater', 530]
+        ]);
+
+        var options = {title: 'Population (in millions)'};
+
+        // Instantiate and draw the chart.
+        var chart = new google.visualization.ColumnChart(document.getElementById('container'));
+        chart.draw(data, options);
+    }
+    google.charts.setOnLoadCallback(drawChart);
+}
