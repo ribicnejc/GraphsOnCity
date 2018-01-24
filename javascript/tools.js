@@ -87,24 +87,47 @@ function resetSettings(){
 }
 
 
-function histo() {
+function histo(travelStyleData) {
+
+    var histoDataArray = [];
+    histoDataArray.push(["Type", "Number"]);
+    for (var style in travelStyleData) {
+        if (travelStyleData.hasOwnProperty(style)) {
+            var tmpArray = [];
+            tmpArray.push(style);
+            tmpArray.push(travelStyleData[style]);
+            histoDataArray.push(tmpArray);
+        }
+    }
+
     google.charts.load('current', {packages: ['corechart']});
+
     function drawChart() {
         // Define the chart to be drawn.
-        var data = google.visualization.arrayToDataTable([
-            ['Type', 'Number'],
-            ['Foodie', 900],
-            ['Like a local', 1000],
-            ['NihtTimeSeeker', 1170],
-            ['Pussy banger', 1250],
-            ['Kebab Eater', 530]
-        ]);
-
-        var options = {title: 'Population (in millions)'};
+        // var data = google.visualization.arrayToDataTable([
+        //     ['Type', 'Number'],
+        //     ['Foodie', 900],
+        //     ['Like a local', 1000],
+        //     ['NihtTimeSeeker', 1170],
+        //     ['Pussy banger', 1250],
+        //     ['Kebab Eater', 530]
+        // ]);
+        var data = google.visualization.arrayToDataTable(histoDataArray);
+        var options = {title: 'Statistic of travel type'};
 
         // Instantiate and draw the chart.
         var chart = new google.visualization.ColumnChart(document.getElementById('container'));
         chart.draw(data, options);
     }
     google.charts.setOnLoadCallback(drawChart);
+}
+
+
+function generateKeyForPath(pathData) {
+    var key = "";
+    for (var i = 0; i < pathData.length; i++) {
+        var latnlng = pathData[i];
+        key = key + latnlng.lat + "" + latnlng.lng;
+    }
+    return key;
 }

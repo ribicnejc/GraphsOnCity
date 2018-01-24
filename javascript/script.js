@@ -203,16 +203,18 @@ function drawGraph(pathData, num) {
 
     polyLines.push(this.userPath);
 
+    //MOUSEOVER
     google.maps.event.addListener(this.userPath, 'mouseover', function () {
         this.setOptions({
             strokeOpacity: 0.5,
             strokeWeight: 5
         });
     });
+
+    //ONCLICK
     google.maps.event.addListener(this.userPath, 'click', function () {
         // alert(JSON.stringify(pathData));
         // var path = JSON.stringify(pathData);
-
         var modalPath = new google.maps.Polyline({
             path: pathData,
             geodesic: true,
@@ -220,8 +222,6 @@ function drawGraph(pathData, num) {
             strokeOpacity: 1.0,
             strokeWeight: 2
         });
-
-
         var center = getCenter(pathData);
         var dialogMap = new google.maps.Map(document.getElementById('mapDialog'), {
             zoom: 12,
@@ -230,32 +230,30 @@ function drawGraph(pathData, num) {
             mapTypeId: 'terrain'
         });
 
+
+        var pathKey = generateKeyForPath(pathData);
+        var pathHistoData = mainPaths[pathKey];
+
         modalPath.setMap(dialogMap);
         var modal = $('#myModal');
         modal.modal();
         modal.on('shown.bs.modal', function () {
             google.maps.event.trigger(dialogMap, "resize");
             dialogMap.setCenter(center);
-            histo();
+            histo(pathHistoData["TRAVEL_STYLE"]);
         });
         // alert(JSON.stringify(pathData));
 
     });
+
+    //MOUSEOUT
     google.maps.event.addListener(this.userPath, 'mouseout', function () {
         this.setOptions({
             strokeOpacity: 1,
             strokeWeight: 2
         });
     });
-
-    // map.addListener(this.userPath, 'click', function(){
-    //     console.log("test");
-    // });
     this.userPath.setMap(map);
-}
-
-function testClick() {
-    console.log("test");
 }
 
 
