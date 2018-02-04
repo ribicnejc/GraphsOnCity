@@ -25,32 +25,33 @@ div.panel {
 /* line 5, ../sass/layout/_tools-layout.sass */
 div.map-tools {
   height: 100%;
-  padding: 10px;
+  padding: 20px;
+  padding-top: 30px;
 }
 
-/* line 9, ../sass/layout/_tools-layout.sass */
+/* line 10, ../sass/layout/_tools-layout.sass */
 div.main-content {
   height: 100%;
 }
 
-/* line 12, ../sass/layout/_tools-layout.sass */
+/* line 13, ../sass/layout/_tools-layout.sass */
 .fullscreen {
   height: 100%;
 }
 
-/* line 16, ../sass/layout/_tools-layout.sass */
+/* line 17, ../sass/layout/_tools-layout.sass */
 .filter-buttons {
   display: block;
   margin: auto;
 }
 
-/* line 20, ../sass/layout/_tools-layout.sass */
+/* line 21, ../sass/layout/_tools-layout.sass */
 .button-group-center {
   display: block;
   margin: 20px auto auto;
 }
 
-/* line 24, ../sass/layout/_tools-layout.sass */
+/* line 25, ../sass/layout/_tools-layout.sass */
 .tool-content {
   margin: 10px 10px 0;
 }
