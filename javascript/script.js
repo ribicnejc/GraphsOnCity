@@ -2,6 +2,11 @@ var map;
 var mainPaths = {};
 var mainUsers = {};
 var quickStat = {};
+var histoData1 = {};
+var histoData2 = [];
+var histoData3 = [];
+var histoData4 = {};
+
 var travelStyles = {};
 var polyLines = [];
 var sliderProperties = {
@@ -50,7 +55,7 @@ function parseResponse(data) {
             if (firstLoad)
                 collectTravelTypes(travleStyleUser);
             //here we check if user has all necesery properties
-            //TODO check after you add several and then add none, why points are not shown maybe because we dont event get any because CONTINUE
+            //TODO check after you add several and then add none, why points are not shown maybe because we don't even get any because CONTINUE
             else {
                 var allGoodChecker = true;
                 for (var sui = 0; sui < travelStyleForUser.length; sui++) {
@@ -112,7 +117,6 @@ function parseResponse(data) {
                     var pathStatisticData2 = mainPaths[pathKey];
                     var tmpStat = pathStatisticData2["TRAVEL_STYLE"];
                     travelTypeStat = travleStyleUser.split(" & ");
-                    console.log(travleStyleUser);
                     for(var tmpJ = 0; tmpJ < travelTypeStat.length; tmpJ++) {
                         if (tmpStat[travelTypeStat[tmpJ]] === undefined) {
                             tmpStat[travelTypeStat[tmpJ]] = 1;
@@ -130,7 +134,7 @@ function parseResponse(data) {
     }
 
     if (firstLoad){
-        //uncomment this line if you want to set data of sliders in style of data
+        //uncomment this line if you want to set data of sliders dynamicly not staticly which are set in HTML
         //updateSlidersSettings();
         fillTravelStylesDropdown();
         updateDateSelections();
@@ -156,6 +160,11 @@ function parseResponse(data) {
         }
     }
     firstLoad = false;
+
+    //uncomment below lines if you want to collect data for histograms
+    // getHistoData()
+    // getHistoData4();
+    // getHistoData3();
 }
 
 function findPaths(data) {
@@ -193,6 +202,10 @@ function addMarker(coords, placeName) {
 }
 
 function drawGraph(pathData, num) {
+
+    // uncomment below line if you want to collect histogram data
+    // collectHistoData(pathData, num);
+
     this.userPath = new google.maps.Polyline({
         path: pathData,
         geodesic: true,
@@ -257,6 +270,61 @@ function drawGraph(pathData, num) {
 }
 
 
+function collectHistoData(pathData, num) {
+    //Collect data for histograms
+
+    //Histograms parameters
+    var pathLength = pathData.length;
+    var amountOfUserVisitThatPath = num;
+
+    //Histogram2 algorithm
+    var tmp = [pathLength, amountOfUserVisitThatPath];
+    histoData2.push(tmp);
+
+    //Histogram1 algorithm
+    if (histoData1[pathLength] === undefined) {
+        histoData1[pathLength] = amountOfUserVisitThatPath;
+    }else {
+        histoData1[pathLength] = amountOfUserVisitThatPath + histoData1[pathLength];
+    }
+
+
+}
+
+function getHistoData() {
+    //here is data retriever for histoData2
+    var output = "dolzina_poti, stevilo_obiskov_te_poti\n";
+    for(var i = 0; i < histoData2.length; i++) {
+        output += histoData2[i][0] + ", " + histoData2[i][1] + "\n"
+    }
+    alert("Check Console");
+    console.log(output);
+}
+
+function getHistoData4(){
+    var output = "type, amount\n";
+    for (var hist4Key in histoData4) {
+        if (histoData4.hasOwnProperty(hist4Key)) {
+            output += hist4Key + ", " + histoData4[hist4Key] + "\n";
+        }
+    }
+    alert("Check histoData4");
+    console.log(output);
+}
+
+function getHistoData3() {
+    var output = "path, amount\n";
+    for (var path in mainPaths) {
+        if (mainPaths.hasOwnProperty(path)) {
+            if(mainPaths[path]["PATH"].length > 1)
+                output += path + ", " + mainPaths[path]["SAME_PATH_NUM"] + "\n";
+        }
+    }
+    alert("Check histoData3");
+    console.log(output);
+}
+
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
@@ -281,7 +349,6 @@ function colorLine(amount){
     }else{
         quickStat[amount] = quickStat[amount]+1;
     }
-    console.log(amount);
     if (amount < 3) {
         return "#000";
     } else if (amount < 7) {
@@ -307,9 +374,15 @@ function collectTravelTypes(nameOfTravelType){
     var travelStyleParts = nameOfTravelType.split(" & ");
     for (var i = 0; i < travelStyleParts.length; i++) {
         travelStyles[travelStyleParts[i]] = true;
+        //here we collect data for histograms of travel type distribution
+        // if (histoData4[travelStyleParts[i]] === undefined) {
+        //     histoData4[travelStyleParts[i]] = 1;
+        // }else {
+        //     histoData4[travelStyleParts[i]] = histoData4[travelStyleParts[i]] + 1;
+        // }
+
     }
 }
-
 
 function fillTravelStylesDropdown(){
     for (var styleKey in travelStyles) {
@@ -325,7 +398,6 @@ function fillTravelStylesDropdown(){
         }
     }
 }
-
 
 function applyFilters(){
     map = new google.maps.Map(document.getElementById('map'), {
