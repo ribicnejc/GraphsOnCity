@@ -22,7 +22,7 @@
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
     <!--JS Scripts-->
-    <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
 
@@ -33,6 +33,15 @@
                 <div class="panel shadow">
                     <div>
                         <div class="map-tools">
+
+
+                            <!--TOGGLE FOR RELATIVITY-->
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle round"></span>
+                                </label>
+                            </div>
 
                             <!--SLIDER1-->
                             <div class="row">
@@ -103,6 +112,8 @@
                                             </div>
                                             <div class="card-block">
                                                 <div id="travelTypeElements">
+
+                                                    <span class="badge badge-pill badge-default">Default</span>
                                                     <!--<span><button type="button" class="btn btn-secondary">Foodie</button><button type="button" class="btn btn-danger">X</button></span>-->
                                                 </div>
                                                 <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -110,7 +121,7 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                     Add type
                                                 </button>
-                                                <div id="dropdownMenuTravelTypeContent" class="dropdown-menu"
+                                                <div id="dropdownMenuTravelTypeContent" class="dropdown-menu scrollable-content"
                                                      aria-labelledby="dropdownMenuTravelType">
                                                     <!--<button type="button" class="dropdown-item">Foodie</button>-->
                                                 </div>
@@ -119,17 +130,28 @@
                                     </div>
                                 </div>
 
-                                <div class="col-6">
-                                    <!--<div class="dropdown">-->
-                                    <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                                    <!--Add travel type-->
-                                    <!--</button>-->
-                                    <!--<div class="dropdown-menu" aria-labelledby="dropdownMenu2">-->
-                                    <!--<button class="dropdown-item" type="button">Action</button>-->
-                                    <!--<button class="dropdown-item" type="button">Another action</button>-->
-                                    <!--<button class="dropdown-item" type="button">Something else here</button>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
+                                <div class="col-12">
+                                    <div class="tool-content">
+                                        <div class="card text-center">
+                                            <div class="card-header">
+                                                Place type
+                                            </div>
+                                            <div class="card-block">
+                                                <div id="placeTypeElements">
+                                                    <!--<span><button type="button" class="btn btn-secondary">Foodie</button><button type="button" class="btn btn-danger">X</button></span>-->
+                                                </div>
+                                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                        id="dropdownMenuPlaceType" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Add type
+                                                </button>
+                                                <div id="dropdownMenuPlaceTypeContent" class="dropdown-menu"
+                                                     aria-labelledby="dropdownMenuTravelType">
+                                                    <!--<button type="button" class="dropdown-item">Foodie</button>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -198,7 +220,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-9" >
+                    <div class="col-9">
                         <!--TODO here come histogram about travel style ratio-->
                         <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
                     </div>

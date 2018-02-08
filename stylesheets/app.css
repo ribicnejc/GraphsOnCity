@@ -56,6 +56,12 @@ div.main-content {
   margin: 10px 10px 0;
 }
 
+/* line 28, ../sass/layout/_tools-layout.sass */
+.dropdown-menu {
+  height: 150px;
+  overflow-y: auto;
+}
+
 /* line 1, ../sass/layout/_map-layout.sass */
 div.map-view, #map {
   height: 100%;
@@ -148,4 +154,71 @@ p {
 .dialog-map {
   height: 250px;
   width: 100%;
+}
+
+/* line 1, ../sass/modules/_toggle.sass */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* line 7, ../sass/modules/_toggle.sass */
+.switch input {
+  display: none;
+}
+
+/* line 10, ../sass/modules/_toggle.sass */
+.toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* line 22, ../sass/modules/_toggle.sass */
+.toggle:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* line 34, ../sass/modules/_toggle.sass */
+input:checked + .toggle {
+  background-color: #2196F3;
+}
+
+/* line 37, ../sass/modules/_toggle.sass */
+input:focus + .toggle {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+/* line 40, ../sass/modules/_toggle.sass */
+input:checked + .toggle:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+/* line 46, ../sass/modules/_toggle.sass */
+.toggle.round {
+  border-radius: 34px;
+}
+
+/* line 49, ../sass/modules/_toggle.sass */
+.toggle.round:before {
+  border-radius: 50%;
 }
