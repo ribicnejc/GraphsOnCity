@@ -2,13 +2,16 @@ var map;
 var mainPaths = {};
 var mainUsers = {};
 var quickStat = {};
+
 var histoData1 = {};
 var histoData2 = [];
 var histoData3 = [];
 var histoData4 = {};
 
 var travelStyles = {};
+var placeDetails = {};
 var polyLines = [];
+
 var sliderProperties = {
     maxNumberOfSamePaths: 0,
     maxLengthOfPath: 0
@@ -36,12 +39,11 @@ function reqListner() {
  * go through one path different times
  */
 function parseResponse(data) {
-    var travelStyleForUser = [];
-    var travelTypeElements = document.getElementsByClassName("selected-travel-style");
-    for (var btnI = 0; btnI < travelTypeElements.length; btnI++) {
-        var travelText = travelTypeElements[btnI].innerHTML;
-        travelStyleForUser.push(travelText);
-    }
+    // Below for loop is for travel type which was selected to be used in paths
+    var travelStyleForUser = getTravelTypeSelectedArray();
+
+    // Below for loop is for place type which was selected to be filtered in later loop
+    var placeTypeSelected = getPlaceTypeSelectedArray();
 
     //Here we read paths which we get from call response
     for (var uidKey in data) {
@@ -54,18 +56,7 @@ function parseResponse(data) {
             //Collect and different travel style only first time
             if (firstLoad)
                 collectTravelTypes(travleStyleUser);
-            //here we check if user has all necesery properties
-            //TODO check after you add several and then add none, why points are not shown maybe because we don't even get any because CONTINUE
-            else {
-                var allGoodChecker = true;
-                for (var sui = 0; sui < travelStyleForUser.length; sui++) {
-                    if (!travleStyleUser.includes(travelStyleForUser[sui])) {
-                        allGoodChecker = false;
-                    }
-                }
-                if (!allGoodChecker) continue;
 
-            }
             //Here we generate coords and create legit path for google maps
             for (var i = 0; i < paths.length; i++) {
                 var path = paths[0];
@@ -75,19 +66,36 @@ function parseResponse(data) {
                     sliderProperties.maxLengthOfPath = path.length;
 
                 var pathToDraw = [];
+                var pathContainsCorrectPoints = false;
                 var pathKey = "";
                 for (var j = 0; j < path.length; j++) {
                     var point = path[j];
                     var lat = point["LAT"];
                     var lng = point["LNG"];
+                    var placeDetailsPoint = point["PLACE_DETAILS"];
                     var date = parseInt(point["REVIEW_DATE"]);
 
-                    //Calc max and min date
-                    if (dateProperties.maximumDate < date)
-                        dateProperties.maximumDate = date;
-                    if (dateProperties.minimumDate > date)
-                        dateProperties.minimumDate = date;
+                    if (firstLoad) {
+                        //Calc max and min date
+                        if (dateProperties.maximumDate < date)
+                            dateProperties.maximumDate = date;
+                        if (dateProperties.minimumDate > date)
+                            dateProperties.minimumDate = date;
 
+                        //Collect all place details for drop down
+                        collectPlaceDetails(placeDetailsPoint);
+                        pathContainsCorrectPoints = true;
+                    } else {
+                        // Here filter those paths which has at least one point
+                        // with place types which has been selected by user
+                        if (placeTypeSelected.length === 0) pathContainsCorrectPoints = true;
+                        for(var pointTypeIndex = 0; pointTypeIndex < placeTypeSelected.length; pointTypeIndex++) {
+                            if(placeDetailsPoint.indexOf(placeTypeSelected[pointTypeIndex]) !== -1) {
+                                pathContainsCorrectPoints = true;
+                                break;
+                            }
+                        }
+                    }
                     pathKey += lat + lng;
                     var coordTuple = {};
                     coordTuple.lat = parseFloat(lat);
@@ -102,7 +110,7 @@ function parseResponse(data) {
                 //TODO Third we calculate num of gender for that path
                 //TODO Fourth we calculate num of age for that path
                 //TODO add more elements for later analysis
-                if (mainPaths[pathKey] === undefined){
+                if (mainPaths[pathKey] === undefined && pathContainsCorrectPoints){
                     var pathStatisticData = {};
                     var styleStatisticData = {};
                     pathStatisticData["SAME_PATH_NUM"] = 1;
@@ -113,7 +121,7 @@ function parseResponse(data) {
                     }
                     pathStatisticData["TRAVEL_STYLE"] = styleStatisticData;
                     mainPaths[pathKey] = pathStatisticData;
-                }else {
+                }else if(pathContainsCorrectPoints) {
                     var pathStatisticData2 = mainPaths[pathKey];
                     var tmpStat = pathStatisticData2["TRAVEL_STYLE"];
                     travelTypeStat = travleStyleUser.split(" & ");
@@ -137,6 +145,7 @@ function parseResponse(data) {
         //uncomment this line if you want to set data of sliders dynamicly not staticly which are set in HTML
         //updateSlidersSettings();
         fillTravelStylesDropdown();
+        fillPlaceDetailsDropdown();
         updateDateSelections();
     }
     if (!firstLoad){
@@ -324,7 +333,6 @@ function getHistoData3() {
     console.log(output);
 }
 
-
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
@@ -380,9 +388,16 @@ function collectTravelTypes(nameOfTravelType){
         // }else {
         //     histoData4[travelStyleParts[i]] = histoData4[travelStyleParts[i]] + 1;
         // }
-
     }
 }
+
+function collectPlaceDetails(placeDetailsPoint) {
+    var placeDetailsParts = placeDetailsPoint.split(" & ");
+    for (var i = 0; i < placeDetailsParts.length; i++) {
+        placeDetails[placeDetailsParts[i]] = true;
+    }
+}
+
 
 function fillTravelStylesDropdown(){
     for (var styleKey in travelStyles) {
@@ -393,6 +408,21 @@ function fillTravelStylesDropdown(){
             button.className = "dropdown-item";
             button.setAttribute("onclick", "fillTravelStyle(this.id)");
             var text = document.createTextNode(styleKey + "");
+            button.appendChild(text);
+            div.appendChild(button);
+        }
+    }
+}
+
+function fillPlaceDetailsDropdown() {
+    for (var detailKey in placeDetails) {
+        if (placeDetails.hasOwnProperty(detailKey)) {
+            var div = document.getElementById("dropdownMenuPlaceTypeContent");
+            var button = document.createElement("button");
+            button.setAttribute("id", detailKey);
+            button.className = "dropdown-item";
+            button.setAttribute("onclick", "fillPlaceType(this.id)");
+            var text = document.createTextNode(detailKey + "");
             button.appendChild(text);
             div.appendChild(button);
         }
@@ -417,12 +447,20 @@ function applyFilters(){
         query1 = "&dateFrom=" + getDateFormat(firstDate.value);
     }
     if (secondDate.value !== "") {
-        query2 = "&dateTo" + getDateFormat(secondDate.value);
+        query2 = "&dateTo=" + getDateFormat(secondDate.value);
+    }
+
+    var travelTypeArray = getTravelTypeSelectedArray();
+    var travelTypeQuery = "&travelType=";
+    for (var i = 0; i < travelTypeArray.length; i++) {
+        if (i === 0)
+            travelTypeQuery += travelTypeArray[i];
+        else travelTypeQuery += "," + travelTypeArray[i];
     }
 
     var pathSpan = slider3.value;
     var oReq = new XMLHttpRequest();
-    var requestUrl =  "backend/api.php?"+query2+query1+"&pathSpan="+pathSpan;
+    var requestUrl =  "backend/api.php?"+query2+query1+"&pathSpan="+pathSpan + travelTypeQuery;
     oReq.addEventListener("load", reqListner);
     oReq.open("GET", requestUrl);
     oReq.send();

@@ -4,8 +4,11 @@ require 'db.php';
 $dateTo = "notSet";
 $dateFrom = "notSet";
 $pathSpan = "notSet";
+$travelType = "notSet";
+$placeType = "notSet";
 $sqlClause1 = "notSet";
 $sqlClause2 = "notSet";
+$travelTypeClause = "notSet";
 if (isset($_GET['dateTo'])) {
     $dateTo = intval($_GET['dateTo']);
     $sqlClause1 = "REVIEW_DATE < $dateTo";
@@ -19,6 +22,19 @@ if (isset($_GET['pathSpan'])) {
     $pathSpan = intval($_GET['pathSpan']);
 }
 
+if (isset($_GET['travelType'])) {
+    $travelTypeArray = explode(",", $_GET['travelType']);
+    $travelTypeClause = "";
+    $i = 0;
+    foreach ($travelTypeArray as $type){
+        if($i == 0)
+            $travelTypeClause = "TRAVEL_STYLE LIKE '%$type%'";
+        else
+            $travelTypeClause = "$travelTypeClause AND TRAVEL_STYLE LIKE '%$type%'";
+        $i++;
+    }
+}
+
 $sqlClause = "notSet";
 if ($sqlClause1 != "notSet" && $sqlClause2 != "notSet") {
     $sqlClause = "$sqlClause1 AND $sqlClause2";
@@ -28,11 +44,21 @@ if ($sqlClause1 != "notSet" && $sqlClause2 != "notSet") {
     $sqlClause = "$sqlClause2";
 }
 
-if ($sqlClause == "notSet")
-    $sql = "SELECT * FROM trip ORDER BY UID, REVIEW_DATE ASC";
-else {
-    $sql = "SELECT * FROM trip WHERE $sqlClause ORDER BY UID, REVIEW_DATE ASC";
+$sql = "SELECT * FROM trip";
+if ($sqlClause != "notSet") {
+    $sql = "$sql WHERE $sqlClause";
 }
+if ($travelTypeClause != "notSet") {
+    if (strpos($sql, "WHERE") !== false) {
+        $sql = "$sql AND $travelTypeClause";
+    }else {
+        $sql = "$sql WHERE $travelTypeClause";
+    }
+}
+$sql = "$sql ORDER BY UID, REVIEW_DATE ASC";
+
+//echo $sql;
+//return 0;
 try {
     $db = new db();
     $db = $db->connect();
@@ -43,7 +69,7 @@ try {
     $users = array();
 
     if ($pathSpan == "notSet")
-        $pathTimeSpan = 50000000; //Means five days
+        $pathTimeSpan = 50000000; //Means a century of days
     else $pathTimeSpan = $pathSpan;
 
     $lastDate = 0;

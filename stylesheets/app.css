@@ -25,38 +25,39 @@ div.panel {
 /* line 5, ../sass/layout/_tools-layout.sass */
 div.map-tools {
   height: 100%;
-  padding: 20px;
-  padding-top: 30px;
+  padding: 30px 20px 20px;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
-/* line 10, ../sass/layout/_tools-layout.sass */
+/* line 11, ../sass/layout/_tools-layout.sass */
 div.main-content {
   height: 100%;
 }
 
-/* line 13, ../sass/layout/_tools-layout.sass */
+/* line 14, ../sass/layout/_tools-layout.sass */
 .fullscreen {
   height: 100%;
 }
 
-/* line 17, ../sass/layout/_tools-layout.sass */
+/* line 18, ../sass/layout/_tools-layout.sass */
 .filter-buttons {
   display: block;
   margin: auto;
 }
 
-/* line 21, ../sass/layout/_tools-layout.sass */
+/* line 22, ../sass/layout/_tools-layout.sass */
 .button-group-center {
   display: block;
   margin: 20px auto auto;
 }
 
-/* line 25, ../sass/layout/_tools-layout.sass */
+/* line 26, ../sass/layout/_tools-layout.sass */
 .tool-content {
   margin: 10px 10px 0;
 }
 
-/* line 28, ../sass/layout/_tools-layout.sass */
+/* line 29, ../sass/layout/_tools-layout.sass */
 .dropdown-menu {
   height: 150px;
   overflow-y: auto;

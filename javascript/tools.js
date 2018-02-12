@@ -50,15 +50,26 @@ $(function(){
 
 });
 
-//DROP DOWN DYNAMICAL
+//DROP DOWN TRAVEL STYLE DYNAMICALLY ADD BADGE
 function fillTravelStyle(name) {
     var div = document.getElementById("travelTypeElements");
-    var button = document.createElement("button");
-    //selected-travel-style class is so I can retrieve selected elements in script.js
-    button.className = "btn btn-secondary selected-travel-style";
+    var badge = document.createElement("span");
+    //selected-travel-style class is there so I can retrieve selected elements in script.js
+    badge.className = "badge badge-pill badge-default selected-travel-style";//"btn btn-secondary selected-travel-style";
     var text = document.createTextNode(name);
-    button.appendChild(text);
-    div.appendChild(button);
+    badge.appendChild(text);
+    div.appendChild(badge);
+}
+
+//DROP DOWN PLACE STYLE DYNAMICALLY ADD BADGE
+function fillPlaceType(name) {
+    var div = document.getElementById("placeTypeElements");
+    var badge = document.createElement("span");
+    //selected-place-style class is there so I can retrieve selected elements in script.js
+    badge.className = "badge badge-pill badge-default selected-place-style";
+    var text = document.createTextNode(name);
+    badge.appendChild(text);
+    div.appendChild(badge);
 }
 
 //RESET SETTINGS
@@ -130,4 +141,25 @@ function generateKeyForPath(pathData) {
         key = key + latnlng.lat + "" + latnlng.lng;
     }
     return key;
+}
+
+
+function getTravelTypeSelectedArray() {
+    var travelStyleForUser = [];
+    var travelTypeElements = document.getElementsByClassName("selected-travel-style");
+    for (var btnI = 0; btnI < travelTypeElements.length; btnI++) {
+        var travelText = travelTypeElements[btnI].innerHTML;
+        travelStyleForUser.push(travelText);
+    }
+    return travelStyleForUser;
+}
+
+function getPlaceTypeSelectedArray() {
+    var placeTypeSelected = [];
+    var placeTypeElements = document.getElementsByClassName("selected-place-style");
+    for (var btnJ = 0; btnJ < placeTypeElements.length; btnJ++) {
+        var placeTypeText = placeTypeElements[btnJ].innerHTML;
+        placeTypeSelected.push(placeTypeText);
+    }
+    return placeTypeSelected;
 }
