@@ -11,6 +11,7 @@ var histoData4 = {};
 var travelStyles = {};
 var placeDetails = {};
 var polyLines = [];
+var markers = [];
 
 var sliderProperties = {
     maxNumberOfSamePaths: 0,
@@ -208,6 +209,24 @@ function addMarker(coords, placeName) {
         title: placeName
     });
     marker.setMap(map);
+    markers.push(marker);
+}
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+    setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+    setMapOnAll(map);
 }
 
 function drawGraph(pathData, num) {

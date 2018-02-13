@@ -163,3 +163,15 @@ function getPlaceTypeSelectedArray() {
     }
     return placeTypeSelected;
 }
+
+var checkbox = document.getElementById("showMarkers");
+
+checkbox.addEventListener( 'change', function() {
+    if(this.checked) {
+        console.log("Showing markers");
+        showMarkers()
+    } else {
+        console.log("Hiding markers");
+        clearMarkers();
+    }
+});

@@ -223,3 +223,13 @@ input:checked + .toggle:before {
 .toggle.round:before {
   border-radius: 50%;
 }
+
+/* line 53, ../sass/modules/_toggle.sass */
+.align-left {
+  float: left;
+}
+
+/* line 56, ../sass/modules/_toggle.sass */
+.align-right {
+  float: right;
+}
