@@ -56,6 +56,10 @@ function fillTravelStyle(name) {
     var badge = document.createElement("span");
     //selected-travel-style class is there so I can retrieve selected elements in script.js
     badge.className = "badge badge-pill badge-default selected-travel-style";//"btn btn-secondary selected-travel-style";
+    badge.id = name;
+    badge.setAttribute("onclick", "removeTravelStyle(this.id)");
+    badge.setAttribute("data-toggle", "tooltip");
+    badge.setAttribute("title", "Click to remove");
     var text = document.createTextNode(name);
     badge.appendChild(text);
     div.appendChild(badge);
@@ -67,9 +71,23 @@ function fillPlaceType(name) {
     var badge = document.createElement("span");
     //selected-place-style class is there so I can retrieve selected elements in script.js
     badge.className = "badge badge-pill badge-default selected-place-style";
+    badge.id = name;
+    badge.setAttribute("onclick", "removePlaceType(this.id)");
+    badge.setAttribute("data-toggle", "tooltip");
+    badge.setAttribute("title", "Click to remove");
     var text = document.createTextNode(name);
     badge.appendChild(text);
     div.appendChild(badge);
+}
+
+function removeTravelStyle(id) {
+    $('body>.tooltip').remove();
+    document.getElementById(id).remove();
+}
+
+function removePlaceType(id) {
+    $('body>.tooltip').remove();
+    document.getElementById(id).remove();
 }
 
 //RESET SETTINGS
@@ -195,16 +213,23 @@ $(function () {
         });
         $("#amount").val("%" + $("#slider-range").slider("values", 0) +
             " - %" + $("#slider-range").slider("values", 1));
-    }else {
+    } else {
         $("#slider-range").slider();
 
     }
 });
 
-function showLoadingLayout(){
+function showLoadingLayout() {
     document.getElementById("loadingScreen").style.visibility = 'visible';
 }
 
 function hideLoadingLayout() {
     document.getElementById("loadingScreen").style.visibility = 'hidden';
 }
+
+$(document).ready(function () {
+    $('body').tooltip({
+        selector: '[data-toggle=tooltip]',
+        trigger: 'hover'
+    });
+});

@@ -468,6 +468,7 @@ function resetGlobalValues() {
     quickStat = {};
     travelStyles = {};
     polyLines = [];
+    markers = [];
 }
 
 function getDateFormat(strDate){

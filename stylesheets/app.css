@@ -435,3 +435,28 @@ input:checked + .toggle:before {
 .hidden {
   display: none;
 }
+
+/* line 1, ../sass/modules/_drop-downs.sass */
+div.tool-content .card-block {
+  padding: 0;
+}
+
+/* line 4, ../sass/modules/_drop-downs.sass */
+button.dropdown-toggle {
+  margin: 10px;
+}
+
+/* line 7, ../sass/modules/_drop-downs.sass */
+span.badge {
+  margin-top: 10px;
+  margin-right: 2.5px;
+  margin-left: 2.5px;
+  font-size: 15px;
+  padding: 7px 12px;
+}
+
+/* line 14, ../sass/modules/_drop-downs.sass */
+span.badge:hover {
+  background-color: #D62E41;
+  cursor: pointer;
+}
