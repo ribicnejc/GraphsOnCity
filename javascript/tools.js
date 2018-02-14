@@ -200,3 +200,11 @@ $(function () {
 
     }
 });
+
+function showLoadingLayout(){
+    document.getElementById("loadingScreen").style.visibility = 'visible';
+}
+
+function hideLoadingLayout() {
+    document.getElementById("loadingScreen").style.visibility = 'hidden';
+}

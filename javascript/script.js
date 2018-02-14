@@ -170,7 +170,7 @@ function parseResponse(data) {
         }
     }
     firstLoad = false;
-
+    hideLoadingLayout();
     //uncomment below lines if you want to collect data for histograms
     // getHistoData()
     // getHistoData4();
@@ -448,6 +448,7 @@ function fillPlaceDetailsDropdown() {
 }
 
 function applyFilters(){
+    showLoadingLayout();
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
         center: {lat: 46.0548178, lng: 14.5042642},

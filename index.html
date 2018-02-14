@@ -26,7 +26,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-   <!--Custom CSS-->
+    <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="stylesheets/app.css"/>
 
 
@@ -63,7 +63,8 @@
                                     <div class="tool-content">
                                         <label class="align-left">Show markers</label>
                                         <div class="align-right">
-                                            <input type="checkbox" id="showMarkers" checked="checked" class="cbx hidden"/>
+                                            <input type="checkbox" id="showMarkers" checked="checked"
+                                                   class="cbx hidden"/>
                                             <label for="showMarkers" class="lbl"></label>
                                         </div>
 
@@ -225,9 +226,14 @@
             </div>
             <div class="col-lg-8 col-md-8 map-view">
                 <!--<div class="loader"></div>-->
+                <div class="loading-screen" id="loadingScreen">
+                    <div class="overlay"></div>
+                    <div class="loading">Loading&#8230;</div>
+                </div>
                 <div class="map-view">
                     <div id="map"></div>
                 </div>
+
             </div>
         </div>
     </div>
