@@ -20,24 +20,24 @@ sliderNumOfDay.oninput = function () {
 
 
 //DATE PICKER
-$(function() {
-    $( "#datepicker-8" ).datepicker({
-        prevText:"click for previous months",
-        nextText:"click for next months",
-        showOtherMonths:true,
+$(function () {
+    $("#datepicker-8").datepicker({
+        prevText: "click for previous months",
+        nextText: "click for next months",
+        showOtherMonths: true,
         selectOtherMonths: false
     });
-    $( "#datepicker-9" ).datepicker({
-        prevText:"click for previous months",
-        nextText:"click for next months",
-        showOtherMonths:true,
+    $("#datepicker-9").datepicker({
+        prevText: "click for previous months",
+        nextText: "click for next months",
+        showOtherMonths: true,
         selectOtherMonths: true
     });
 });
 
 //DROP DOWN
-$(function(){
-    $(".dropdown-menu button").click(function(){
+$(function () {
+    $(".dropdown-menu button").click(function () {
         console.log($(this).text());
         var div = document.getElementById("travelTypeElements");
         var button = document.createElement("button");
@@ -73,7 +73,7 @@ function fillPlaceType(name) {
 }
 
 //RESET SETTINGS
-function resetSettings(){
+function resetSettings() {
     var sliderNum1 = document.getElementById("numberOfSamePathValue");
     var sliderNum2 = document.getElementById("numberOfPathLength");
     var sliderNum3 = document.getElementById("numberOfDay");
@@ -130,6 +130,7 @@ function histo(travelStyleData) {
         var chart = new google.visualization.ColumnChart(document.getElementById('container'));
         chart.draw(data, options);
     }
+
     google.charts.setOnLoadCallback(drawChart);
 }
 
@@ -164,14 +165,38 @@ function getPlaceTypeSelectedArray() {
     return placeTypeSelected;
 }
 
+var tmp = true;
 var checkbox = document.getElementById("showMarkers");
 
-checkbox.addEventListener( 'change', function() {
-    if(this.checked) {
+checkbox.addEventListener('change', function () {
+    if (this.checked) {
+        tmp = true;
         console.log("Showing markers");
         showMarkers()
     } else {
+        tmp = false;
         console.log("Hiding markers");
         clearMarkers();
+    }
+});
+
+//Double slider jQueryUI
+$(function () {
+    if (tmp) {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 100,
+            animte: "slow",
+            values: [20, 90],
+            slide: function (event, ui) {
+                $("#amount").val("%" + ui.values[0] + " - %" + ui.values[1]);
+            }
+        });
+        $("#amount").val("%" + $("#slider-range").slider("values", 0) +
+            " - %" + $("#slider-range").slider("values", 1));
+    }else {
+        $("#slider-range").slider();
+
     }
 });

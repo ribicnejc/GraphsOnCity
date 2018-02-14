@@ -22,7 +22,7 @@ div.panel {
   background-color: #fff;
 }
 
-/* line 5, ../sass/layout/_tools-layout.sass */
+/* line 6, ../sass/layout/_tools-layout.sass */
 div.map-tools {
   height: 100%;
   padding: 30px 20px 20px;
@@ -30,34 +30,34 @@ div.map-tools {
   max-height: 100vh;
 }
 
-/* line 11, ../sass/layout/_tools-layout.sass */
+/* line 12, ../sass/layout/_tools-layout.sass */
 div.main-content {
   height: 100%;
 }
 
-/* line 14, ../sass/layout/_tools-layout.sass */
+/* line 15, ../sass/layout/_tools-layout.sass */
 .fullscreen {
   height: 100%;
 }
 
-/* line 18, ../sass/layout/_tools-layout.sass */
+/* line 19, ../sass/layout/_tools-layout.sass */
 .filter-buttons {
   display: block;
   margin: auto;
 }
 
-/* line 22, ../sass/layout/_tools-layout.sass */
+/* line 23, ../sass/layout/_tools-layout.sass */
 .button-group-center {
   display: block;
   margin: 20px auto auto;
 }
 
-/* line 26, ../sass/layout/_tools-layout.sass */
+/* line 27, ../sass/layout/_tools-layout.sass */
 .tool-content {
   margin: 10px 10px 0;
 }
 
-/* line 29, ../sass/layout/_tools-layout.sass */
+/* line 30, ../sass/layout/_tools-layout.sass */
 .dropdown-menu {
   height: 150px;
   overflow-y: auto;
@@ -131,6 +131,31 @@ div.slidecontainer p {
 /* line 37, ../sass/modules/_sliders.sass */
 p {
   margin: 0;
+}
+
+/* line 41, ../sass/modules/_sliders.sass */
+body div.ui-slider-range.ui-widget-header {
+  background: #d3d3d3;
+}
+
+/* line 44, ../sass/modules/_sliders.sass */
+.ui-slider-horizontal .ui-state-default {
+  background: #4CAF50;
+  border-radius: 50%;
+  height: 1.6em;
+  width: 1.6em;
+  top: -0.5em;
+}
+
+/* line 51, ../sass/modules/_sliders.sass */
+.ui-widget .ui-widget-content .ui-slider-range {
+  border: 0;
+  background-color: #2aabd2;
+}
+
+/* line 55, ../sass/modules/_sliders.sass */
+.ui-state-focus {
+  border-radius: 10%;
 }
 
 /* line 1, ../sass/modules/_loaders.sass */
@@ -232,4 +257,67 @@ input:checked + .toggle:before {
 /* line 56, ../sass/modules/_toggle.sass */
 .align-right {
   float: right;
+}
+
+/* line 61, ../sass/modules/_toggle.sass */
+.lbl {
+  position: relative;
+  display: block;
+  height: 20px;
+  width: 44px;
+  background: #898989;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+/* line 70, ../sass/modules/_toggle.sass */
+.lbl:after {
+  position: absolute;
+  left: -2px;
+  top: -3px;
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 100px;
+  background: white;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+  content: "";
+  transition: all 0.3s ease;
+}
+/* line 83, ../sass/modules/_toggle.sass */
+.lbl:active:after {
+  transform: scale(1.15, 0.85);
+}
+
+/* line 86, ../sass/modules/_toggle.sass */
+.cbx:checked ~ label {
+  background: #6FBEB5;
+}
+/* line 88, ../sass/modules/_toggle.sass */
+.cbx:checked ~ label:after {
+  left: 20px;
+  background: #179588;
+}
+
+/* line 92, ../sass/modules/_toggle.sass */
+.cbx:disabled ~ label {
+  background: #D5D5D5;
+  pointer-events: none;
+}
+/* line 95, ../sass/modules/_toggle.sass */
+.cbx:disabled ~ label:after {
+  background: #BCBDBC;
+}
+
+/* line 98, ../sass/modules/_toggle.sass */
+.cntr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 105, ../sass/modules/_toggle.sass */
+.hidden {
+  display: none;
 }
