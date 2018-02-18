@@ -183,9 +183,7 @@ function getPlaceTypeSelectedArray() {
     return placeTypeSelected;
 }
 
-var tmp = true;
 var checkbox = document.getElementById("showMarkers");
-
 checkbox.addEventListener('change', function () {
     if (this.checked) {
         tmp = true;
@@ -195,27 +193,6 @@ checkbox.addEventListener('change', function () {
         tmp = false;
         console.log("Hiding markers");
         clearMarkers();
-    }
-});
-
-//Double slider jQueryUI
-$(function () {
-    if (tmp) {
-        $("#slider-range").slider({
-            range: true,
-            min: 0,
-            max: 100,
-            animte: "slow",
-            values: [20, 90],
-            slide: function (event, ui) {
-                $("#amount").val("%" + ui.values[0] + " - %" + ui.values[1]);
-            }
-        });
-        $("#amount").val("%" + $("#slider-range").slider("values", 0) +
-            " - %" + $("#slider-range").slider("values", 1));
-    } else {
-        $("#slider-range").slider();
-
     }
 });
 
