@@ -20,6 +20,12 @@ function makeDoubleHandleSlider(id, valueID) {
         " - %" + $("#"+id).slider("values", 1));
 }
 
+/**
+ * function initialize jQueryUI slider and create listener for changes of value, so user can see on top of
+ * sliders value instantly
+ * @param id of slider
+ * @param valueID is a label which is updated with value when slider change position
+ */
 function initOneHandleSlider(id, valueID) {
     $("#"+id).slider({
         range: false,
@@ -36,20 +42,17 @@ function initOneHandleSlider(id, valueID) {
 
 //Double slider jQueryUI initialization of double slider
 $(function () {
-    initOneHandleSlider("slider-range", "amount");
-    initOneHandleSlider("slider-range2", "amount2");
-    initOneHandleSlider("slider-range3", "amount3");
+    initOneHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
+    initOneHandleSlider("slider-path-length", "slider-path-length-amount");
 });
 
 var checkboxRelativity = document.getElementById("relativeCheckbox");
 checkboxRelativity.addEventListener('change', function () {
     if (this.checked) {
-        makeDoubleHandleSlider("slider-range", "amount");
-        makeDoubleHandleSlider("slider-range2", "amount2");
-        makeDoubleHandleSlider("slider-range3", "amount3");
+        makeDoubleHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
+        makeDoubleHandleSlider("slider-path-length", "slider-path-length-amount");
     } else {
-        makeOneHandleSlider("slider-range", "amount");
-        makeOneHandleSlider("slider-range2", "amount2");
-        makeOneHandleSlider("slider-range3", "amount3");
+        makeOneHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
+        makeOneHandleSlider("slider-path-length", "slider-path-length-amount");
     }
 });
