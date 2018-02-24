@@ -21,14 +21,14 @@
   width: 25px
   height: 25px
   border-radius: 50%
-  background: $color-slider-green
+  background: $color-blue
   cursor: pointer
 
 .slider::-moz-range-thumb
   width: 25px
   height: 25px
   border-radius: 50%
-  background: $color-slider-green
+  background: $color-blue
   cursor: pointer
 
 div.slidecontainer p
@@ -39,18 +39,28 @@ p
 
 //jQueryUI sliders
 body div.ui-slider-range.ui-widget-header
-  background: $color-slider-background
+  background: darken($color-slider-background, 20)
+
 
 .ui-slider-horizontal .ui-state-default
-  background: $color-slider-green
+  background: $color-blue
   border-radius: 50%
   height: 1.6em
   width: 1.6em
   top: -.5em
 
-.ui-widget .ui-widget-content .ui-slider-range
-  border: 0
-  background-color: #2aabd2
+.ui-slider-horizontal .ui-state-default
+  &:hover
+    background: $color-blue
+    opacity: 1
 
-.ui-state-focus
-  border-radius: 10%
+
+.ui-widget.ui-widget-content
+  background-color: $color-slider-background
+  outline: none
+  opacity: 0.7
+  -webkit-transition: .2s
+  transition: opacity .2s
+
+.ui-corner-all
+  border-radius: 5px

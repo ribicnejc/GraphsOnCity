@@ -84,10 +84,12 @@ input:checked + .toggle:before
       transform: scale(1.15, .85)
 
 .cbx:checked ~ label
-  background: #6FBEB5
+  //background: #6FBEB5
+  background: $color-blue-toggle-bg
   &:after
     left: 20px
-    background: #179588
+    //background: #179588
+    background: $color-blue
 
 .cbx:disabled ~ label
   background: #D5D5D5

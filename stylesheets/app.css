@@ -110,7 +110,7 @@ div.map-view, #map {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #4CAF50;
+  background: #0275D8;
   cursor: pointer;
 }
 
@@ -119,7 +119,7 @@ div.map-view, #map {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #4CAF50;
+  background: #0275D8;
   cursor: pointer;
 }
 
@@ -135,27 +135,36 @@ p {
 
 /* line 41, ../sass/modules/_sliders.sass */
 body div.ui-slider-range.ui-widget-header {
-  background: #d3d3d3;
+  background: #a0a0a0;
 }
 
-/* line 44, ../sass/modules/_sliders.sass */
+/* line 45, ../sass/modules/_sliders.sass */
 .ui-slider-horizontal .ui-state-default {
-  background: #4CAF50;
+  background: #0275D8;
   border-radius: 50%;
   height: 1.6em;
   width: 1.6em;
   top: -0.5em;
 }
 
-/* line 51, ../sass/modules/_sliders.sass */
-.ui-widget .ui-widget-content .ui-slider-range {
-  border: 0;
-  background-color: #2aabd2;
+/* line 53, ../sass/modules/_sliders.sass */
+.ui-slider-horizontal .ui-state-default:hover {
+  background: #0275D8;
+  opacity: 1;
 }
 
-/* line 55, ../sass/modules/_sliders.sass */
-.ui-state-focus {
-  border-radius: 10%;
+/* line 58, ../sass/modules/_sliders.sass */
+.ui-widget.ui-widget-content {
+  background-color: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+/* line 65, ../sass/modules/_sliders.sass */
+.ui-corner-all {
+  border-radius: 5px;
 }
 
 /* Loading screen */
@@ -405,25 +414,25 @@ input:checked + .toggle:before {
 
 /* line 86, ../sass/modules/_toggle.sass */
 .cbx:checked ~ label {
-  background: #6FBEB5;
+  background: #289AF9;
 }
-/* line 88, ../sass/modules/_toggle.sass */
+/* line 89, ../sass/modules/_toggle.sass */
 .cbx:checked ~ label:after {
   left: 20px;
-  background: #179588;
+  background: #0275D8;
 }
 
-/* line 92, ../sass/modules/_toggle.sass */
+/* line 94, ../sass/modules/_toggle.sass */
 .cbx:disabled ~ label {
   background: #D5D5D5;
   pointer-events: none;
 }
-/* line 95, ../sass/modules/_toggle.sass */
+/* line 97, ../sass/modules/_toggle.sass */
 .cbx:disabled ~ label:after {
   background: #BCBDBC;
 }
 
-/* line 98, ../sass/modules/_toggle.sass */
+/* line 100, ../sass/modules/_toggle.sass */
 .cntr {
   position: absolute;
   top: 50%;
@@ -431,7 +440,7 @@ input:checked + .toggle:before {
   transform: translate(-50%, -50%);
 }
 
-/* line 105, ../sass/modules/_toggle.sass */
+/* line 107, ../sass/modules/_toggle.sass */
 .hidden {
   display: none;
 }
