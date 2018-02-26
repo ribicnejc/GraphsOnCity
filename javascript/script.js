@@ -1,13 +1,20 @@
+//Main variables
 var map;
 var mainPaths = {};
 var mainUsers = {};
 var quickStat = {};
 
+//Histogram data variables
 var histoData1 = {};
 var histoData2 = [];
 var histoData3 = [];
 var histoData4 = {};
 
+//Relativity variables
+var relativityPathRepetition = {};
+var relativityPathLength = {};
+
+//Filter variables
 var travelStyles = {};
 var placeDetails = {};
 var polyLines = [];
@@ -61,6 +68,9 @@ function parseResponse(data) {
             //Here we generate coords and create legit path for google maps
             for (var i = 0; i < paths.length; i++) {
                 var path = paths[0];
+
+                //Collecting data for relative length of path filter
+                relativityPathLength[path.length] = true;
 
                 //Count and get longest path. This is for sliders setup
                 if (sliderProperties.maxLengthOfPath < path.length && path.length > 1)
@@ -163,13 +173,23 @@ function parseResponse(data) {
             var pathToDrawOn = mainPaths[pathKEY];
             var path2 = pathToDrawOn["PATH"];
             var numOfSamePaths = pathToDrawOn["SAME_PATH_NUM"];
+
+            //Collecting data for relativity for same path filter
+            if (path2.length > 1) {
+                relativityPathRepetition[numOfSamePaths] = true;
+            }
             if (firstLoad)
                 drawGraph(path2, numOfSamePaths);
-            else if (numOfSamePaths >= minNumOfSamePaths && path2.length >= minNumOfLength)
+            else if (!isRelativeToggleChecked() && numOfSamePaths >= minNumOfSamePaths && path2.length >= minNumOfLength)
                 drawGraph(path2, numOfSamePaths);
         }
     }
-    firstLoad = false;
+    firstLoad = false
+
+    if (isRelativeToggleChecked()) {
+        runAndDrawRelativeData();
+    }
+
     hideLoadingLayout();
     //uncomment below lines if you want to collect data for histograms
     // getHistoData()
@@ -208,8 +228,13 @@ function addMarker(coords, placeName) {
         position: coords,
         title: placeName
     });
+    marker.addListener('click', function () {
+       alert(placeName);
+    });
+
     marker.setMap(map);
     markers.push(marker);
+
 }
 
 // Sets the map on all markers in the array.
@@ -469,6 +494,8 @@ function resetGlobalValues() {
     travelStyles = {};
     polyLines = [];
     markers = [];
+    relativityPathLength = {};
+    relativityPathRepetition = {};
 }
 
 function getDateFormat(strDate){
@@ -517,4 +544,74 @@ function updateDateSelections() {
     date2 = date2[4] + date2[5] + "/" + date2[6] + date2[7] + "/" + date2[0] + date2[1] + date2[2] + date2[3];
     document.getElementById("datepicker-8").value = date1;
     document.getElementById("datepicker-9").value = date2;
+}
+
+function runAndDrawRelativeData() {
+    var relativeRepetition = [];
+    var relativeLength = [];
+
+    for(var i in relativityPathRepetition) {
+        if(relativityPathRepetition.hasOwnProperty(i)) {
+            relativeRepetition.push(parseInt(i));
+        }
+    }
+
+    for(var j in relativityPathLength) {
+        if (relativityPathLength.hasOwnProperty(j)) {
+            relativeLength.push(parseInt(j))
+        }
+    }
+
+    relativeRepetition = sortNumbersAsc(relativeRepetition);
+    relativeLength = sortNumbersAsc(relativeLength);
+
+    var relativeRepetitionValue1 = $('#slider-path-repetition').slider("values", 0);
+    var relativeRepetitionValue2 = $('#slider-path-repetition').slider("values", 1);
+
+    var relativeLengthValue1 = $('#slider-path-length').slider("values", 0);
+    var relativeLengthValue2 = $('#slider-path-length').slider("values", 1);
+
+    var repetition = [0, 0];
+    var length = [0, 0];
+
+    repetition[0] = Math.floor((relativeRepetition.length * relativeRepetitionValue1) / 100);
+    repetition[1] = Math.floor((relativeRepetition.length * relativeRepetitionValue2) / 100);
+
+    if (repetition[1] === relativeRepetition.length) {
+        repetition[1] = repetition[1] - 1;
+    }
+    if (repetition[0] === relativeRepetition.length) {
+        repetition[0] = repetition[0] - 1;
+    }
+    repetition[0] = relativeRepetition[repetition[0]];
+    repetition[1] = relativeRepetition[repetition[1]];
+
+
+    length[0] = Math.floor((relativeLength.length * relativeLengthValue1) / 100);
+    length[1] = Math.floor((relativeLength.length * relativeLengthValue2) / 100);
+    if (length[1] === relativeLength.length) {
+        length[1] = length[1] - 1;
+    }
+    if (length[0] === relativeLength.length) {
+        length[0] = length[0] - 1;
+    }
+    length[0] = relativeLength[length[0]];
+    length[1] = relativeLength[length[1]];
+
+
+
+    for (var pathKEY in mainPaths) {
+        if (mainPaths.hasOwnProperty(pathKEY)) {
+            var pathToDrawOn = mainPaths[pathKEY];
+            var path = pathToDrawOn["PATH"];
+            var numOfSamePaths = pathToDrawOn["SAME_PATH_NUM"];
+            var pathLength = path.length;
+
+            if (numOfSamePaths >= repetition[0] && numOfSamePaths <= repetition[1]) {
+                if (pathLength >= length[0] && pathLength <= length[1]) {
+                    drawGraph(path, numOfSamePaths);
+                }
+            }
+        }
+    }
 }

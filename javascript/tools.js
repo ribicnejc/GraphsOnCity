@@ -210,3 +210,21 @@ $(document).ready(function () {
         trigger: 'hover'
     });
 });
+
+function sortNumbersAsc(array) {
+    array.sort(function (a, b) {
+        return a - b;
+    });
+    return array;
+}
+
+function sortNumbersDsc(array) {
+    array.sort(function (a, b) {
+        return b - a;
+    });
+    return array;
+}
+
+function isRelativeToggleChecked() {
+    return document.getElementById("relativeCheckbox").checked;
+}
