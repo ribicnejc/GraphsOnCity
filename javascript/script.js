@@ -197,33 +197,34 @@ function parseResponse(data) {
     // getHistoData3();
 }
 
-function findPaths(data) {
-    var paths = {};
-    for (var i = 0; i < data.length; i++) {
-        var userLine = data[i];
-        var uid = userLine.UID;
-        var coordTuple = {};
-        coordTuple.lat = parseFloat(userLine.LAT);
-        coordTuple.lng = parseFloat(userLine.LNG);
-
-        addMarker(coordTuple, userLine.PLACE_NAME);
-
-        if (paths[uid] === undefined) paths[uid] = [];
-
-        var tmp = paths[uid];
-        tmp.push(coordTuple);
-        paths[uid] = tmp;
-    }
-
-    for (var uidKey in paths) {
-        if (paths.hasOwnProperty(uidKey)) {
-            if (paths[uidKey] === undefined) continue;
-            drawGraph(paths[uidKey]);
-        }
-    }
-}
+// function findPaths(data) {
+//     var paths = {};
+//     for (var i = 0; i < data.length; i++) {
+//         var userLine = data[i];
+//         var uid = userLine.UID;
+//         var coordTuple = {};
+//         coordTuple.lat = parseFloat(userLine.LAT);
+//         coordTuple.lng = parseFloat(userLine.LNG);
+//
+//         addMarker(coordTuple, userLine.PLACE_NAME);
+//
+//         if (paths[uid] === undefined) paths[uid] = [];
+//
+//         var tmp = paths[uid];
+//         tmp.push(coordTuple);
+//         paths[uid] = tmp;
+//     }
+//
+//     for (var uidKey in paths) {
+//         if (paths.hasOwnProperty(uidKey)) {
+//             if (paths[uidKey] === undefined) continue;
+//             drawGraph(paths[uidKey]);
+//         }
+//     }
+// }
 
 function addMarker(coords, placeName) {
+
     var marker = new google.maps.Marker({
         position: coords,
         title: placeName
@@ -232,7 +233,10 @@ function addMarker(coords, placeName) {
        alert(placeName);
     });
 
-    marker.setMap(map);
+    if (isShowMarkersChecked())
+        marker.setMap(map);
+    else marker.setMap(null);
+    
     markers.push(marker);
 
 }

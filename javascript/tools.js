@@ -228,3 +228,7 @@ function sortNumbersDsc(array) {
 function isRelativeToggleChecked() {
     return document.getElementById("relativeCheckbox").checked;
 }
+
+function isShowMarkersChecked() {
+    return document.getElementById("showMarkers").checked;
+}
