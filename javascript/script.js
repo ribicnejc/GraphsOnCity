@@ -18,7 +18,7 @@ var relativityPathLength = {};
 var travelStyles = {};
 var placeDetails = {};
 var polyLines = [];
-var markers = [];
+var markers = {};
 
 var sliderProperties = {
     maxNumberOfSamePaths: 0,
@@ -69,8 +69,7 @@ function parseResponse(data) {
             for (var i = 0; i < paths.length; i++) {
                 var path = paths[0];
 
-                //Collecting data for relative length of path filter
-                relativityPathLength[path.length] = true;
+
 
                 //Count and get longest path. This is for sliders setup
                 if (sliderProperties.maxLengthOfPath < path.length && path.length > 1)
@@ -175,8 +174,9 @@ function parseResponse(data) {
             var numOfSamePaths = pathToDrawOn["SAME_PATH_NUM"];
 
             //Collecting data for relativity for same path filter
-            if (path2.length > 1) {
+            if (numOfSamePaths >= minNumOfSamePaths && path2.length >= minNumOfLength) {
                 relativityPathRepetition[numOfSamePaths] = true;
+                relativityPathLength[path2.length] = true;
             }
             if (firstLoad)
                 drawGraph(path2, numOfSamePaths);
@@ -197,55 +197,83 @@ function parseResponse(data) {
     // getHistoData3();
 }
 
-// function findPaths(data) {
-//     var paths = {};
-//     for (var i = 0; i < data.length; i++) {
-//         var userLine = data[i];
-//         var uid = userLine.UID;
-//         var coordTuple = {};
-//         coordTuple.lat = parseFloat(userLine.LAT);
-//         coordTuple.lng = parseFloat(userLine.LNG);
-//
-//         addMarker(coordTuple, userLine.PLACE_NAME);
-//
-//         if (paths[uid] === undefined) paths[uid] = [];
-//
-//         var tmp = paths[uid];
-//         tmp.push(coordTuple);
-//         paths[uid] = tmp;
-//     }
-//
-//     for (var uidKey in paths) {
-//         if (paths.hasOwnProperty(uidKey)) {
-//             if (paths[uidKey] === undefined) continue;
-//             drawGraph(paths[uidKey]);
-//         }
-//     }
-// }
 
 function addMarker(coords, placeName) {
 
+    var markerKey = coords.lat + "," + coords.lng;
     var marker = new google.maps.Marker({
         position: coords,
         title: placeName
     });
+    marker.localFlag = false;
     marker.addListener('click', function () {
-       alert(placeName);
+        var modal = $('#myModal2');
+        modal.modal();
+
+
+        var div = document.createElement("div");
+        var input = document.createElement("input");
+        var label = document.createElement("label");
+
+        div.className = "align-right";
+        input.className = "cbx hidden";
+        input.setAttribute("id", "pointSelection"+marker.lat+""+marker.lng);
+        input.setAttribute("type", "checkbox");
+        label.className = "lbl";
+        label.setAttribute("for", "pointSelection"+marker.lat+""+marker.lng);
+        div.appendChild(input);
+        div.appendChild(label);
+
+        var label0 = document.createElement("label");
+        label0.className = "align-left";
+        label0.appendChild(document.createTextNode("Mark the place as important in the path"));
+
+        document.getElementById("modal-checkbox-place").innerHTML = null;
+        document.getElementById("modal-checkbox-place").appendChild(label0);
+        document.getElementById("modal-checkbox-place").appendChild(div);
+
+        var markAsImportantCheckbox = document.getElementById("pointSelection"+marker.lat+""+marker.lng);
+        markAsImportantCheckbox.checked = marker.localFlag;
+        markAsImportantCheckbox.addEventListener("change", function() {
+            if (this.checked) {
+                marker.localFlag = true;
+                changeMarkerIcon(marker, true);
+            }else {
+                marker.localFlag = false;
+                changeMarkerIcon(marker, false);
+            }
+        });
+
     });
 
+    if (markers[markerKey] !== undefined) return;
+
+    markers[markerKey] = marker;
     if (isShowMarkersChecked())
-        marker.setMap(map);
-    else marker.setMap(null);
+        markers[markerKey].setMap(map);
+    else markers[markerKey].setMap(null);
 
-    markers.push(marker);
 
+
+}
+
+// Change markers icon
+function changeMarkerIcon(marker, setMarker) {
+    var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+    if (!setMarker) image = null;
+    marker.setIcon(image);
 }
 
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
+    for (var markerKey in markers) {
+        if (markers.hasOwnProperty(markerKey)) {
+            markers[markerKey].setMap(map);
+        }
     }
+    // for (var i = 0; i < markers.length; i++) {
+    //     markers[i].setMap(map);
+    // }
 }
 
 // Removes the markers from the map, but keeps them in the array.
@@ -497,7 +525,7 @@ function resetGlobalValues() {
     quickStat = {};
     travelStyles = {};
     polyLines = [];
-    markers = [];
+    markers = {};
     relativityPathLength = {};
     relativityPathRepetition = {};
 }
