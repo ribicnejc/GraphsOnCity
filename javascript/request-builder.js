@@ -23,3 +23,9 @@ function buildUrl() {
     var pathSpan = slider3.value;
     return "backend/api.php?"+query2+query1+"&pathSpan="+pathSpan + travelTypeQuery;
 }
+
+
+function requestPerPartes(page) {
+    var url = buildUrl();
+    return url += "&page=" + page;
+}
