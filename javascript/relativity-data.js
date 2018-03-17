@@ -67,3 +67,14 @@ function runAndDrawRelativeData(mainPathsLocal) {
         }
     }
 }
+
+
+function countRelativeLocalPlaces(relativeLocalPlaces) {
+    var count = 0;
+    for (var relativePlaceKey in relativeLocalPlaces) {
+        if (relativeLocalPlaces.hasOwnProperty(relativePlaceKey)) {
+            if (relativeLocalPlaces[relativePlaceKey] === true) count++;
+        }
+    }
+    return count;
+}

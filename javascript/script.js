@@ -13,12 +13,19 @@ var histoData4 = {};
 //Relativity variables
 var relativityPathRepetition = {};
 var relativityPathLength = {};
+var relativityLocalPlaces = {};
 
 //Filter variables
 var travelStyles = {};
 var placeDetails = {};
 var polyLines = [];
 var markers = {};
+
+//Request variables
+var MAX_REQUEST_PAGES = 4;
+var requestCounter = 0;
+var responseMain = "";
+
 
 var sliderProperties = {
     maxNumberOfSamePaths: 0,
@@ -40,6 +47,37 @@ function reqListner() {
     parseResponse(content);
 }
 
+function filterRequestListener() {
+    if (responseMain === "")
+        responseMain = this.responseText.slice(1, -1);
+    else
+        responseMain += "," + this.responseText.slice(1, -1);
+    if (requestCounter < MAX_REQUEST_PAGES) {
+        requestFilterData(++requestCounter);
+    }else {
+        var content = JSON.parse("{" + responseMain + "}");
+        responseMain = "";
+        requestCounter = 0;
+        parseResponse(content);
+    }
+}
+
+function initRequestListener() {
+    if (responseMain === "")
+        responseMain = this.responseText.slice(1, -1);
+    else
+        responseMain += "," + this.responseText.slice(1, -1);
+    if (requestCounter < MAX_REQUEST_PAGES) {
+        requestInitData(++requestCounter);
+    }else {
+        var content = JSON.parse("{" + responseMain + "}");
+        responseMain = "";
+        requestCounter = 0;
+        parseResponse(content);
+    }
+}
+
+
 /** here we create path and put them together as key
  * value must be statistic of that path
  * that is number of users, type of users, but just unique types
@@ -54,7 +92,9 @@ function parseResponse(data) {
     var placeTypeSelected = getPlaceTypeSelectedArray();
 
     //Here we read paths which we get from call response
+    var countTest = 0;
     for (var uidKey in data) {
+        countTest++;
         if (data.hasOwnProperty(uidKey)) {
             var tmpObject = data[uidKey];
             mainUsers[uidKey] = tmpObject;
@@ -77,6 +117,7 @@ function parseResponse(data) {
 
                 var pathToDraw = [];
                 var pathContainsCorrectPoints = false;
+                var pathIsLocalyGood = false;
                 var pathKey = "";
                 for (var j = 0; j < path.length; j++) {
                     var point = path[j];
@@ -105,6 +146,13 @@ function parseResponse(data) {
                                 break;
                             }
                         }
+                        //FIXME check for performance, because statistic is not shown
+                        //Save value of function to variable and use variable
+                        // if(isRelativeToggleChecked()) {
+                        if(relativityLocalPlaces[lat + "," + lng] === true)
+                            pathIsLocalyGood = true;
+                        // }
+
                     }
                     pathKey += lat + lng;
                     var coordTuple = {};
@@ -112,8 +160,17 @@ function parseResponse(data) {
                     coordTuple.lng = parseFloat(lng);
                     pathToDraw.push(coordTuple);
 
-                    addMarker(coordTuple, point.PLACE_NAME);
+                    if (relativityLocalPlaces[lat + "," + lng] === true)
+                        addMarker(coordTuple, point.PLACE_NAME, true);
+                    else addMarker(coordTuple, point.PLACE_NAME, false);
                 }
+
+                //Here we check if that path contains marker which is flaged, if so we let it through otherwise not
+                //Also we let it through if toggle is checked and if there is no markers, then it must go through
+                //TODO save function result to variable and use variables in sentence instead of functions
+                // if (!pathIsLocalyGood && isRelativeToggleChecked() && countRelativeLocalPlaces(relativityLocalPlaces) > 0) continue;
+                if (!pathIsLocalyGood && countRelativeLocalPlaces(relativityLocalPlaces) > 0) continue;
+
                 //Here is calculated statistics for path
                 //DONE First we calculate num of path repeated
                 //DONE Second we calculate num of each travel type for this path
@@ -191,21 +248,31 @@ function parseResponse(data) {
     }
 
     hideLoadingLayout();
+    console.log("Number of uids " + countTest);
     //uncomment below lines if you want to collect data for histograms
     // getHistoData()
     // getHistoData4();
     // getHistoData3();
 }
 
-
-function addMarker(coords, placeName) {
+/**
+ *
+ * @param coords
+ * @param placeName
+ * @param isFlag is there so we can set proper flag after user apply filters, so flag stays there
+ */
+function addMarker(coords, placeName, isFlag) {
 
     var markerKey = coords.lat + "," + coords.lng;
     var marker = new google.maps.Marker({
         position: coords,
         title: placeName
     });
-    marker.localFlag = false;
+    //We save lat and lng, so we can create key for relative place
+    marker.LAT = coords.lat;
+    marker.LNG = coords.lng;
+    marker.localFlag = isFlag;
+    if (isFlag) changeMarkerIcon(marker, true);
     marker.addListener('click', function () {
         var modal = $('#myModal2');
         modal.modal();
@@ -237,9 +304,13 @@ function addMarker(coords, placeName) {
         markAsImportantCheckbox.addEventListener("change", function() {
             if (this.checked) {
                 marker.localFlag = true;
+                //We add place to relative local places
+                relativityLocalPlaces[marker.LAT + "," + marker.LNG] = true;
                 changeMarkerIcon(marker, true);
             }else {
                 marker.localFlag = false;
+                //We remove place from relative local places
+                relativityLocalPlaces[marker.LAT + "," + marker.LNG] = undefined;
                 changeMarkerIcon(marker, false);
             }
         });
@@ -411,11 +482,16 @@ function getHistoData3() {
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: {lat: 46.0548178, lng: 14.5042642},
+        zoom: 12,
+        //Ljubljana
+        // center: {lat: 46.0548178, lng: 14.5042642},
+
+        //Vienna
+        center: {lat: 48.2087716, lng: 16.3708347},
+
         mapTypeId: 'terrain'
     });
-    requestData();
+    requestInitData(0);
 }
 
 function randomColor() {
@@ -445,11 +521,11 @@ function colorLine(amount){
         return "#f00";
 }
 
-function requestData() {
+function requestInitData(page) {
     var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListner);
+    oReq.addEventListener("load", initRequestListener);
     oReq.open("GET", "" +
-        "backend/api.php");
+        "backend/api.php?page=" + page);
     oReq.send();
 }
 
@@ -508,13 +584,18 @@ function applyFilters(){
     showLoadingLayout();
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
-        center: {lat: 46.0548178, lng: 14.5042642},
+        center: {lat: 48.2087716, lng: 16.3708347},
+        // center: {lat: 46.0548178, lng: 14.5042642},
         mapTypeId: 'terrain'
     });
     resetGlobalValues();
-    var requestUrl = buildUrl();
+    requestFilterData(0)
+}
+
+function requestFilterData(page) {
+    var requestUrl = requestPerPartes(page);
     var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListner);
+    oReq.addEventListener("load", filterRequestListener);
     oReq.open("GET", requestUrl);
     oReq.send();
 }
@@ -528,6 +609,8 @@ function resetGlobalValues() {
     markers = {};
     relativityPathLength = {};
     relativityPathRepetition = {};
+    requestCounter = 0;
+    responseMain = "";
 }
 
 function getDateFormat(strDate){
