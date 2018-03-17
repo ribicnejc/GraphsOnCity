@@ -9,6 +9,9 @@ $placeType = "notSet";
 $sqlClause1 = "notSet";
 $sqlClause2 = "notSet";
 $travelTypeClause = "notSet";
+$requestPage = "notSet";
+
+
 if (isset($_GET['dateTo'])) {
     $dateTo = intval($_GET['dateTo']);
     $sqlClause1 = "REVIEW_DATE < $dateTo";
@@ -20,6 +23,10 @@ if (isset($_GET['dateFrom'])) {
 
 if (isset($_GET['pathSpan'])) {
     $pathSpan = intval($_GET['pathSpan']);
+}
+
+if (isset($_GET['page'])) {
+    $requestPage = intval($_GET['page']);
 }
 
 if (isset($_GET['travelType'])) {
@@ -44,7 +51,7 @@ if ($sqlClause1 != "notSet" && $sqlClause2 != "notSet") {
     $sqlClause = "$sqlClause2";
 }
 
-$sql = "SELECT * FROM trip";
+$sql = "SELECT * FROM tripvienna";
 if ($sqlClause != "notSet") {
     $sql = "$sql WHERE $sqlClause";
 }
@@ -57,6 +64,9 @@ if ($travelTypeClause != "notSet") {
 }
 $sql = "$sql ORDER BY UID, REVIEW_DATE ASC";
 
+if ($requestPage."" != "notSet") {
+    $sql = "$sql LIMIT 50000 OFFSET " . $requestPage * 50000;
+}
 //echo $sql;
 //return 0;
 try {
