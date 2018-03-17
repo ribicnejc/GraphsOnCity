@@ -37,24 +37,18 @@ var dateProperties = {
 };
 var firstLoad = true;
 
-function reqListner() {
-    var content = JSON.parse(this.responseText);
-    //here make object with keys, so the keys are paths separated with dot or ;
-    //Becase the main thing user see is PATH not username or other stuff
-    //Here you will get diffrent paths from php and php will get you paths and paths will be keys, so you will be
-    //able to regenerate path fast and search for important data and show it if user press on path
-    // findPaths(content);
-    parseResponse(content);
-}
 
 function filterRequestListener() {
+    //Here we receive response and we remove first and last curly braces
     if (responseMain === "")
         responseMain = this.responseText.slice(1, -1);
     else
         responseMain += "," + this.responseText.slice(1, -1);
+
+    //We request new page of data or we create JSON and parse it
     if (requestCounter < MAX_REQUEST_PAGES) {
         requestFilterData(++requestCounter);
-    }else {
+    } else {
         var content = JSON.parse("{" + responseMain + "}");
         responseMain = "";
         requestCounter = 0;
@@ -69,7 +63,7 @@ function initRequestListener() {
         responseMain += "," + this.responseText.slice(1, -1);
     if (requestCounter < MAX_REQUEST_PAGES) {
         requestInitData(++requestCounter);
-    }else {
+    } else {
         var content = JSON.parse("{" + responseMain + "}");
         responseMain = "";
         requestCounter = 0;
@@ -110,7 +104,6 @@ function parseResponse(data) {
                 var path = paths[0];
 
 
-
                 //Count and get longest path. This is for sliders setup
                 if (sliderProperties.maxLengthOfPath < path.length && path.length > 1)
                     sliderProperties.maxLengthOfPath = path.length;
@@ -140,19 +133,15 @@ function parseResponse(data) {
                         // Here filter those paths which has at least one point
                         // with place types which has been selected by user
                         if (placeTypeSelected.length === 0) pathContainsCorrectPoints = true;
-                        for(var pointTypeIndex = 0; pointTypeIndex < placeTypeSelected.length; pointTypeIndex++) {
-                            if(placeDetailsPoint.indexOf(placeTypeSelected[pointTypeIndex]) !== -1) {
+                        for (var pointTypeIndex = 0; pointTypeIndex < placeTypeSelected.length; pointTypeIndex++) {
+                            if (placeDetailsPoint.indexOf(placeTypeSelected[pointTypeIndex]) !== -1) {
                                 pathContainsCorrectPoints = true;
                                 break;
                             }
                         }
-                        //FIXME check for performance, because statistic is not shown
-                        //Save value of function to variable and use variable
-                        // if(isRelativeToggleChecked()) {
-                        if(relativityLocalPlaces[lat + "," + lng] === true)
+                        //Here we check if this is flaged path and mark path as flaged
+                        if (relativityLocalPlaces[lat + "," + lng] === true)
                             pathIsLocalyGood = true;
-                        // }
-
                     }
                     pathKey += lat + lng;
                     var coordTuple = {};
@@ -166,9 +155,7 @@ function parseResponse(data) {
                 }
 
                 //Here we check if that path contains marker which is flaged, if so we let it through otherwise not
-                //Also we let it through if toggle is checked and if there is no markers, then it must go through
-                //TODO save function result to variable and use variables in sentence instead of functions
-                // if (!pathIsLocalyGood && isRelativeToggleChecked() && countRelativeLocalPlaces(relativityLocalPlaces) > 0) continue;
+                //Also we let it through if nthere is no markers, then it must go through
                 if (!pathIsLocalyGood && countRelativeLocalPlaces(relativityLocalPlaces) > 0) continue;
 
                 //Here is calculated statistics for path
@@ -177,7 +164,7 @@ function parseResponse(data) {
                 //TODO Third we calculate num of gender for that path
                 //TODO Fourth we calculate num of age for that path
                 //TODO add more elements for later analysis
-                if (mainPaths[pathKey] === undefined && pathContainsCorrectPoints){
+                if (mainPaths[pathKey] === undefined && pathContainsCorrectPoints) {
                     var pathStatisticData = {};
                     var styleStatisticData = {};
                     pathStatisticData["SAME_PATH_NUM"] = 1;
@@ -188,14 +175,14 @@ function parseResponse(data) {
                     }
                     pathStatisticData["TRAVEL_STYLE"] = styleStatisticData;
                     mainPaths[pathKey] = pathStatisticData;
-                }else if(pathContainsCorrectPoints) {
+                } else if (pathContainsCorrectPoints) {
                     var pathStatisticData2 = mainPaths[pathKey];
                     var tmpStat = pathStatisticData2["TRAVEL_STYLE"];
                     travelTypeStat = travleStyleUser.split(" & ");
-                    for(var tmpJ = 0; tmpJ < travelTypeStat.length; tmpJ++) {
+                    for (var tmpJ = 0; tmpJ < travelTypeStat.length; tmpJ++) {
                         if (tmpStat[travelTypeStat[tmpJ]] === undefined) {
                             tmpStat[travelTypeStat[tmpJ]] = 1;
-                        }else {
+                        } else {
                             tmpStat[travelTypeStat[tmpJ]] = tmpStat[travelTypeStat[tmpJ]] + 1;
                         }
                     }
@@ -208,14 +195,14 @@ function parseResponse(data) {
         }
     }
 
-    if (firstLoad){
+    if (firstLoad) {
         //uncomment this line if you want to set data of sliders dynamicly not staticly which are set in HTML
         //updateSlidersSettings();
         fillTravelStylesDropdown();
         fillPlaceDetailsDropdown();
         updateDateSelections();
     }
-    if (!firstLoad){
+    if (!firstLoad) {
         var sliderNumOfSamePaths = document.getElementById("sliderNumberOfPaths");
         var minNumOfSamePaths = parseInt(sliderNumOfSamePaths.value);
         var sliderPathLength = document.getElementById("sliderNumOfPathLength");
@@ -284,10 +271,10 @@ function addMarker(coords, placeName, isFlag) {
 
         div.className = "align-right";
         input.className = "cbx hidden";
-        input.setAttribute("id", "pointSelection"+marker.lat+""+marker.lng);
+        input.setAttribute("id", "pointSelection" + marker.lat + "" + marker.lng);
         input.setAttribute("type", "checkbox");
         label.className = "lbl";
-        label.setAttribute("for", "pointSelection"+marker.lat+""+marker.lng);
+        label.setAttribute("for", "pointSelection" + marker.lat + "" + marker.lng);
         div.appendChild(input);
         div.appendChild(label);
 
@@ -299,15 +286,15 @@ function addMarker(coords, placeName, isFlag) {
         document.getElementById("modal-checkbox-place").appendChild(label0);
         document.getElementById("modal-checkbox-place").appendChild(div);
 
-        var markAsImportantCheckbox = document.getElementById("pointSelection"+marker.lat+""+marker.lng);
+        var markAsImportantCheckbox = document.getElementById("pointSelection" + marker.lat + "" + marker.lng);
         markAsImportantCheckbox.checked = marker.localFlag;
-        markAsImportantCheckbox.addEventListener("change", function() {
+        markAsImportantCheckbox.addEventListener("change", function () {
             if (this.checked) {
                 marker.localFlag = true;
                 //We add place to relative local places
                 relativityLocalPlaces[marker.LAT + "," + marker.LNG] = true;
                 changeMarkerIcon(marker, true);
-            }else {
+            } else {
                 marker.localFlag = false;
                 //We remove place from relative local places
                 relativityLocalPlaces[marker.LAT + "," + marker.LNG] = undefined;
@@ -323,7 +310,6 @@ function addMarker(coords, placeName, isFlag) {
     if (isShowMarkersChecked())
         markers[markerKey].setMap(map);
     else markers[markerKey].setMap(null);
-
 
 
 }
@@ -440,7 +426,7 @@ function collectHistoData(pathData, num) {
     //Histogram1 algorithm
     if (histoData1[pathLength] === undefined) {
         histoData1[pathLength] = amountOfUserVisitThatPath;
-    }else {
+    } else {
         histoData1[pathLength] = amountOfUserVisitThatPath + histoData1[pathLength];
     }
 
@@ -450,14 +436,14 @@ function collectHistoData(pathData, num) {
 function getHistoData() {
     //here is data retriever for histoData2
     var output = "dolzina_poti, stevilo_obiskov_te_poti\n";
-    for(var i = 0; i < histoData2.length; i++) {
+    for (var i = 0; i < histoData2.length; i++) {
         output += histoData2[i][0] + ", " + histoData2[i][1] + "\n"
     }
     alert("Check Console");
     console.log(output);
 }
 
-function getHistoData4(){
+function getHistoData4() {
     var output = "type, amount\n";
     for (var hist4Key in histoData4) {
         if (histoData4.hasOwnProperty(hist4Key)) {
@@ -472,7 +458,7 @@ function getHistoData3() {
     var output = "path, amount\n";
     for (var path in mainPaths) {
         if (mainPaths.hasOwnProperty(path)) {
-            if(mainPaths[path]["PATH"].length > 1)
+            if (mainPaths[path]["PATH"].length > 1)
                 output += path + ", " + mainPaths[path]["SAME_PATH_NUM"] + "\n";
         }
     }
@@ -503,11 +489,11 @@ function randomColor() {
     return color;
 }
 
-function colorLine(amount){
+function colorLine(amount) {
     if (quickStat[amount] === undefined) {
         quickStat[amount] = 1;
-    }else{
-        quickStat[amount] = quickStat[amount]+1;
+    } else {
+        quickStat[amount] = quickStat[amount] + 1;
     }
     if (amount < 3) {
         return "#000";
@@ -530,7 +516,7 @@ function requestInitData(page) {
 }
 
 // collectTravelTypes("Like a Local & History Buff & Art and Architecture Lover");
-function collectTravelTypes(nameOfTravelType){
+function collectTravelTypes(nameOfTravelType) {
     var travelStyleParts = nameOfTravelType.split(" & ");
     for (var i = 0; i < travelStyleParts.length; i++) {
         travelStyles[travelStyleParts[i]] = true;
@@ -550,7 +536,7 @@ function collectPlaceDetails(placeDetailsPoint) {
     }
 }
 
-function fillTravelStylesDropdown(){
+function fillTravelStylesDropdown() {
     for (var styleKey in travelStyles) {
         if (travelStyles.hasOwnProperty(styleKey)) {
             var div = document.getElementById("dropdownMenuTravelTypeContent");
@@ -580,11 +566,13 @@ function fillPlaceDetailsDropdown() {
     }
 }
 
-function applyFilters(){
+function applyFilters() {
     showLoadingLayout();
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
+        //Vienna center
         center: {lat: 48.2087716, lng: 16.3708347},
+        //Ljubljana
         // center: {lat: 46.0548178, lng: 14.5042642},
         mapTypeId: 'terrain'
     });
@@ -613,15 +601,15 @@ function resetGlobalValues() {
     responseMain = "";
 }
 
-function getDateFormat(strDate){
+function getDateFormat(strDate) {
     var dateParts = strDate.split("/");
     return dateParts[2] + dateParts[0] + dateParts[1];
 }
 
-function getCenter(pathDataToCalc){
+function getCenter(pathDataToCalc) {
     var latTmp = 0;
     var lngTmp = 0;
-    for (var i = 0; i < pathDataToCalc.length; i++){
+    for (var i = 0; i < pathDataToCalc.length; i++) {
         latTmp += pathDataToCalc[i]["lat"];
         lngTmp += pathDataToCalc[i]["lng"];
     }
@@ -631,7 +619,7 @@ function getCenter(pathDataToCalc){
     return centerCoord;
 }
 
-function maxLengthOfPaths(){
+function maxLengthOfPaths() {
     for (var p in mainPaths) {
         if (mainPaths.hasOwnProperty(p)) {
             var pathToDrawOn = mainPaths[p];
