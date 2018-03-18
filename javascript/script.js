@@ -22,7 +22,7 @@ var polyLines = [];
 var markers = {};
 
 //Request variables
-var MAX_REQUEST_PAGES = 4;
+var MAX_REQUEST_PAGES = 5;
 var requestCounter = 0;
 var responseMain = "";
 
