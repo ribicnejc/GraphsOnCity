@@ -93,7 +93,11 @@ function parseResponse(data) {
             var tmpObject = data[uidKey];
             mainUsers[uidKey] = tmpObject;
             var paths = tmpObject["PATHS"];
+
+            //Saving values to use it in dialog of path statistic
             var travleStyleUser = tmpObject["TRAVEL_STYLE"];
+            var pathStatisticGender = tmpObject["GENDER"];
+            var pathStatisticAge = tmpObject["AGE"];
 
             //Collect and different travel style only first time
             if (firstLoad)
@@ -158,7 +162,7 @@ function parseResponse(data) {
                 //Also we let it through if nthere is no markers, then it must go through
                 if (!pathIsLocalyGood && countRelativeLocalPlaces(relativityLocalPlaces) > 0) continue;
 
-                //Here is calculated statistics for path
+                /**Here is calculated statistics for path which is shown in dialog if you click on path*/
                 //DONE First we calculate num of path repeated
                 //DONE Second we calculate num of each travel type for this path
                 //TODO Third we calculate num of gender for that path
@@ -167,14 +171,21 @@ function parseResponse(data) {
                 if (mainPaths[pathKey] === undefined && pathContainsCorrectPoints) {
                     var pathStatisticData = {};
                     var styleStatisticData = {};
+                    var genderStatisticData = {};
+                    var ageStatisticData = {};
                     pathStatisticData["SAME_PATH_NUM"] = 1;
                     pathStatisticData["PATH"] = pathToDraw;
+                    genderStatisticData[pathStatisticGender] = 1;
+                    ageStatisticData[pathStatisticAge] = 1;
                     var travelTypeStat = travleStyleUser.split(" & ");
                     for (var tmpI = 0; tmpI < travelTypeStat.length; tmpI++) {
                         styleStatisticData[travelTypeStat[tmpI]] = 1;
                     }
+                    pathStatisticData["USERS_STATISTIC_GENDER"] = genderStatisticData;
+                    pathStatisticData["USERS_STATISTIC_AGE"] = ageStatisticData;
                     pathStatisticData["TRAVEL_STYLE"] = styleStatisticData;
                     mainPaths[pathKey] = pathStatisticData;
+
                 } else if (pathContainsCorrectPoints) {
                     var pathStatisticData2 = mainPaths[pathKey];
                     var tmpStat = pathStatisticData2["TRAVEL_STYLE"];
@@ -186,6 +197,16 @@ function parseResponse(data) {
                             tmpStat[travelTypeStat[tmpJ]] = tmpStat[travelTypeStat[tmpJ]] + 1;
                         }
                     }
+                    var genderStat = pathStatisticData2["USERS_STATISTIC_GENDER"];
+                    if (genderStat[pathStatisticGender] === undefined) genderStat[pathStatisticGender] = 1;
+                    else genderStat[pathStatisticGender] = genderStat[pathStatisticGender] + 1;
+                    pathStatisticData2["USERS_STATISTIC_GENDER"] = genderStat;
+
+                    var ageStat = pathStatisticData2["USERS_STATISTIC_AGE"];
+                    if (ageStat[pathStatisticAge] === undefined) ageStat[pathStatisticAge] = 1;
+                    else ageStat[pathStatisticAge] = ageStat[pathStatisticAge] + 1;
+                    pathStatisticData2["USERS_STATISTIC_AGE"] = ageStat;
+
                     pathStatisticData2["TRAVEL_STYLE"] = tmpStat;
                     pathStatisticData2["SAME_PATH_NUM"] = pathStatisticData2["SAME_PATH_NUM"] + 1;
                     mainPaths[pathKey] = pathStatisticData2;
@@ -388,6 +409,8 @@ function drawGraph(pathData, num) {
 
         var pathKey = generateKeyForPath(pathData);
         var pathHistoData = mainPaths[pathKey];
+        console.log("Path info data");
+        console.log(pathHistoData);
 
         modalPath.setMap(dialogMap);
         var modal = $('#myModal');
@@ -396,6 +419,7 @@ function drawGraph(pathData, num) {
             google.maps.event.trigger(dialogMap, "resize");
             dialogMap.setCenter(center);
             histo(pathHistoData["TRAVEL_STYLE"]);
+            showPathInfoModal(pathHistoData);
         });
         // alert(JSON.stringify(pathData));
 
