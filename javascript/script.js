@@ -418,7 +418,6 @@ function drawGraph(pathData, num) {
         modal.on('shown.bs.modal', function () {
             google.maps.event.trigger(dialogMap, "resize");
             dialogMap.setCenter(center);
-            histo(pathHistoData["TRAVEL_STYLE"]);
             showPathInfoModal(pathHistoData);
         });
         // alert(JSON.stringify(pathData));

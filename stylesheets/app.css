@@ -80,6 +80,27 @@ div.map-view, #map {
   z-index: 5;
 }
 
+/* line 1, ../sass/layout/_path-dialog.sass */
+.traveltype-histogram {
+  width: 100%;
+  height: 350px;
+  margin: 0 auto;
+}
+
+/* line 6, ../sass/layout/_path-dialog.sass */
+.age-histogram {
+  width: 100%;
+  height: 175px;
+  margin: 0 auto;
+}
+
+/* line 11, ../sass/layout/_path-dialog.sass */
+.gender-histogram {
+  width: 100%;
+  height: 175px;
+  margin: 0 auto;
+}
+
 /* line 1, ../sass/modules/_sliders.sass */
 .slidecontainer {
   width: 100%;

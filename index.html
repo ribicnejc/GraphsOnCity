@@ -42,8 +42,6 @@
                         <div class="map-tools">
 
 
-
-
                             <!--TOGGLE FOR MARKUPS-->
                             <div class="row">
                                 <div class="col-12">
@@ -74,15 +72,14 @@
                             </div>
 
 
-
-
                             <!--PATH REPETITION SLIDER-->
                             <div class="row">
                                 <div class="col-12">
                                     <div class="tool-content">
                                         <div class="slidecontainer">
                                             <p class="no-margin">
-                                                <label for="slider-path-repetition-amount">Relative path repetition</label>
+                                                <label for="slider-path-repetition-amount">Relative path
+                                                    repetition</label>
                                                 <input type="text" id="slider-path-repetition-amount" readonly
                                                        style="border:0; color:#f6931f; font-weight:bold;">
                                             </p>
@@ -105,9 +102,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
 
 
                             <!--PATH LENGTH SLIDER-->
@@ -270,7 +264,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Path analysis</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -282,31 +276,41 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-9">
-                        <!--TODO here come histogram about travel style ratio-->
-                        <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+                    <div class="col-7">
+                        <!--here come histogram about travel style ratio-->
+                        <div class="traveltype-histogram" id="container-travel-type"></div>
                     </div>
-                    <div class="col-3">
-                        <!--TODO here come statistic about users personal data and count of user and average numbers-->
+                    <div class="col-5">
+                        <!--here come statistic about users personal data and count of user and average numbers-->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="gender-histogram" id="container-gender"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="age-histogram" id="container-age"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                <button type="button" data-dismiss="modal" class="btn btn-primary">Close</button>
             </div>
         </div>
     </div>
 </div>
 
 
-
-<!-- Modal for point -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+<!-- Modal for marker -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel2">Location statistic and settings</h5>
+                <h5 class="modal-title" id="exampleModalLabel2">Location settings and analysis</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -334,8 +338,6 @@
 </div>
 
 
-
-
 <script src="javascript/script.js"></script>
 <script src="javascript/side-menu.js"></script>
 <script src="javascript/tools.js"></script>
@@ -343,6 +345,7 @@
 <script src="javascript/double-slider.js"></script>
 <script src="javascript/google-maps.js"></script>
 <script src="javascript/relativity-data.js"></script>
+<script src="javascript/histograms.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
