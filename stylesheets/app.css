@@ -63,6 +63,28 @@ div.main-content {
   overflow-y: auto;
 }
 
+/* line 34, ../sass/layout/_tools-layout.sass */
+.slider-value-style {
+  font-size: 20px;
+  font-weight: 600;
+  color: #585858;
+  font-family: "Titillium Web", sans-serif;
+  margin-top: -4px;
+}
+
+/* line 41, ../sass/layout/_tools-layout.sass */
+.double-slider-value-style {
+  border: 0;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Titillium Web", sans-serif;
+  color: #585858;
+  float: right;
+  margin-top: -4px;
+  width: 120px;
+}
+
 /* line 1, ../sass/layout/_map-layout.sass */
 div.map-view, #map {
   height: 100%;

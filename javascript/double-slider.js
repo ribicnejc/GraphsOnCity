@@ -14,10 +14,10 @@ function makeDoubleHandleSlider(id, valueID) {
     $("#"+id).slider("option", "range", true);
     $("#"+id).slider("option", "values", [currentValueLeftHandle, 100]);
     $("#"+id).slider("option", "slide", function (event, ui) {
-        $("#" + valueID).val("%" + ui.values[0] + " - %" + ui.values[1]);
+        $("#" + valueID).val(ui.values[0] + "% - " + ui.values[1] + "%").position("right");
     });
-    $("#" + valueID).val("%" + $("#"+id).slider("values", 0) +
-        " - %" + $("#"+id).slider("values", 1));
+    $("#" + valueID).val($("#"+id).slider("values", 0) +
+        "% - " + $("#"+id).slider("values", 1) + "%").position("right");
 }
 
 /**
