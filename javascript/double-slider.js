@@ -44,15 +44,29 @@ function initOneHandleSlider(id, valueID) {
 $(function () {
     initOneHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
     initOneHandleSlider("slider-path-length", "slider-path-length-amount");
+    makeDoubleHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
+    makeDoubleHandleSlider("slider-path-length", "slider-path-length-amount");
+    if(!isRelativeToggleChecked())
+        $(".animate-visibility-on-relative-toggle").hide();
 });
+
+//Listener for relative toggle
+// var checkboxRelativity = document.getElementById("relativeCheckbox");
+// checkboxRelativity.addEventListener('change', function () {
+//     if (this.checked) {
+//         makeDoubleHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
+//         makeDoubleHandleSlider("slider-path-length", "slider-path-length-amount");
+//     } else {
+//         makeOneHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
+//         makeOneHandleSlider("slider-path-length", "slider-path-length-amount");
+//     }
+// });
 
 var checkboxRelativity = document.getElementById("relativeCheckbox");
 checkboxRelativity.addEventListener('change', function () {
     if (this.checked) {
-        makeDoubleHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
-        makeDoubleHandleSlider("slider-path-length", "slider-path-length-amount");
+        $(".animate-visibility-on-relative-toggle").show(500);
     } else {
-        makeOneHandleSlider("slider-path-repetition", "slider-path-repetition-amount");
-        makeOneHandleSlider("slider-path-length", "slider-path-length-amount");
+        $(".animate-visibility-on-relative-toggle").hide(500);
     }
 });
