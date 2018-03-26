@@ -500,6 +500,7 @@ function initMap() {
 
         mapTypeId: 'terrain'
     });
+    showLoadingLayout();
     requestInitData(0);
 }
 

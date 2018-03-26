@@ -160,10 +160,14 @@ checkbox.addEventListener('change', function () {
 
 function showLoadingLayout() {
     document.getElementById("loadingScreen").style.visibility = 'visible';
+    document.getElementById("apply-filters-btn").disabled = true;
+    document.getElementById("clear-filters-btn").disabled = true;
 }
 
 function hideLoadingLayout() {
     document.getElementById("loadingScreen").style.visibility = 'hidden';
+    document.getElementById("apply-filters-btn").disabled = false;
+    document.getElementById("clear-filters-btn").disabled = false;
 }
 
 $(document).ready(function () {
