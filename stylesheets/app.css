@@ -531,7 +531,7 @@ span.badge:hover {
 
 /* line 15, ../sass/modules/_scrollbars.sass */
 .scrollbar-primary::-webkit-scrollbar {
-  width: 12px;
+  width: 6px;
   background-color: #F5F5F5;
 }
 
