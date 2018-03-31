@@ -50,8 +50,7 @@ if ($sqlClause1 != "notSet" && $sqlClause2 != "notSet") {
 } else if ($sqlClause2 != "notSet") {
     $sqlClause = "$sqlClause2";
 }
-
-$sql = "SELECT * FROM tripvienna";
+$sql = "SELECT * FROM tripviennar";
 if ($sqlClause != "notSet") {
     $sql = "$sql WHERE $sqlClause";
 }
@@ -62,7 +61,7 @@ if ($travelTypeClause != "notSet") {
         $sql = "$sql WHERE $travelTypeClause";
     }
 }
-$sql = "$sql ORDER BY UID, REVIEW_DATE ASC";
+$sql = "$sql ORDER BY UID, REVIEW_ID ASC";
 
 if ($requestPage."" != "notSet") {
     $sql = "$sql LIMIT 40000 OFFSET " . $requestPage * 40000;
@@ -86,6 +85,7 @@ try {
     $newData = array();
     foreach ($data as $userObject) {
         $uid = $userObject->UID;
+        $rid = $userObject->REVIEW_ID;
         $age = $userObject->AGE;
         $gender = $userObject->GENDER;
         $travel_style = $userObject->TRAVEL_STYLE;
@@ -101,6 +101,7 @@ try {
         if (!array_key_exists($uid, $newData)) {
             $fixData = array();
             $fixData["UID"] = $uid;
+            $fixData["REVIEW_ID"] = $rid;
             $fixData["AGE"] = $age;
             $fixData["GENDER"] = $gender;
             $fixData["TRAVEL_STYLE"] = $travel_style;
