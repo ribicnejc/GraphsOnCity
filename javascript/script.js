@@ -40,6 +40,8 @@ var firstLoad = true;
 
 function filterRequestListener() {
     //Here we receive response and we remove first and last curly braces
+    if (this.responseText.length < 1000)
+        console.log("Error retrieving data: " + this.responseText);
     if (responseMain === "")
         responseMain = this.responseText.slice(1, -1);
     else
@@ -57,6 +59,8 @@ function filterRequestListener() {
 }
 
 function initRequestListener() {
+    if (this.responseText.length < 1000)
+        console.log("Error retrieving data: " + this.responseText);
     if (responseMain === "")
         responseMain = this.responseText.slice(1, -1);
     else
