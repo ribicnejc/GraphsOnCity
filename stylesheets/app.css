@@ -661,3 +661,23 @@ span.badge:hover {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
   background-color: #aa66cc;
 }
+
+/* line 1, ../sass/modules/_separators.sass */
+.divider-horizontal {
+  height: 1px;
+  width: 100%;
+  display: block;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+/* line 9, ../sass/modules/_separators.sass */
+.divider-vertical {
+  height: 100%;
+  width: 1px;
+  display: block;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
