@@ -15,4 +15,5 @@ Data was collected from website
 www.tripadvisor.com 
 
 ## Screenshots
+![alt text](https://github.com/ribicnejc/GraphsOnCity/blob/master/assets/gitscreenpoc2.jpg)
 
