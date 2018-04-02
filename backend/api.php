@@ -64,7 +64,7 @@ if ($travelTypeClause != "notSet") {
 $sql = "$sql ORDER BY UID, REVIEW_ID ASC";
 
 if ($requestPage."" != "notSet") {
-    $sql = "$sql LIMIT 40000 OFFSET " . $requestPage * 40000;
+    $sql = "$sql LIMIT 36000 OFFSET " . $requestPage * 36000;
 }
 //echo $sql;
 //return 0;
