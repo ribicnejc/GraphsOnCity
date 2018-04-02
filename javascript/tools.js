@@ -198,3 +198,7 @@ function isRelativeToggleChecked() {
 function isShowMarkersChecked() {
     return document.getElementById("showMarkers").checked;
 }
+
+function generatePlaceKey(place) {
+    return place["LAT"] + "," + place["LNG"];
+}

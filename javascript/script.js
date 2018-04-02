@@ -3,6 +3,7 @@ var map;
 var mainPaths = {};
 var mainUsers = {};
 var quickStat = {};
+var mainPlaces = {};
 
 //Histogram data variables
 var histoData1 = {};
@@ -122,6 +123,7 @@ function parseResponse(data) {
                 var pathKey = "";
                 for (var j = 0; j < path.length; j++) {
                     var point = path[j];
+                    collectPlaceData(point, travleStyleUser, pathStatisticGender, pathStatisticAge);
                     var lat = point["LAT"];
                     var lng = point["LNG"];
                     var placeDetailsPoint = point["PLACE_DETAILS"];
@@ -167,10 +169,10 @@ function parseResponse(data) {
                 if (!pathIsLocalyGood && countRelativeLocalPlaces(relativityLocalPlaces) > 0) continue;
 
                 /**Here is calculated statistics for path which is shown in dialog if you click on path*/
-                //DONE First we calculate num of path repeated
-                //DONE Second we calculate num of each travel type for this path
-                //TODO Third we calculate num of gender for that path
-                //TODO Fourth we calculate num of age for that path
+                //First we calculate num of path repeated
+                //Second we calculate num of each travel type for this path
+                //Third we calculate num of gender for that path
+                //Fourth we calculate num of age for that path
                 //TODO add more elements for later analysis
                 if (mainPaths[pathKey] === undefined && pathContainsCorrectPoints) {
                     var pathStatisticData = {};
@@ -327,6 +329,7 @@ function addMarker(coords, placeName, isFlag) {
             }
         });
 
+        console.log(mainPlaces[marker.LAT + "," + marker.LNG]);
     });
 
     if (markers[markerKey] !== undefined) return;
@@ -617,6 +620,7 @@ function requestFilterData(page) {
 }
 
 function resetGlobalValues() {
+    mainPlaces = {};
     mainPaths = {};
     mainUsers = {};
     quickStat = {};
@@ -675,4 +679,42 @@ function updateDateSelections() {
     date2 = date2[4] + date2[5] + "/" + date2[6] + date2[7] + "/" + date2[0] + date2[1] + date2[2] + date2[3];
     document.getElementById("datepicker-8").value = date1;
     document.getElementById("datepicker-9").value = date2;
+}
+
+
+function collectPlaceData(place, travleStyleUser, pathStatisticGender, pathStatisticAge) {
+    var placeKey = generatePlaceKey(place);
+    var tmpData = mainPlaces[placeKey];
+    if (tmpData === undefined) tmpData = {};
+    if (tmpData["VISITOR"] === undefined) tmpData["VISITOR"] = 1;
+    else tmpData["VISITOR"] = tmpData["VISITOR"] + 1;
+
+    var genders = tmpData["GENDER"];
+    if (genders === undefined) genders = {};
+    if (genders[pathStatisticGender] === undefined) genders[pathStatisticGender] = 1;
+    else genders[pathStatisticGender] = genders[pathStatisticGender] + 1;
+    tmpData["GENDER"] = genders;
+    genders = null;
+
+
+    var tmpStat = tmpData["TRAVEL_STYLE"];
+    if (tmpStat === undefined) tmpStat = {};
+    var tmpStatParts = travleStyleUser.split(" & ");
+    for (var i = 0; i < tmpStatParts.length; i++) {
+        if (tmpStat[tmpStatParts[i]] === undefined) tmpStat[tmpStatParts[i]] = 1;
+        else tmpStat[tmpStatParts[i]] = tmpStat[tmpStatParts[i]] + 1;
+    }
+    tmpData["TRAVEL_STYLE"] = tmpStat;
+    tmpStat = null;
+    tmpStatParts = null;
+
+    var ages = tmpData["AGE"];
+    if (ages === undefined) ages = {};
+    if (ages[pathStatisticAge] === undefined) ages[pathStatisticAge] = 1;
+    else ages[pathStatisticAge] = ages[pathStatisticAge] + 1;
+    tmpData["AGE"] = ages;
+    ages = null;
+
+    mainPlaces[placeKey] = tmpData;
+    tmpData = null;
 }
