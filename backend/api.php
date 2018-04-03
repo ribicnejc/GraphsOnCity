@@ -1,6 +1,8 @@
 <?php
 require 'db.php';
 
+$databaseName = "tripviennar";
+
 $dateTo = "notSet";
 $dateFrom = "notSet";
 $pathSpan = "notSet";
@@ -50,7 +52,7 @@ if ($sqlClause1 != "notSet" && $sqlClause2 != "notSet") {
 } else if ($sqlClause2 != "notSet") {
     $sqlClause = "$sqlClause2";
 }
-$sql = "SELECT * FROM tripviennar";
+$sql = "SELECT * FROM $databaseName";
 if ($sqlClause != "notSet") {
     $sql = "$sql WHERE $sqlClause";
 }
