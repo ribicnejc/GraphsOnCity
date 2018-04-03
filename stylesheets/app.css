@@ -231,6 +231,28 @@ body div.ui-slider-range.ui-widget-header {
 }
 
 /* line 18, ../sass/modules/_loaders.sass */
+.loading-info {
+  text-align: center;
+  position: absolute;
+  z-index: 998;
+  height: 2em;
+  margin: auto;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+/* line 28, ../sass/modules/_loaders.sass */
+.loading-info p {
+  width: fit-content;
+  display: block;
+  margin: auto;
+  padding: 0 5px;
+  text-shadow: 0 0 30px black;
+  background: rgba(240, 240, 240, 0.8);
+}
+
+/* line 36, ../sass/modules/_loaders.sass */
 .overlay {
   position: absolute;
   z-index: 999;
@@ -245,7 +267,7 @@ body div.ui-slider-range.ui-widget-header {
 }
 
 /* :not(:required) hides these rules from IE9 and below */
-/* line 31, ../sass/modules/_loaders.sass */
+/* line 49, ../sass/modules/_loaders.sass */
 .loading:not(:required) {
   /* hide "loading..." text */
   font: 0/0 a;
@@ -255,7 +277,7 @@ body div.ui-slider-range.ui-widget-header {
   border: 0;
 }
 
-/* line 40, ../sass/modules/_loaders.sass */
+/* line 58, ../sass/modules/_loaders.sass */
 .loading:not(:required):after {
   content: "";
   display: block;

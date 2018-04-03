@@ -202,3 +202,7 @@ function isShowMarkersChecked() {
 function generatePlaceKey(place) {
     return place["LAT"] + "," + place["LNG"];
 }
+
+function setLoadingText(text) {
+    document.getElementById("loading-info-p").innerText = text;
+}

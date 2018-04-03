@@ -41,8 +41,10 @@ var firstLoad = true;
 
 function filterRequestListener() {
     //Here we receive response and we remove first and last curly braces
-    if (this.responseText.length < 1000)
+    if (this.responseText.length < 1000){
+        setLoadingText("Error occurred, check console");
         console.log("Error retrieving data: " + this.responseText);
+    }
     if (responseMain === "")
         responseMain = this.responseText.slice(1, -1);
     else
@@ -50,7 +52,10 @@ function filterRequestListener() {
 
     //We request new page of data or we create JSON and parse it
     if (requestCounter < MAX_REQUEST_PAGES) {
-        requestFilterData(++requestCounter);
+        requestCounter++;
+        var percent = (requestCounter * 100) / MAX_REQUEST_PAGES;
+        setLoadingText("data fetch at " + percent + "%");
+        requestFilterData(requestCounter);
     } else {
         var content = JSON.parse("{" + responseMain + "}");
         responseMain = "";
@@ -60,15 +65,21 @@ function filterRequestListener() {
 }
 
 function initRequestListener() {
-    if (this.responseText.length < 1000)
+    if (this.responseText.length < 1000){
+        setLoadingText("Error occurred, check console");
         console.log("Error retrieving data: " + this.responseText);
+    }
     if (responseMain === "")
         responseMain = this.responseText.slice(1, -1);
     else
         responseMain += "," + this.responseText.slice(1, -1);
     if (requestCounter < MAX_REQUEST_PAGES) {
-        requestInitData(++requestCounter);
+        requestCounter++;
+        var percent = (requestCounter * 100) / MAX_REQUEST_PAGES;
+        setLoadingText("data fetch at " + percent + "%");
+        requestInitData(requestCounter);
     } else {
+        setLoadingText("analyzing data (parsing)");
         var content = JSON.parse("{" + responseMain + "}");
         responseMain = "";
         requestCounter = 0;
@@ -507,6 +518,10 @@ function initMap() {
 
         mapTypeId: 'terrain'
     });
+    google.maps.event.addListener(map, 'idle', function() {
+       console.log("Map is now idle");
+    });
+
     showLoadingLayout();
     requestInitData(0);
 }
