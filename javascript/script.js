@@ -394,7 +394,7 @@ function drawGraph(pathData, num) {
     this.userPath = new google.maps.Polyline({
         path: pathData,
         geodesic: true,
-        strokeColor: colorLine(num),//"#0000FF",//randomColor(),
+        strokeColor: pathColor(num),//colorLine(num),//"#0000FF",//randomColor(),
         strokeOpacity: 1.0,
         strokeWeight: 2
     });
@@ -416,7 +416,7 @@ function drawGraph(pathData, num) {
         var modalPath = new google.maps.Polyline({
             path: pathData,
             geodesic: true,
-            strokeColor: colorLine(num),//"#0000FF",//randomColor(),
+            strokeColor: pathColor(num),//colorLine(num),//"#0000FF",//randomColor(),
             strokeOpacity: 1.0,
             strokeWeight: 2
         });
@@ -552,33 +552,6 @@ function infoRequestListener() {
     if (firstLoad)
         requestInitData(0);
     else requestFilterData(0);
-}
-
-function randomColor() {
-    var parts = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
-    var color = "#";
-    for (var i = 0; i < 6; i++) {
-        color += parts[Math.floor(Math.random() * 15)];
-    }
-    return color;
-}
-
-function colorLine(amount) {
-    if (quickStat[amount] === undefined) {
-        quickStat[amount] = 1;
-    } else {
-        quickStat[amount] = quickStat[amount] + 1;
-    }
-    if (amount < 3) {
-        return "#000";
-    } else if (amount < 7) {
-        return "#400";
-    } else if (amount < 10) {
-        return "#800";
-    } else if (amount < 15) {
-        return "#a00";
-    } else
-        return "#f00";
 }
 
 function requestInitData(page) {
