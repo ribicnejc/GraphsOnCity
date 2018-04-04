@@ -13,3 +13,10 @@
 //     markers.push(marker);
 //
 // }
+
+
+function getDialogMapMarkerLabel(i, length) {
+    if (i === length - 1) return "E";
+    if (i === 0) return "S";
+    return "" + i;
+}

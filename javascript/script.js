@@ -45,7 +45,7 @@ var firstLoad = true;
 
 function filterRequestListener() {
     //Here we receive response and we remove first and last curly braces
-    if (this.responseText.length < 1000){
+    if (this.responseText.length < 1000) {
         setLoadingText("Error occurred, check console");
         console.log("Error retrieving data: " + this.responseText);
     }
@@ -69,7 +69,7 @@ function filterRequestListener() {
 }
 
 function initRequestListener() {
-    if (this.responseText.length < 1000){
+    if (this.responseText.length < 1000) {
         setLoadingText("Error occurred, check console");
         console.log("Error retrieving data: " + this.responseText);
     }
@@ -428,6 +428,18 @@ function drawGraph(pathData, num) {
             mapTypeId: 'terrain'
         });
 
+        for (var i = 0; i < pathData.length; i++) {
+            var dialogPathCoords = pathData[i];
+            new google.maps.Marker({
+                position: dialogPathCoords,
+                label: {
+                    text: getDialogMapMarkerLabel(i, pathData.length),
+                    color: "#f2f2f2"
+                },
+                map: dialogMap
+            });
+
+        }
 
         var pathKey = generateKeyForPath(pathData);
         var pathHistoData = mainPaths[pathKey];
@@ -522,8 +534,8 @@ function initMap() {
 
         mapTypeId: 'terrain'
     });
-    google.maps.event.addListener(map, 'idle', function() {
-       console.log("Map is now idle");
+    google.maps.event.addListener(map, 'idle', function () {
+        console.log("Map is now idle");
     });
 
     showLoadingLayout();
