@@ -643,7 +643,7 @@ function fillPlaceDetailsDropdown() {
 function applyFilters() {
     showLoadingLayout();
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
+        zoom: 12,
         //Vienna center
         center: {lat: 48.2087716, lng: 16.3708347},
         //Ljubljana
