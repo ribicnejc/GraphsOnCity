@@ -141,14 +141,22 @@ try {
             $point["REVIEW_RATE"] = $review_rate;
             $point["REVIEW_DATE"] = $review_date;
 
-            //TODO here check if previous point has the same name, if so, then dont add this point to path
-
             $paths = $fixData["PATHS"];
             if ($intDate - $lastDate > $pathTimeSpan) {
                 $paths[] = array();
                 $lastDate = $intDate;
             }
-            $paths[count($paths) - 1][] = $point;
+
+            //the latest path before new point is added
+            $pathtmp = $paths[count($paths) - 1];
+
+            if (count($pathtmp) != 0){
+                //the latest point of latest path
+                $lastpoint = $pathtmp[count($pathtmp)-1];
+            } else $lastpoint = null;
+            if ($lastpoint != null && $lastpoint["PLACE_NAME"] != $point["PLACE_NAME"]) {
+                $paths[count($paths) - 1][] = $point;
+            }
             $fixData["PATHS"] = $paths;
             $newData[$uid] = $fixData;
         }
