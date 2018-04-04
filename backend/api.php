@@ -2,6 +2,8 @@
 require 'db.php';
 
 $databaseName = "tripviennar";
+//$databaseName = "okpgr";
+
 
 $dateTo = "notSet";
 $dateFrom = "notSet";
@@ -138,6 +140,8 @@ try {
             $point["PLACE_RATE"] = $place_rate;
             $point["REVIEW_RATE"] = $review_rate;
             $point["REVIEW_DATE"] = $review_date;
+
+            //TODO here check if previous point has the same name, if so, then dont add this point to path
 
             $paths = $fixData["PATHS"];
             if ($intDate - $lastDate > $pathTimeSpan) {

@@ -27,6 +27,10 @@ var MAX_REQUEST_PAGES = 5;
 var requestCounter = 0;
 var responseMain = "";
 
+//Map variables
+var centerLat;
+var centerLng;
+
 
 var sliderProperties = {
     maxNumberOfSamePaths: 0,
@@ -79,7 +83,6 @@ function initRequestListener() {
         setLoadingText("data fetch at " + percent + "%");
         requestInitData(requestCounter);
     } else {
-        setLoadingText("analyzing data (parsing)");
         var content = JSON.parse("{" + responseMain + "}");
         responseMain = "";
         requestCounter = 0;
@@ -95,6 +98,7 @@ function initRequestListener() {
  * go through one path different times
  */
 function parseResponse(data) {
+    setLoadingText("analyzing data (parsing)");
     // Below for loop is for travel type which was selected to be used in paths
     var travelStyleForUser = getTravelTypeSelectedArray();
 
@@ -523,7 +527,31 @@ function initMap() {
     });
 
     showLoadingLayout();
-    requestInitData(0);
+    requestInfoData();
+}
+
+function requestInfoData() {
+    setLoadingText("calculating center...");
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", infoRequestListener);
+    oReq.open("GET", "" +
+        "backend/infoapi.php");
+    oReq.send();
+}
+
+function infoRequestListener() {
+    var content = JSON.parse(this.responseText);
+    centerLat = content["AVG_LAT"];
+    centerLng = content["AVG_LNG"];
+    MAX_REQUEST_PAGES = content["REQUEST_NUM"] - 1;
+
+    var center = {lat: centerLat, lng: centerLng};
+    map.setCenter(center);
+
+    setLoadingText("fetching data...");
+    if (firstLoad)
+        requestInitData(0);
+    else requestFilterData(0);
 }
 
 function randomColor() {
@@ -623,7 +651,7 @@ function applyFilters() {
         mapTypeId: 'terrain'
     });
     resetGlobalValues();
-    requestFilterData(0)
+    requestInfoData();
 }
 
 function requestFilterData(page) {
