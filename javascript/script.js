@@ -396,7 +396,7 @@ function drawGraph(pathData, num) {
         geodesic: true,
         strokeColor: pathColor(num),//colorLine(num),//"#0000FF",//randomColor(),
         strokeOpacity: 1.0,
-        strokeWeight: 2
+        strokeWeight: getPathStroke(num)
     });
 
     polyLines.push(this.userPath);
@@ -405,7 +405,7 @@ function drawGraph(pathData, num) {
     google.maps.event.addListener(this.userPath, 'mouseover', function () {
         this.setOptions({
             strokeOpacity: 0.5,
-            strokeWeight: 5
+            strokeWeight: this.strokeWeight + 2
         });
     });
 
@@ -418,7 +418,7 @@ function drawGraph(pathData, num) {
             geodesic: true,
             strokeColor: pathColor(num),//colorLine(num),//"#0000FF",//randomColor(),
             strokeOpacity: 1.0,
-            strokeWeight: 2
+            strokeWeight: 3
         });
         var center = getCenter(pathData);
         var dialogMap = new google.maps.Map(document.getElementById('mapDialog'), {
@@ -462,7 +462,7 @@ function drawGraph(pathData, num) {
     google.maps.event.addListener(this.userPath, 'mouseout', function () {
         this.setOptions({
             strokeOpacity: 1,
-            strokeWeight: 2
+            strokeWeight: this.strokeWeight - 2
         });
     });
     this.userPath.setMap(map);

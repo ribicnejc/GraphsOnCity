@@ -8,6 +8,9 @@ var sliderPathLengthValue = document.getElementById("numberOfPathLength");
 var sliderNumOfDay = document.getElementById("sliderNumOfDay");
 var sliderNumOfDayValue = document.getElementById("numberOfDay");
 
+var sliderPathStroke = document.getElementById("sliderPathStroke");
+var sliderPathStrokeValue = document.getElementById("pathStroke");
+
 sliderNumOfPaths.oninput = function () {
     sliderNumOfPathsValue.innerHTML = this.value;
 };
@@ -16,6 +19,9 @@ sliderPathLength.oninput = function () {
 };
 sliderNumOfDay.oninput = function () {
     sliderNumOfDayValue.innerHTML = this.value;
+};
+sliderPathStroke.oninput = function () {
+    sliderPathStrokeValue.innerHTML = "" + (parseInt(this.value) / 10.0);
 };
 
 
