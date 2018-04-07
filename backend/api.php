@@ -4,7 +4,6 @@ require 'db.php';
 $databaseName = "tripviennar";
 //$databaseName = "okpgr";
 
-
 $dateTo = "notSet";
 $dateFrom = "notSet";
 $pathSpan = "notSet";
@@ -70,6 +69,7 @@ $sql = "$sql ORDER BY UID, REVIEW_ID ASC";
 if ($requestPage."" != "notSet") {
     $sql = "$sql LIMIT 36000 OFFSET " . $requestPage * 36000;
 }
+//$sql = "SELECT * FROM $databaseName WHERE UID = '1FAAE70B61F2FC3EF3775CAC09317539'";
 //echo $sql;
 //return 0;
 try {
@@ -105,7 +105,6 @@ try {
         if (!array_key_exists($uid, $newData)) {
             $fixData = array();
             $fixData["UID"] = $uid;
-            $fixData["REVIEW_ID"] = $rid;
             $fixData["AGE"] = $age;
             $fixData["GENDER"] = $gender;
             $fixData["TRAVEL_STYLE"] = $travel_style;
@@ -116,6 +115,7 @@ try {
             $point = array();
             $point["LAT"] = $lat;
             $point["LNG"] = $lng;
+            $point["REVIEW_ID"] = $rid;
             $point["PLACE_NAME"] = $place_name;
             $point["PLACE_DETAILS"] = $place_details;
             $point["PLACE_RATE"] = $place_rate;
@@ -135,28 +135,42 @@ try {
             $point = array();
             $point["LAT"] = $lat;
             $point["LNG"] = $lng;
+            $point["REVIEW_ID"] = $rid;
             $point["PLACE_NAME"] = $place_name;
             $point["PLACE_DETAILS"] = $place_details;
             $point["PLACE_RATE"] = $place_rate;
             $point["REVIEW_RATE"] = $review_rate;
             $point["REVIEW_DATE"] = $review_date;
 
+            //already created path are saved to $paths
+            //this is OK
             $paths = $fixData["PATHS"];
-            if ($intDate - $lastDate > $pathTimeSpan) {
+
+            //if date of point compared to first date in path is more than 30 day it is considered new path
+            //this is not OK
+            if (subtractDays($intDate, $lastDate) > $pathTimeSpan) {
                 $paths[] = array();
                 $lastDate = $intDate;
             }
 
-            //the latest path before new point is added
+            //whe save latest path to $pathtmp
+            //this is OK
             $pathtmp = $paths[count($paths) - 1];
 
-            if (count($pathtmp) != 0){
-                //the latest point of latest path
-                $lastpoint = $pathtmp[count($pathtmp)-1];
-            } else $lastpoint = null;
-            if ($lastpoint != null && $lastpoint["PLACE_NAME"] != $point["PLACE_NAME"]) {
+            //if latest path have at least one point, we save it as $lastpoint otherwise we set default value
+            $lastpoint = array();
+            $lastpoint["PLACE_NAME"] = "notSetYet";
+            if (count($pathtmp) != 0) {
+                $lastpoint = $pathtmp[count($pathtmp) - 1];
+            }
+
+            //if last point and current point are not the same, we added point to path
+            if ($lastpoint["PLACE_NAME"] != $point["PLACE_NAME"]) {
                 $paths[count($paths) - 1][] = $point;
             }
+
+            //we update paths
+            //this is OK
             $fixData["PATHS"] = $paths;
             $newData[$uid] = $fixData;
         }
@@ -166,6 +180,16 @@ try {
 //    echo json_encode($data, JSON_UNESCAPED_UNICODE);
 } catch (PDOException $e) {
     echo $e->getMessage();
+}
+
+function subtractDays($date1, $date2) {
+    $a = intval(strtotime($date2));
+    $b = intval(strtotime($date1));
+    $seconds = $b - $a;
+    $minutes = $seconds / 60;
+    $hours = $minutes / 60;
+    $days = $hours / 24;
+    return intval($days);
 }
 
 /**
