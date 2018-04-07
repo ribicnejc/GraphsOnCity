@@ -1,8 +1,8 @@
 <?php
 require 'db.php';
 
-$databaseName = "tripviennar";
-//$databaseName = "okpgr";
+//$databaseName = "tripviennar";
+$databaseName = "okpgr";
 
 $dateTo = "notSet";
 $dateFrom = "notSet";
@@ -147,7 +147,7 @@ try {
             $paths = $fixData["PATHS"];
 
             //if date of point compared to first date in path is more than 30 day it is considered new path
-            //this is not OK
+            //this is OK
             if (subtractDays($intDate, $lastDate) > $pathTimeSpan) {
                 $paths[] = array();
                 $lastDate = $intDate;
@@ -158,6 +158,7 @@ try {
             $pathtmp = $paths[count($paths) - 1];
 
             //if latest path have at least one point, we save it as $lastpoint otherwise we set default value
+            //this is OK
             $lastpoint = array();
             $lastpoint["PLACE_NAME"] = "notSetYet";
             if (count($pathtmp) != 0) {
@@ -165,6 +166,7 @@ try {
             }
 
             //if last point and current point are not the same, we added point to path
+            //this is OK
             if ($lastpoint["PLACE_NAME"] != $point["PLACE_NAME"]) {
                 $paths[count($paths) - 1][] = $point;
             }

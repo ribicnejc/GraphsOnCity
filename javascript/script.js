@@ -125,7 +125,7 @@ function parseResponse(data) {
 
             //Here we generate coords and create legit path for google maps
             for (var i = 0; i < paths.length; i++) {
-                var path = paths[0];
+                var path = paths[i];
 
 
                 //Count and get longest path. This is for sliders setup
@@ -253,6 +253,15 @@ function parseResponse(data) {
     //Here we draw paths which are stored in mainPaths
     /*TODO fix, so the first time graphs are shown, set slider to that value with which they are shown
         that means to set minimum date and maximum date of reviews, and set correct slider*/
+
+
+    //TODO below
+    //Sort paths so the strongest are lowest
+    //Sort paths so the strongest are highest
+
+
+
+
     for (var pathKEY in mainPaths) {
         if (mainPaths.hasOwnProperty(pathKEY)) {
             var pathToDrawOn = mainPaths[pathKEY];
