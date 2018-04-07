@@ -535,6 +535,11 @@ span.badge:hover {
   cursor: pointer;
 }
 
+/* line 18, ../sass/modules/_drop-downs.sass */
+.custom-menu-item {
+  width: 100%;
+}
+
 /* line 2, ../sass/modules/_scrollbars.sass */
 .scrollbar {
   margin-left: 30px;
