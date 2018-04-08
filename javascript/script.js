@@ -256,6 +256,7 @@ function parseResponse(data) {
 
 
     //TODO below
+    // sortPathStrength(mainPaths, true);
     //Sort paths so the strongest are lowest
     //Sort paths so the strongest are highest
 

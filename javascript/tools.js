@@ -212,3 +212,22 @@ function generatePlaceKey(place) {
 function setLoadingText(text) {
     document.getElementById("loading-info-p").innerText = text;
 }
+
+//TODO make sort algorithm
+function sortPathStrength(paths, strongestTheLowest) {
+    // var arr = [];
+    // var prop;
+    // for (prop in obj) {
+    //     if (obj.hasOwnProperty(prop)) {
+    //         arr.push({
+    //             'key': prop,
+    //             'value': obj[prop]
+    //         });
+    //     }
+    // }
+    // arr.sort(function(a, b) {
+    //     return a.value - b.value;
+    // });
+    // return arr; // returns array
+    //
+}
