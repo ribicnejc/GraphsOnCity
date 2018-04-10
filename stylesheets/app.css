@@ -197,7 +197,7 @@ body div.ui-slider-range.ui-widget-header {
 }
 
 /* line 58, ../sass/modules/_sliders.sass */
-.ui-widget.ui-widget-content {
+.slidecontainer .ui-widget.ui-widget-content {
   background-color: #d3d3d3;
   outline: none;
   opacity: 0.7;
