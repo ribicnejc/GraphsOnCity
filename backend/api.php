@@ -3,6 +3,7 @@ require 'db.php';
 
 //$databaseName = "tripviennar";
 $databaseName = "okpgr";
+//$databaseName = "ljubljanar";
 
 $dateTo = "notSet";
 $dateFrom = "notSet";

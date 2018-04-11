@@ -3,6 +3,7 @@ require 'db.php';
 
 //$databaseName = "tripviennar";
 $databaseName = "okpgr";
+//$databaseName = "ljubljanar";
 
 $sql = "SELECT COUNT(ID) as `COUNT_SIZE`, AVG(LAT) as `AVG_LAT`, AVG(LNG) as `AVG_LNG` FROM $databaseName";
 
