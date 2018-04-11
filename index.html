@@ -9,12 +9,18 @@
     <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+    <!-- Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendor/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/bootstrap-4.0.0-alpha.6-dist/css/bootstrap-grid.min.css">
+
+    <!-- Fa fa icons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -74,7 +80,7 @@
                             </div>
 
 
-                            <!--PATH REPETITION SLIDER-->
+                            <!--PATH RELATIVE REPETITION SLIDER-->
                             <div class="animate-visibility-on-relative-toggle">
                                 <div class="row">
                                     <div class="col-12">
@@ -109,7 +115,7 @@
                             </div>
 
 
-                            <!--PATH LENGTH SLIDER-->
+                            <!--PATH RELATIVE LENGTH SLIDER-->
                             <div class="animate-visibility-on-relative-toggle">
                                 <div class="row">
                                     <div class="col-12">
@@ -127,7 +133,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!--SLIDER2-->
                             <div class="row">
                                 <div class="col-12">
@@ -178,6 +183,34 @@
 
                             <!--DATE PICKERS-->
                             <div class="row">
+
+                                <!--DATE PICKER 1-->
+                                <div class="col-6">
+                                    <div class="tool-content">
+                                        <label for="datepicker-1">Enter Start Date:</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="datepicker-1" aria-describedby="basic-addon1">
+                                            <!--style="font-size:24px" this is for fa fa-calendar-->
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--DATE PICKER 2-->
+                                <div class="col-6">
+                                    <div class="tool-content">
+                                        <label for="datepicker-1">Enter End Date:</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="datepicker-2" aria-describedby="basic-addon2">
+                                            <!--style="font-size:24px" this is for fa fa-calendar-->
+                                            <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
                                 <div class="col-6">
                                     <div class="tool-content">
                                         <p>Enter Start Date: <input class="date-input" type="text" id="datepicker-8">
@@ -271,7 +304,6 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-8 map-view">
-                <!--<div class="loader"></div>-->
                 <div class="loading-screen" id="loadingScreen">
                     <div class="overlay"></div>
                     <div class="loading">Loading&#8230;</div>
