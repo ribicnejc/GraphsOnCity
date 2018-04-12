@@ -27,13 +27,13 @@ sliderPathStroke.oninput = function () {
 
 //DATE PICKER
 $(function () {
-    $("#datepicker-8").datepicker({
+    $("#datepicker-1").datepicker({
         prevText: "click for previous months",
         nextText: "click for next months",
         showOtherMonths: true,
         selectOtherMonths: false
     });
-    $("#datepicker-9").datepicker({
+    $("#datepicker-2").datepicker({
         prevText: "click for previous months",
         nextText: "click for next months",
         showOtherMonths: true,
@@ -112,8 +112,8 @@ function resetSettings() {
     slider2.value = "50";
     slider3.value = "50";
 
-    var datePicker1 = document.getElementById("datepicker-8");
-    var datePicker2 = document.getElementById("datepicker-9");
+    var datePicker1 = document.getElementById("datepicker-1");
+    var datePicker2 = document.getElementById("datepicker-2");
     datePicker1.value = "";
     datePicker2.value = "";
 

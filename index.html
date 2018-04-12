@@ -49,6 +49,30 @@
                     <div>
                         <div class="map-tools scrollbar-primary">
 
+                            <div class="row">
+
+                                <!--CITY SELECTOR-->
+                                <div class="col-12">
+                                    <div class="tool-content">
+                                            <div>
+                                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                        id="dropdownMenuCity" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Add type
+                                                </button>
+                                                <div id="dropdownMenuCityContent"
+                                                     class="dropdown-menu scrollable-content custom-menu-item scrollbar-primary"
+                                                     aria-labelledby="dropdownMenuCity">
+                                                    <button type="button" class="dropdown-item">Dunaj</button>
+                                                    <button type="button" class="dropdown-item">Ljubljana</button>
+                                                    <button type="button" class="dropdown-item">Obalno kraško - primorsko goransko</button>
+                                                </div>
+                                            </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
 
                             <!--TOGGLE FOR MARKUPS-->
                             <div class="row">
@@ -189,7 +213,7 @@
                                     <div class="tool-content">
                                         <label for="datepicker-1">Enter Start Date:</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="datepicker-1" aria-describedby="basic-addon1">
+                                            <input style="z-index: 6;" type="text" class="form-control date-z" id="datepicker-1" aria-describedby="basic-addon1">
                                             <!--style="font-size:24px" this is for fa fa-calendar-->
                                             <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
                                         </div>
@@ -199,27 +223,12 @@
                                 <!--DATE PICKER 2-->
                                 <div class="col-6">
                                     <div class="tool-content">
-                                        <label for="datepicker-1">Enter End Date:</label>
+                                        <label for="datepicker-2">Enter End Date:</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="datepicker-2" aria-describedby="basic-addon2">
+                                            <input style="z-index: 6;" type="text" class="form-control date-z" id="datepicker-2" aria-describedby="basic-addon2">
                                             <!--style="font-size:24px" this is for fa fa-calendar-->
                                             <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span>
                                         </div>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="col-6">
-                                    <div class="tool-content">
-                                        <p>Enter Start Date: <input class="date-input" type="text" id="datepicker-8">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="tool-content">
-                                        <p>Enter End Date: <input class="date-input" type="text" id="datepicker-9"></p>
                                     </div>
                                 </div>
                             </div>

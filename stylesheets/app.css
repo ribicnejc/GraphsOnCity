@@ -364,6 +364,11 @@ body div.ui-slider-range.ui-widget-header {
   width: 100%;
 }
 
+/* line 4, ../sass/modules/_date-pickers.sass */
+.date-z {
+  z-index: 5;
+}
+
 /* line 1, ../sass/modules/_dialogs.sass */
 .dialog-map {
   height: 250px;

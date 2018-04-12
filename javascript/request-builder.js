@@ -1,6 +1,6 @@
 function buildUrl() {
-    var firstDate = document.getElementById("datepicker-8");
-    var secondDate = document.getElementById("datepicker-9");
+    var firstDate = document.getElementById("datepicker-1");
+    var secondDate = document.getElementById("datepicker-2");
     var slider3 = document.getElementById("sliderNumOfDay");
 
     var query1 = "";

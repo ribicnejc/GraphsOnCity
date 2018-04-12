@@ -715,8 +715,8 @@ function updateDateSelections() {
     var date2 = dateProperties.maximumDate + "";
     date1 = date1[4] + date1[5] + "/" + date1[6] + date1[7] + "/" + date1[0] + date1[1] + date1[2] + date1[3];
     date2 = date2[4] + date2[5] + "/" + date2[6] + date2[7] + "/" + date2[0] + date2[1] + date2[2] + date2[3];
-    document.getElementById("datepicker-8").value = date1;
-    document.getElementById("datepicker-9").value = date2;
+    document.getElementById("datepicker-1").value = date1;
+    document.getElementById("datepicker-2").value = date2;
 }
 
 
