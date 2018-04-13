@@ -49,29 +49,21 @@
                     <div>
                         <div class="map-tools scrollbar-primary">
 
-                            <div class="row">
 
-                                <!--CITY SELECTOR-->
+                            <!--CITY SELECTOR-->
+                            <div class="row">
                                 <div class="col-12">
                                     <div class="tool-content">
-                                            <div>
-                                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                        id="dropdownMenuCity" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                    Add type
-                                                </button>
-                                                <div id="dropdownMenuCityContent"
-                                                     class="dropdown-menu scrollable-content custom-menu-item scrollbar-primary"
-                                                     aria-labelledby="dropdownMenuCity">
-                                                    <button type="button" class="dropdown-item">Dunaj</button>
-                                                    <button type="button" class="dropdown-item">Ljubljana</button>
-                                                    <button type="button" class="dropdown-item">Obalno kraško - primorsko goransko</button>
-                                                </div>
-                                            </div>
-
+                                        <div class="form-group">
+                                            <label for="citySelector">Select city to analyse:</label>
+                                            <select class="form-control custom-select mb-2 mr-sm-2 mb-sm-0" id="citySelector">
+                                                <option value="ljubljanaR">Ljubljana</option>
+                                                <option value="viennaR">Dunaj</option>
+                                                <option value="okpgR">Obalno kraško - primorsko goransko</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
 
                             <!--TOGGLE FOR MARKUPS-->
@@ -204,7 +196,6 @@
                             </div>
 
 
-
                             <!--DATE PICKERS-->
                             <div class="row">
 
@@ -213,9 +204,11 @@
                                     <div class="tool-content">
                                         <label for="datepicker-1">Enter Start Date:</label>
                                         <div class="input-group">
-                                            <input style="z-index: 6;" type="text" class="form-control date-z" id="datepicker-1" aria-describedby="basic-addon1">
+                                            <input style="z-index: 6;" type="text" class="form-control date-z"
+                                                   id="datepicker-1" aria-describedby="basic-addon1">
                                             <!--style="font-size:24px" this is for fa fa-calendar-->
-                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                                            <span class="input-group-addon" id="basic-addon1"><i
+                                                    class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -225,9 +218,11 @@
                                     <div class="tool-content">
                                         <label for="datepicker-2">Enter End Date:</label>
                                         <div class="input-group">
-                                            <input style="z-index: 6;" type="text" class="form-control date-z" id="datepicker-2" aria-describedby="basic-addon2">
+                                            <input style="z-index: 6;" type="text" class="form-control date-z"
+                                                   id="datepicker-2" aria-describedby="basic-addon2">
                                             <!--style="font-size:24px" this is for fa fa-calendar-->
-                                            <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+                                            <span class="input-group-addon" id="basic-addon2"><i
+                                                    class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -279,7 +274,8 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                     Add type
                                                 </button>
-                                                <div id="dropdownMenuPlaceTypeContent" class="dropdown-menu scrollable-content custom-menu-item scrollbar-primary"
+                                                <div id="dropdownMenuPlaceTypeContent"
+                                                     class="dropdown-menu scrollable-content custom-menu-item scrollbar-primary"
                                                      aria-labelledby="dropdownMenuTravelType">
                                                     <!--<button type="button" class="dropdown-item">Foodie</button>-->
                                                 </div>
@@ -316,7 +312,7 @@
                 <div class="loading-screen" id="loadingScreen">
                     <div class="overlay"></div>
                     <div class="loading">Loading&#8230;</div>
-                    <div class="loading-info"> <p id="loading-info-p">initializing map</p> </div>
+                    <div class="loading-info"><p id="loading-info-p">initializing map</p></div>
                 </div>
                 <div class="map-view">
                     <div id="map"></div>
