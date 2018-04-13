@@ -231,3 +231,8 @@ function sortPathStrength(paths, strongestTheLowest) {
     // return arr; // returns array
     //
 }
+
+function getCityName() {
+    var e = document.getElementById("citySelector");
+    return e.options[e.selectedIndex].value;
+}
