@@ -5,6 +5,10 @@ require 'db.php';
 $databaseName = "okpgr";
 //$databaseName = "ljubljanar";
 
+if (isset($_GET['city'])) {
+    $databaseName = $_GET['city'];
+}
+
 $sql = "SELECT COUNT(ID) as `COUNT_SIZE`, AVG(LAT) as `AVG_LAT`, AVG(LNG) as `AVG_LNG` FROM $databaseName";
 
 try {

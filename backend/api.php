@@ -16,6 +16,10 @@ $travelTypeClause = "notSet";
 $requestPage = "notSet";
 
 
+if (isset($_GET['city'])) {
+    $databaseName = $_GET['city'];
+}
+
 if (isset($_GET['dateTo'])) {
     $dateTo = intval($_GET['dateTo']);
     $sqlClause1 = "REVIEW_DATE < $dateTo";
