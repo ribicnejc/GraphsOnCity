@@ -101,24 +101,27 @@ function resetSettings() {
     var sliderNum1 = document.getElementById("numberOfSamePathValue");
     var sliderNum2 = document.getElementById("numberOfPathLength");
     var sliderNum3 = document.getElementById("numberOfDay");
-    sliderNum1.innerHTML = "50";
-    sliderNum2.innerHTML = "50";
-    sliderNum3.innerHTML = "50";
+    var sliderNum4 = document.getElementById("pathStroke");
+    sliderNum1.innerHTML = "1";
+    sliderNum2.innerHTML = "1";
+    sliderNum3.innerHTML = "14";
+    sliderNum4.innerHTML = "0.1";
 
     var slider1 = document.getElementById("sliderNumberOfPaths");
     var slider2 = document.getElementById("sliderNumOfPathLength");
     var slider3 = document.getElementById("sliderNumOfDay");
-    slider1.value = "50";
-    slider2.value = "50";
-    slider3.value = "50";
+    var slider4 = document.getElementById("sliderPathStroke");
+    slider1.value = "1";
+    slider2.value = "1";
+    slider3.value = "14";
+    slider4.value = "1";
 
-    var datePicker1 = document.getElementById("datepicker-1");
-    var datePicker2 = document.getElementById("datepicker-2");
-    datePicker1.value = "";
-    datePicker2.value = "";
+    updateDateSelections();
 
-    var dropDown = document.getElementById("travelTypeElements");
-    dropDown.innerHTML = "";
+    var dropDown1 = document.getElementById("travelTypeElements");
+    var dropDown2 = document.getElementById("placeTypeElements");
+    dropDown1.innerHTML = "";
+    dropDown2.innerHTML = "";
 }
 
 function generateKeyForPath(pathData) {
