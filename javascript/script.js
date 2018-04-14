@@ -548,6 +548,8 @@ function initMap() {
         console.log("Map is now idle");
     });
 
+    console.log("Analyzing: " + getCityName());
+
     showLoadingLayout();
     requestInfoData();
 }
@@ -556,8 +558,13 @@ function requestInfoData() {
     setLoadingText("calculating center...");
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", infoRequestListener);
+
+    var infoUrl = "backend/infoapi.php";
+
+    infoUrl = infoUrl + "?city=" + getCityName();
+    console.log("infoRequest " + infoUrl);
     oReq.open("GET", "" +
-        "backend/infoapi.php");
+        infoUrl);
     oReq.send();
 }
 
@@ -579,8 +586,12 @@ function infoRequestListener() {
 function requestInitData(page) {
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", initRequestListener);
-    oReq.open("GET", "" +
-        "backend/api.php?page=" + page);
+
+    var initRequestUrl = "backend/api.php";
+    initRequestUrl += "?city=" + getCityName();
+    initRequestUrl += "&page=" + page;
+    console.log("requestInitData: " + initRequestUrl);
+    oReq.open("GET", initRequestUrl);
     oReq.send();
 }
 
@@ -652,6 +663,7 @@ function applyFilters() {
 function requestFilterData(page) {
     var requestUrl = requestPerPartes(page);
     var oReq = new XMLHttpRequest();
+    console.log("requestFilterData: " + requestUrl);
     oReq.addEventListener("load", filterRequestListener);
     oReq.open("GET", requestUrl);
     oReq.send();

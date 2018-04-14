@@ -21,7 +21,7 @@ function buildUrl() {
     }
 
     var pathSpan = slider3.value;
-    return "backend/api.php?"+query2+query1+"&pathSpan="+pathSpan + travelTypeQuery;
+    return "backend/api.php?" +"city=" + getCityName() +"&"+query2+query1+"&pathSpan="+pathSpan + travelTypeQuery;
 }
 
 
