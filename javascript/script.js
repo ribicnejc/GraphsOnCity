@@ -154,12 +154,6 @@ function parseResponse(data) {
                     collectPlaceDetails(placeDetailsPoint);
 
                     if (firstLoad) {
-                        //Calc max and min date
-                        if (dateProperties.maximumDate < date)
-                            dateProperties.maximumDate = date;
-                        if (dateProperties.minimumDate > date)
-                            dateProperties.minimumDate = date;
-
                         pathContainsCorrectPoints = true;
                     } else {
                         // Here filter those paths which has at least one point
@@ -249,7 +243,6 @@ function parseResponse(data) {
     if (firstLoad) {
         //uncomment this line if you want to set data of sliders dynamicly not staticly which are set in HTML
         //updateSlidersSettings();
-        updateDateSelections();
     }
     if (!firstLoad) {
         var sliderNumOfSamePaths = document.getElementById("sliderNumberOfPaths");
@@ -577,9 +570,12 @@ function infoRequestListener() {
     centerLat = content["AVG_LAT"];
     centerLng = content["AVG_LNG"];
     MAX_REQUEST_PAGES = content["REQUEST_NUM"] - 1;
-
+    dateProperties.maximumDate = content["MAX_DATE"];
+    dateProperties.minimumDate = content["MIN_DATE"];
     var center = {lat: centerLat, lng: centerLng};
     map.setCenter(center);
+
+    updateDateSelections();
 
     setLoadingText("fetching data...");
     if (firstLoad)
