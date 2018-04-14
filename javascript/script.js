@@ -558,10 +558,7 @@ function requestInfoData() {
     setLoadingText("calculating center...");
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", infoRequestListener);
-
-    var infoUrl = "backend/infoapi.php";
-
-    infoUrl = infoUrl + "?city=" + getCityName();
+    var infoUrl = buildInfoUrl();
     console.log("infoRequest " + infoUrl);
     oReq.open("GET", "" +
         infoUrl);
@@ -645,6 +642,7 @@ function fillPlaceDetailsDropdown() {
 
 function applyFilters() {
     showLoadingLayout();
+    console.log("apply filters ---------- ");
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
         //Vienna center
@@ -658,7 +656,7 @@ function applyFilters() {
 }
 
 function requestFilterData(page) {
-    var requestUrl = requestPerPartes(page);
+    var requestUrl = buildFilterUrl(page);
     var oReq = new XMLHttpRequest();
     console.log("requestFilterData: " + requestUrl);
     oReq.addEventListener("load", filterRequestListener);
