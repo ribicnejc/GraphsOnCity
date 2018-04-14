@@ -38,20 +38,22 @@ var sliderProperties = {
 };
 var dateProperties = {
     minimumDate: 20181212,
-    maximumDate: 0
+    maximumDate: 20001212
 };
 var firstLoad = true;
 
 
 function filterRequestListener() {
     //Here we receive response and we remove first and last curly braces
-    if (this.responseText.length < 1000) {
+    if (this.responseText === "[]") {
+        console.log("request has not data")
+    } else if (this.responseText.length < 1000) {
         setLoadingText("Error occurred, check console");
         console.log("Error retrieving data: " + this.responseText);
     }
-    if (responseMain === "")
+    if (responseMain === "" && this.responseText !== "[]")
         responseMain = this.responseText.slice(1, -1);
-    else
+    else if (this.responseText !== "[]")
         responseMain += "," + this.responseText.slice(1, -1);
 
     //We request new page of data or we create JSON and parse it
@@ -69,14 +71,19 @@ function filterRequestListener() {
 }
 
 function initRequestListener() {
-    if (this.responseText.length < 1000) {
+    //Here we receive response and we remove first and last curly braces
+    if (this.responseText === "[]") {
+        console.log("request has not data")
+    } else if (this.responseText.length < 1000) {
         setLoadingText("Error occurred, check console");
         console.log("Error retrieving data: " + this.responseText);
     }
-    if (responseMain === "")
+    if (responseMain === "" && this.responseText !== "[]")
         responseMain = this.responseText.slice(1, -1);
-    else
+    else if (this.responseText !== "[]")
         responseMain += "," + this.responseText.slice(1, -1);
+
+    //We request new page of data or we create JSON and parse it
     if (requestCounter < MAX_REQUEST_PAGES) {
         requestCounter++;
         var percent = (requestCounter * 100) / MAX_REQUEST_PAGES;
