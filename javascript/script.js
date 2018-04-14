@@ -126,9 +126,8 @@ function parseResponse(data) {
             var pathStatisticGender = tmpObject["GENDER"];
             var pathStatisticAge = tmpObject["AGE"];
 
-            //Collect and different travel style only first time
-            if (firstLoad)
-                collectTravelTypes(travleStyleUser);
+            //Collect any different travel style
+            collectTravelTypes(travleStyleUser);
 
             //Here we generate coords and create legit path for google maps
             for (var i = 0; i < paths.length; i++) {
@@ -151,6 +150,9 @@ function parseResponse(data) {
                     var placeDetailsPoint = point["PLACE_DETAILS"];
                     var date = parseInt(point["REVIEW_DATE"]);
 
+                    //Collect all place details for drop down
+                    collectPlaceDetails(placeDetailsPoint);
+
                     if (firstLoad) {
                         //Calc max and min date
                         if (dateProperties.maximumDate < date)
@@ -158,8 +160,6 @@ function parseResponse(data) {
                         if (dateProperties.minimumDate > date)
                             dateProperties.minimumDate = date;
 
-                        //Collect all place details for drop down
-                        collectPlaceDetails(placeDetailsPoint);
                         pathContainsCorrectPoints = true;
                     } else {
                         // Here filter those paths which has at least one point
@@ -244,11 +244,11 @@ function parseResponse(data) {
         }
     }
 
+    fillTravelStylesDropdown();
+    fillPlaceDetailsDropdown();
     if (firstLoad) {
         //uncomment this line if you want to set data of sliders dynamicly not staticly which are set in HTML
         //updateSlidersSettings();
-        fillTravelStylesDropdown();
-        fillPlaceDetailsDropdown();
         updateDateSelections();
     }
     if (!firstLoad) {
@@ -618,6 +618,7 @@ function collectPlaceDetails(placeDetailsPoint) {
 }
 
 function fillTravelStylesDropdown() {
+    document.getElementById("dropdownMenuTravelTypeContent").innerHTML = "";
     for (var styleKey in travelStyles) {
         if (travelStyles.hasOwnProperty(styleKey)) {
             var div = document.getElementById("dropdownMenuTravelTypeContent");
@@ -633,6 +634,7 @@ function fillTravelStylesDropdown() {
 }
 
 function fillPlaceDetailsDropdown() {
+    document.getElementById("dropdownMenuPlaceTypeContent").innerHTML = "";
     for (var detailKey in placeDetails) {
         if (placeDetails.hasOwnProperty(detailKey)) {
             var div = document.getElementById("dropdownMenuPlaceTypeContent");
@@ -677,6 +679,7 @@ function resetGlobalValues() {
     mainUsers = {};
     quickStat = {};
     travelStyles = {};
+    placeDetails = {};
     polyLines = [];
     markers = {};
     relativityPathLength = {};
