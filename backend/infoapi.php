@@ -1,9 +1,9 @@
 <?php
 require 'db.php';
 
-//$databaseName = "tripviennar";
-$databaseName = "okpgr";
-//$databaseName = "ljubljanar";
+//$databaseName = "tripviennaR";
+$databaseName = "okpgR";
+//$databaseName = "ljubljanaR";
 
 if (isset($_GET['city'])) {
     $databaseName = $_GET['city'];
