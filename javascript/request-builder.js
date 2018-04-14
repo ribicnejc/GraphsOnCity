@@ -19,13 +19,25 @@ function buildUrl() {
             travelTypeQuery += travelTypeArray[i];
         else travelTypeQuery += "," + travelTypeArray[i];
     }
-
-    var pathSpan = slider3.value;
-    return "backend/api.php?" +"city=" + getCityName() +"&"+query2+query1+"&pathSpan="+pathSpan + travelTypeQuery;
+    var city = "city=" + getCityName() + "&";
+    var pathSpan = "&pathSpan=" + slider3.value;
+    return "backend/api.php?" +
+        city +
+        query2 +
+        query1 +
+        pathSpan +
+        travelTypeQuery;
 }
 
 
 function requestPerPartes(page) {
     var url = buildUrl();
     return url += "&page=" + page;
+}
+
+function buildInitUrl(page) {
+    var url = "backend/api.php";
+    url += "?city=" + getCityName();
+    url += "&page=" + page;
+    return url;
 }

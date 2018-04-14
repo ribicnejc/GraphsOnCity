@@ -586,10 +586,7 @@ function infoRequestListener() {
 function requestInitData(page) {
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", initRequestListener);
-
-    var initRequestUrl = "backend/api.php";
-    initRequestUrl += "?city=" + getCityName();
-    initRequestUrl += "&page=" + page;
+    var initRequestUrl = buildInitUrl(page);
     console.log("requestInitData: " + initRequestUrl);
     oReq.open("GET", initRequestUrl);
     oReq.send();
