@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 
-//$databaseName = "tripviennaR";
+//$databaseName = "tripViennaR";
 $databaseName = "okpgR";
 //$databaseName = "ljubljanaR";
 
