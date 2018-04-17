@@ -133,6 +133,13 @@ function generateKeyForPath(pathData) {
     return key;
 }
 
+function invertPath(path) {
+    var mPath = [];
+    for (var i = path.length - 1; i >= 0; i--) {
+        mPath.push(path[i]);
+    }
+    return mPath;
+}
 
 function getTravelTypeSelectedArray() {
     var travelStyleForUser = [];

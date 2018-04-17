@@ -141,7 +141,6 @@ function parseResponse(data) {
                 var pathToDraw = [];
                 var pathContainsCorrectPoints = false;
                 var pathIsLocalyGood = false;
-                var pathKey = "";
                 for (var j = 0; j < path.length; j++) {
                     var point = path[j];
                     collectPlaceData(point, travleStyleUser, pathStatisticGender, pathStatisticAge);
@@ -169,7 +168,6 @@ function parseResponse(data) {
                         if (relativityLocalPlaces[lat + "," + lng] === true)
                             pathIsLocalyGood = true;
                     }
-                    pathKey += lat + lng;
                     var coordTuple = {};
                     coordTuple.lat = parseFloat(lat);
                     coordTuple.lng = parseFloat(lng);
@@ -183,6 +181,22 @@ function parseResponse(data) {
                 //Here we check if that path contains marker which is flaged, if so we let it through otherwise not
                 //Also we let it through if nthere is no markers, then it must go through
                 if (!pathIsLocalyGood && countRelativeLocalPlaces(relativityLocalPlaces) > 0) continue;
+
+                //Generate path key so we can save it as object reference to path stat
+                var pathKey = generateKeyForPath(pathToDraw);
+
+                /** MERGE PATH IN SAME LINE (FRONT AND BACK MERGING)
+                 * Logic here is: if some path does not exist in mainPaths, invert it,
+                 * because maybe inverted path exists if path do exist, then save it.
+                 */
+                if (isMergePathFrontBackChecked()) {
+                    if (mainPaths[pathKey] === undefined) {
+                        pathToDraw = invertPath(pathToDraw);
+                        //regenerate path key with inverted path
+                        pathKey = generateKeyForPath(pathToDraw);
+                    }
+                }
+
 
                 /**Here is calculated statistics for path which is shown in dialog if you click on path*/
                 //First we calculate num of path repeated
