@@ -208,6 +208,10 @@ function isShowMarkersChecked() {
     return document.getElementById("showMarkers").checked;
 }
 
+function isMergePathFrontBackChecked() {
+    return document.getElementById("mergePathFrontBackCheckbox").checked;
+}
+
 function generatePlaceKey(place) {
     return place["LAT"] + "," + place["LNG"];
 }
