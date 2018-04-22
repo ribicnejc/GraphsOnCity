@@ -14,6 +14,14 @@ class db
     private $dbpass = "";
     private $dbname = "nejcribic_test";
 
+    //BerryPi
+//    private $dbhost = "localhost";
+//    private $dbuser = "phpmyadmin";
+//    private $dbpass = "ribic";
+//    private $dbname = "nejcribic_test";
+
+
+
     // Connect
     public function connect()
     {
