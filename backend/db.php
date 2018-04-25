@@ -20,6 +20,12 @@ class db
 //    private $dbpass = "ribic";
 //    private $dbname = "nejcribic_test";
 
+    //Server
+//    private $dbhost = "localhost";
+//    private $dbuser = "root";
+//    private $dbpass = "ribic";
+//    private $dbname = "nejcribic_test";
+
 
 
     // Connect
