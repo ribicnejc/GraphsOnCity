@@ -123,6 +123,11 @@ div.map-view, #map {
   margin: 0 auto;
 }
 
+/* line 1, ../sass/layout/_place-dialog.sass */
+.place-histogram {
+  height: 350px;
+}
+
 /* line 1, ../sass/modules/_sliders.sass */
 .slidecontainer {
   width: 100%;

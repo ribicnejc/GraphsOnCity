@@ -337,10 +337,10 @@ function addMarker(coords, placeName, isFlag) {
 
         div.className = "align-right";
         input.className = "cbx hidden";
-        input.setAttribute("id", "pointSelection" + marker.lat + "" + marker.lng);
+        input.setAttribute("id", "pointSelection" + marker.LAT + "" + marker.LNG);
         input.setAttribute("type", "checkbox");
         label.className = "lbl";
-        label.setAttribute("for", "pointSelection" + marker.lat + "" + marker.lng);
+        label.setAttribute("for", "pointSelection" + marker.LAT + "" + marker.LNG);
         div.appendChild(input);
         div.appendChild(label);
 
@@ -352,7 +352,7 @@ function addMarker(coords, placeName, isFlag) {
         document.getElementById("modal-checkbox-place").appendChild(label0);
         document.getElementById("modal-checkbox-place").appendChild(div);
 
-        var markAsImportantCheckbox = document.getElementById("pointSelection" + marker.lat + "" + marker.lng);
+        var markAsImportantCheckbox = document.getElementById("pointSelection" + marker.LAT + "" + marker.LNG);
         markAsImportantCheckbox.checked = marker.localFlag;
         markAsImportantCheckbox.addEventListener("change", function () {
             if (this.checked) {
@@ -368,7 +368,14 @@ function addMarker(coords, placeName, isFlag) {
             }
         });
 
+        console.log("Place key: " + marker.LAT + "," + marker.LNG);
         console.log(mainPlaces[marker.LAT + "," + marker.LNG]);
+        modal.LAT = marker.LAT;
+        modal.LNG = marker.LNG;
+        modal.one('shown.bs.modal', function () {
+            console.log("Place key after modal load:" + marker.LAT + "," + marker.LNG);
+            showPlaceInfoModal(mainPlaces[marker.LAT + "," + marker.LNG]);
+        });
     });
 
     if (markers[markerKey] !== undefined) return;
@@ -473,7 +480,7 @@ function drawGraph(pathData, num) {
         modalPath.setMap(dialogMap);
         var modal = $('#myModal');
         modal.modal();
-        modal.on('shown.bs.modal', function () {
+        modal.one('shown.bs.modal', function () {
             google.maps.event.trigger(dialogMap, "resize");
             dialogMap.setCenter(center);
             showPathInfoModal(pathHistoData);

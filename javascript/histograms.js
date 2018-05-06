@@ -29,3 +29,9 @@ function showPathInfoModal(data) {
     abstractHistogram("container-gender", data['USERS_STATISTIC_GENDER'], "Gender histogram", "#e17055");
     abstractHistogram("container-age", data['USERS_STATISTIC_AGE'], "Age histogram", "#00b894");
 }
+
+function showPlaceInfoModal(data) {
+    abstractHistogram("container-travel-type-place", data["TRAVEL_STYLE"], "Travel style histogram", "#0984e3");
+    abstractHistogram("container-gender-place", data["GENDER"], "Gender histogram", "#e17055");
+    abstractHistogram("container-age-place", data["AGE"], "Age histogram", "#00b894");
+}
