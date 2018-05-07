@@ -372,6 +372,9 @@ function addMarker(coords, placeName, isFlag) {
         console.log(mainPlaces[marker.LAT + "," + marker.LNG]);
         modal.LAT = marker.LAT;
         modal.LNG = marker.LNG;
+
+        setPlaceDialogData(mainPlaces[generatePlaceKey(marker)], marker.title);
+
         modal.one('shown.bs.modal', function () {
             console.log("Place key after modal load:" + marker.LAT + "," + marker.LNG);
             showPlaceInfoModal(mainPlaces[marker.LAT + "," + marker.LNG]);

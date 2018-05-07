@@ -250,3 +250,8 @@ function getCityName() {
     var e = document.getElementById("citySelector");
     return e.options[e.selectedIndex].value;
 }
+
+function setPlaceDialogData(data, name) {
+    document.getElementById("place-dialog-visitors").innerText = data["VISITOR"];
+    document.getElementById("place-dialog-place-name").innerText = name + "'s visitors";
+}
