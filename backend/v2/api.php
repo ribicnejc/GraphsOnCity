@@ -2,7 +2,7 @@
 require '../db.php';
 
 //CITY NAME
-$cityName = "Ljubljana";
+$cityName = "Okpg";
 
 //DATABASE TABLE DEFINITION
 $tableLocation = $cityName . "Location";
@@ -146,6 +146,7 @@ try {
         $dateStart = 0;
         $dateEnd = 0;
 
+        $lastPath["PLACE_NAME"] = "notSet";
         $locationsArray = explode("|", $paths);
         foreach ($locationsArray as $location) {
             $locationArray = explode(",", $location);
@@ -171,15 +172,21 @@ try {
                 $dateStart = $locationArray[7];
             }
 
-            //If span is ok, then we add location to path otherwise we create new array and reset dateStart
-            if (subtractDays($dateEnd, $dateStart) < $pathTimeSpan) {
-                $pathDataGlobal[] = $pathDataInternal;
-            } else {
+
+            //We save last path to not create wrongly path with two same locations
+            if (sizeof($pathDataGlobal) != 0)
+                $lastPath = $pathDataGlobal[sizeof($pathDataGlobal) - 1];
+
+            //If path span is not ok,  we create new array and reset dateStart
+            if (subtractDays($dateEnd, $dateStart) > $pathTimeSpan) {
                 $pathsEdited[] = $pathDataGlobal;
                 $pathDataGlobal = array();
-                $pathDataGlobal[] = $pathDataInternal;
                 $dateStart = $dateEnd;
             }
+
+            //We add path to global paths by user
+            if ($lastPath["PLACE_NAME"] != $pathDataInternal["PLACE_NAME"])
+                $pathDataGlobal[] = $pathDataInternal;
         }
         //We add last path to paths... last path is also just one path if user has just one
         if (sizeof($pathDataGlobal) != 0)

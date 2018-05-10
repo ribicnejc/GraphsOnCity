@@ -1,7 +1,7 @@
 <?php
 require '../db.php';
 
-$cityName = "Ljubljana";
+$cityName = "Okpg";
 
 $tableLocation = $cityName."Location";
 $tablePost = $cityName."Post";
