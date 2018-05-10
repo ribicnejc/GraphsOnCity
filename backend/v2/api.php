@@ -96,7 +96,7 @@ if ($travelTypeClause != "notSet") {
 
 //ADDED GROUP BY
 $sql = $sql . " GROUP BY $tableTourist.UID";
-
+//$sql = $sql . " WHERE $tableTourist.UID = \"00907B015DB72C5E2E3A4F48B6F0C353\" GROUP BY $tableTourist.UID";
 
 //ADDED LIMIT PER REQUEST
 if ($page . "" != "notSet") {
@@ -119,9 +119,9 @@ try {
     $a = 0;
     $users = array();
 
-//    if ($pathSpan == "notSet")
-//        $pathTimeSpan = 50000000; //Means a century of days
-//    else $pathTimeSpan = $pathSpan;
+    if ($pathSpan == "notSet")
+        $pathTimeSpan = 50000000; //Means a century of days
+    else $pathTimeSpan = $pathSpan;
 
     $lastDate = 0;
     $response = array();
@@ -143,6 +143,8 @@ try {
 
         $pathsEdited = array();
         $pathDataGlobal = array();
+        $dateStart = 0;
+        $dateEnd = 0;
 
         $locationsArray = explode("|", $paths);
         foreach ($locationsArray as $location) {
@@ -160,9 +162,28 @@ try {
             $pathDataInternal["REVIEW_RATE"] = $locationArray[6];
             $pathDataInternal["REVIEW_DATE"] = $locationArray[7];
 
-            $pathDataGlobal[] = $pathDataInternal;
+
+            //We save end date every time
+            $dateEnd = $locationArray[7];
+
+            //We save start date first time
+            if ($dateStart == 0) {
+                $dateStart = $locationArray[7];
+            }
+
+            //If span is ok, then we add location to path otherwise we create new array and reset dateStart
+            if (subtractDays($dateEnd, $dateStart) < $pathTimeSpan) {
+                $pathDataGlobal[] = $pathDataInternal;
+            } else {
+                $pathsEdited[] = $pathDataGlobal;
+                $pathDataGlobal = array();
+                $pathDataGlobal[] = $pathDataInternal;
+                $dateStart = $dateEnd;
+            }
         }
-        $pathsEdited[] = $pathDataGlobal;
+        //We add last path to paths... last path is also just one path if user has just one
+        if (sizeof($pathDataGlobal) != 0)
+            $pathsEdited[] = $pathDataGlobal;
 
         $element["PATHS"] = $pathsEdited;
         $response[$uid] = $element;
@@ -170,4 +191,16 @@ try {
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
 } catch (PDOException $e) {
     echo $e->getMessage();
+}
+
+
+function subtractDays($date1, $date2)
+{
+    $a = intval(strtotime($date2));
+    $b = intval(strtotime($date1));
+    $seconds = $b - $a;
+    $minutes = $seconds / 60;
+    $hours = $minutes / 60;
+    $days = $hours / 24;
+    return intval($days);
 }
