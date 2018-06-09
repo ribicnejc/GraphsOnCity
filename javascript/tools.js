@@ -223,6 +223,10 @@ function generatePlaceKey(place) {
     return place["LAT"] + "," + place["LNG"];
 }
 
+function generateMarkerKey(marker) {
+    return marker["lat"] + "," + marker["lng"];
+}
+
 function setLoadingText(text) {
     document.getElementById("loading-info-p").innerText = text;
 }
@@ -254,4 +258,14 @@ function getCityName() {
 function setPlaceDialogData(data, name) {
     document.getElementById("place-dialog-visitors").innerText = data["VISITOR"];
     document.getElementById("place-dialog-place-name").innerText = name + "'s visitors";
+}
+
+function generatePathName(pathData){
+    var pathName = "";
+    for (var i = 0; i < pathData.length; i++) {
+        var placeName = generateMarkerKey(pathData[i]);
+        placeName = markers[placeName].title;
+        pathName += placeName + " - ";
+    }
+    return pathName;
 }

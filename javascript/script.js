@@ -10,6 +10,9 @@ var histoData1 = {};
 var histoData2 = [];
 var histoData3 = [];
 var histoData4 = {};
+var histoRepetitions = {};
+//dolžine poti dej notri pa natred iz njih histo
+var histoRepetitions2 = [];
 
 //Relativity variables
 var relativityPathRepetition = {};
@@ -211,6 +214,7 @@ function parseResponse(data) {
                     var ageStatisticData = {};
                     pathStatisticData["SAME_PATH_NUM"] = 1;
                     pathStatisticData["PATH"] = pathToDraw;
+                    pathStatisticData["PATH_NAME"] = generatePathName(pathToDraw);
                     genderStatisticData[pathStatisticGender] = 1;
                     ageStatisticData[pathStatisticAge] = 1;
                     var travelTypeStat = travleStyleUser.split(" & ");
@@ -420,7 +424,85 @@ function showMarkers() {
     setMapOnAll(map);
 }
 
+var analysisData = {};
+var outputData = {};
+
+function getParticularPathName() {
+    var tmp = Object.keys(analysisData);
+    for (var i = 0; i < tmp.length; i++) {
+        var flowKey = tmp[i];
+        var flow = analysisData[flowKey];
+
+        if (flow.PATH_NAME === "Historic Center of Vienna - Tiergarten Schoenbrunn - Zoo Vienna - ") {
+            console.log(flow);
+        }
+        if (flow.PATH_NAME === "Zoo Vienna - Tiergarten Schoenbrunn - Historic Center of Vienna - ") {
+            console.log(flow);
+        }
+    }
+}
+
+function getAmountOfFlows() {
+    console.log("Amount of flows: " + Object.keys(analysisData).length);
+}
+
+function getAmountOfParticularLength(n){
+    var length = 0;
+    var tmp = Object.keys(analysisData);
+    for (var i = 0; i < tmp.length; i++) {
+        var flowKey = tmp[i];
+        var flow = analysisData[flowKey];
+        if (flow.SAME_PATH_NUM === n)
+            length++;
+    }
+    console.log("Amount of length " + n + ": " + length);
+}
+
+function getAveragePathLength() {
+    var length = 0;
+    var tmp = Object.keys(analysisData);
+    for (var i = 0; i < tmp.length; i++) {
+        var flowKey = tmp[i];
+        var flow = analysisData[flowKey];
+        length += flow.PATH.length;
+    }
+    console.log("Average path length: " + length / tmp.length)
+}
+
+function getAnalysis() {
+    console.log("Amount of flows: " + Object.keys(analysisData).length);
+    outputData = {};
+    for (var i = 0; i < Object.keys(analysisData).length; i++) {
+        var flowKey = Object.keys(analysisData)[i];
+        var flow = analysisData[flowKey];
+        var genderRation = {};
+
+        genderRation["MALE"] = flow.USERS_STATISTIC_GENDER.male / (flow.USERS_STATISTIC_GENDER.male + flow.USERS_STATISTIC_GENDER.female);
+        genderRation["FEMALE"] = flow.USERS_STATISTIC_GENDER.female / (flow.USERS_STATISTIC_GENDER.male + flow.USERS_STATISTIC_GENDER.female);
+        flow["USERS_STATISTIC_GENDER_RATIO"] = genderRation;
+
+        var ageRatio = {};
+        var ageSum = 0;
+        for(var j = 0; j < Object.keys(flow.USERS_STATISTIC_AGE).length; j++) {
+            if(Object.keys(flow.USERS_STATISTIC_AGE)[j] === "none") continue;
+            ageSum += flow.USERS_STATISTIC_AGE[Object.keys(flow.USERS_STATISTIC_AGE)[j]];
+        }
+        for(var k = 0; k < Object.keys(flow.USERS_STATISTIC_AGE).length; k++) {
+            if(Object.keys(flow.USERS_STATISTIC_AGE)[k] === "none") continue;
+            ageRatio[Object.keys(flow.USERS_STATISTIC_AGE)[k]] = flow.USERS_STATISTIC_AGE[Object.keys(flow.USERS_STATISTIC_AGE)[k]] / ageSum;
+        }
+        flow["USERS_STATISTIC_AGE_RATIO"] = ageRatio;
+
+        outputData[flow.SAME_PATH_NUM + " " + flow.PATH_NAME] = flow;
+    }
+    console.log(outputData);
+}
+
 function drawGraph(pathData, num) {
+
+    if (pathData.length > 1){
+        analysisData[generateKeyForPath(pathData)] = mainPaths[generateKeyForPath(pathData)];
+    }
 
     // uncomment below line if you want to collect histogram data
     // collectHistoData(pathData, num);
@@ -706,6 +788,9 @@ function resetGlobalValues() {
     relativityPathRepetition = {};
     requestCounter = 0;
     responseMain = "";
+    histoRepetitions = {};
+    histoRepetitions2 = [];
+    analysisData = {};
 }
 
 function getDateFormat(strDate) {

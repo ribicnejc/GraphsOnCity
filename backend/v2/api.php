@@ -1,5 +1,6 @@
 <?php
 require '../db.php';
+$firstTime = doubleval(millitime());
 
 //CITY NAME
 $cityName = "Okpg";
@@ -119,6 +120,9 @@ try {
     $a = 0;
     $users = array();
 
+    $middleTime = doubleval(millitime());
+    echo "SQL Time: " . ($middleTime - $firstTime) . "ms";
+
     if ($pathSpan == "notSet")
         $pathTimeSpan = 50000000; //Means a century of days
     else $pathTimeSpan = $pathSpan;
@@ -195,7 +199,10 @@ try {
         $element["PATHS"] = $pathsEdited;
         $response[$uid] = $element;
     }
-    echo json_encode($response, JSON_UNESCAPED_UNICODE);
+//    echo json_encode($response, JSON_UNESCAPED_UNICODE);
+    $lastTime = doubleval(millitime());
+    echo "</br>PHP Time: ". ($lastTime - $middleTime);
+    echo "</br>All time: ". ($lastTime - $firstTime);
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
@@ -210,4 +217,13 @@ function subtractDays($date1, $date2)
     $hours = $minutes / 60;
     $days = $hours / 24;
     return intval($days);
+}
+
+function millitime() {
+    $microtime = microtime();
+    $comps = explode(' ', $microtime);
+
+    // Note: Using a string here to prevent loss of precision
+    // in case of "overflow" (PHP converts it to a double)
+    return sprintf('%d%03d', $comps[1], $comps[0] * 1000);
 }
