@@ -5,7 +5,7 @@ if (isset($_GET['city'])) {
     $databaseName = $_GET['city'];
 }
 
-$sql = "SELECT DISTINCT PLACE_NAME FROM $databaseName LIMIT 100 OFFSET 0";
+$sql = "SELECT DISTINCT PLACE_NAME FROM $databaseName LIMIT 100 OFFSET 100";
 
 try {
     $db = new db();
@@ -34,7 +34,7 @@ try {
     foreach ($data as $myObject) {
         $dbPlaceName = $myObject->PLACE_NAME;
         $dbPlaceName = str_replace("\"", "", $dbPlaceName);
-        echo $dbPlaceName." Ljubljana"."&&";
+        echo $dbPlaceName." Vienna"."&&";
         $i++;
     }
     echo "\";";
