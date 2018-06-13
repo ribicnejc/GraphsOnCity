@@ -5,7 +5,7 @@ if (isset($_GET['city'])) {
     $databaseName = $_GET['city'];
 }
 
-$sql = "SELECT DISTINCT PLACE_NAME FROM $databaseName LIMIT 100 OFFSET 100";
+$sql = "SELECT DISTINCT PLACE_NAME FROM $databaseName LIMIT 100 OFFSET 500";
 
 try {
     $db = new db();
