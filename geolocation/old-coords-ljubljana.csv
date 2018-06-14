@@ -1,0 +1,573 @@
+num, address, lat, lng
+0: Triple Bridge (Tromostovje), 46.051613, 14.505963
+1: Tivoli Park, 46.087688, 14.47392
+2: Franciscan Church (Franciskanska cerkev), 46.051781, 14.50566
+3: Preseren Square, 46.051311, 14.506111
+4: River Ljubljanica Kanal, 46.050674, 14.50583
+5: Ljubljana Old Town, 46.051033, 14.506317
+6: Metelkova, 46.056606, 14.516983
+7: Cathedral of St. Nicholas (Stolnica Sv. Nikolaja), 46.050911, 14.50871
+8: Dragon Bridge (Zmajski Most), 46.054958, 14.511
+9: Vodnik Square (Vodnikov trg), 46.051079, 14.509243
+10: Cankarjevo nabrezje, 46.049709, 14.505584
+11: Ljubljana Castle Funicular, 46.048779, 14.50891
+12: Congress Square (Kongresni trg), 46.050247, 14.503598
+13: Mestni Trg, 46.049381, 14.50645
+14: Sts. Cyril and Methodius Church, 46.051079, 14.49836
+15: Old Square (Stari trg), 46.046871, 14.50699
+16: Museum of Illusions, 46.049751, 14.503541
+17: National Museum of Contemporary History (Muzej Novejse Zgodovine Slovenije), 46.059364, 14.495503
+18: Skyscraper (Neboticnik), 46.05323, 14.50362
+19: Tourist Information Centre Ljubljana, 46.051025, 14.506311
+20: Central Market, 46.05077, 14.50987
+21: ZOO Ljubljana, 46.052769, 14.47215
+22: Gornji Trg, 46.04657, 14.507704
+23: Union Experience, 46.059719, 14.498941
+24: Butcher's Bridge, 46.051819, 14.50818
+25: Ljubljana Castle, 46.048779, 14.50891
+26: National Museum of Slovenia, 46.052006, 14.499682
+27: Fountain of Three Carniolan Rivers (Vodnjak treh kranjskih rek), 46.049381, 14.50645
+28: Hauptmannova Hisa, 46.051311, 14.50601
+29: Shoemaker's Bridge (Cevljarski Most), 46.048481, 14.50599
+30: Plecnik House, 46.04229, 14.50238
+31: National and University Library, 46.047668, 14.503983
+32: Slovenian Philharmonic Hall (Slovenska Filharmonija), 46.04977, 14.50478
+33: Opera, 46.052757, 14.500817
+34: Zale Cemetery, 46.067551, 14.52842
+35: House of Experiments - Hisa eksperimentov, 46.052608, 14.51088
+36: Town Hall (Magistrat), 46.049831, 14.50693
+37: Cooperative Business Bank, 46.052814, 14.506786
+38: Railway Museum, 46.062695, 14.502625
+39: Slovene Ethnographic Museum, 46.054939, 14.515657
+40: National Gallery (Narodna Galerija), 46.054077, 14.500196
+41: Minicity Ljubljana, 46.067627, 14.541853
+42: Technical Museum of Slovenia, 45.946159, 14.33293
+43: City Museum of Ljubljana, 46.04694, 14.5041
+44: Ursuline Church of the Holy Trinity, 46.049881, 14.50229
+45: Odprta kuhna, 46.051109, 14.5075
+46: Modern Gallery (Moderna Galerija), 46.053028, 14.499041
+47: Church of St. James, 46.046291, 14.50802
+48: University Botanic Gardens Ljubljana, 46.039799, 14.51434
+49: Monastery of the Holy Cross Summer Theater (Krizanke Poletno Gledalisce), 46.04686, 14.50379
+50: Cankarjev dom (Cultural and Congress Centre), 46.050098, 14.498446
+51: Cyril Methodius Square (Ciril-Metodov trg), 46.05051, 14.50801
+52: French Revolution Square (Trg Francoske Revolucije), 46.04726, 14.50296
+53: Planetarij Ljubljana, 46.054077, 14.504718
+54: Breg embankment, 46.05127, 14.50307
+55: CityPark Shopping Center, 46.0676, 14.54622
+56: Museum of Puppetry, 46.049046, 14.508382
+57: Snopc o' tecca, 46.052231, 14.50647
+58: Krizevniska ulica, 46.04644, 14.50453
+59: Seminary Palace and Library, 46.051048, 14.50862
+60: Public Loan Bank Building, 46.052231, 14.50647
+61: Church of St. Michael, 46.012321, 14.50594
+62: Galerija Fotografija, 46.046249, 14.50646
+63: City Savings Bank Building, 46.051708, 14.50499
+64: Roman Wall, 46.045689, 14.49749
+65: Museum of Contemporary Art Metelkova (MSUM), 46.05558, 14.516952
+66: Stozice Stadium, 46.080666, 14.524214
+67: Hercules Fountain, 46.047432, 14.506335
+68: St. Francis Church, 46.045391, 14.56271
+69: Schweigerjeva House, 46.047611, 14.5064
+70: Avtobusna postaja Ljubljana, 46.057739, 14.50955
+71: Krizanke Church, 46.046902, 14.50319
+72: Universita di Lubiana, 46.049191, 14.50416
+73: Romarska c. Matere Bozje, 46.129501, 14.46375
+74: Miklosiceva Street, 46.055431, 14.50767
+75: Hradecky Bridge, 46.05127, 14.50307
+76: Ljubljana Central Pharmacy Building, 46.051498, 14.50653
+77: Path of Remembrance and Comradeship, 46.05127, 14.50307
+78: Trnovo Bridge, 46.041672, 14.50096
+79: Galerija Hest, 46.048416, 14.505015
+80: Tiporenesansa, 46.046188, 14.50497
+81: Ljubljana Exhibition and Convention Centre, 46.06089, 14.507
+82: Sticna Mansion, 46.046741, 14.50649
+83: Retro swimming pool Ilirija, 46.056267, 14.500383
+84: Ravnikar Gallery Space, 46.050732, 14.49847
+85: Trnovo Church, 46.05127, 14.50307
+86: Park Spica, 46.042171, 14.5137
+87: Emonan House, 46.045021, 14.50136
+88: Ljubljanica River Barrier, 46.049831, 14.51877
+89: The Land of Ice, 46.06654, 14.54284
+90: DobraVaga Gallery, 46.051491, 14.50845
+91: Republic Square (Trg Republike), 46.05154, 14.49969
+92: Museum of Architecture and Design (MAO), 46.050812, 14.56347
+93: Fish Square (Ribji trg), 46.05127, 14.50307
+94: Church of the Sacred Heart of Jesus, 46.05127, 14.50307
+95: St. Peter's Parish Church, 46.051998, 14.51769
+96: St Florian's Church, 46.046329, 14.50816
+97: Citizen of Emona Statue, 46.050789, 14.5028
+98: LPP Buses, 46.074501, 14.48583
+99: France Preseren statue, 46.05143, 14.50609
+100: Plecnik's Covered Market, 46.051399, 14.509746
+101: Embassy of the United States of America, 46.052502, 14.49872
+102: The Jakopic Gallery, 46.04789, 14.50109
+103: Znamenje svete Trojice, 46.050789, 14.5028
+104: Sava River, 46.05127, 14.50307
+105: Exhibition of torture devices, 46.05267, 14.51011
+106: Castle Chapel of St George, 46.034519, 14.45058
+107: J&B VINOTEKA Bianca Visintin SP, 46.053341, 14.50694
+108: Urbanc Building, 46.051479, 14.50567
+109: Fontana Evropa, 46.049191, 14.50416
+110: National Museum of Slovenia - Metelkova, 46.055222, 14.516882
+111: Pentagonal Tower, 46.048779, 14.50891
+112: Cheese & Deli Shop Gligora, 46.050911, 14.50718
+113: St. Bartholomew's Church, 46.05127, 14.50307
+114: Kolezija Swimming Pool, 46.042229, 14.49368
+115: Trnovski Pristan Embankment, 46.04213, 14.50768
+116: Jewish Cultural Center Museum, 46.046551, 14.50427
+117: Koseze Pond, 46.06702, 14.47052
+118: Marijin steber, 46.045971, 14.50715
+119: Cerkev sv. Janeza Krstnika, 46.042931, 14.50181
+120: International Centre of Graphic Arts (MGLC), 46.054642, 14.49293
+121: Miklosicev Park, 46.054249, 14.50654
+122: Roznik Hill, 46.05582, 14.47692
+123: City Art Gallery, 46.04945, 14.50668
+124: Tobacco 001, 46.047691, 14.493
+125: Skuc Gallery, 46.047009, 14.50673
+126: Levstikov trg Square, 46.045971, 14.50715
+127: Slovenski solski muzej, 46.050259, 14.50235
+128: Spomenik Edvardu Kardelju, 46.051029, 14.50133
+129: Slovenia School Museum, 46.050259, 14.50235
+130: Zupnijska cerkev Sv. Cirila in Metoda, 46.066891, 14.50738
+131: Saint Ulrich's Church, 46.05127, 14.50307
+132: Kucha (#restaurant), 46.075829, 14.50857
+133: Restavracija Veliki Hong Kong (#restaurant), 46.101768, 14.51931
+134: Picerija da Mattia (#restaurant), 46.128181, 14.55776
+135: Restavracija Fresco (#restaurant), 46.055592, 14.50486
+136: Gostilna Florjanckov Hram (#restaurant), 46.09399, 14.51568
+137: Rostilj (#restaurant), 46.051777, 14.505156
+138: Promenada (#restaurant), 46.051659, 14.507707
+139: Via Bona (#restaurant), 46.037891, 14.478856
+140: Dubocica (#restaurant), 46.054756, 14.530036
+141: Hitra Zlica (#restaurant), 46.053959, 14.50638
+142: Gostilnica Vinka (#restaurant), 46.080364, 14.512818
+143: Kratochwill (#restaurant), 46.064499, 14.543807
+144: Pizzeria Laterna (#restaurant), 46.042267, 14.479211
+145: Kult316 (#restaurant), 46.096092, 14.467634
+146: Origano (#restaurant), 46.04137, 14.460843
+147: Roza Slon (#restaurant), 46.057636, 14.508874
+148: Slovenska Hisa - Figovec (#restaurant), 46.054371, 14.504447
+149: Kitajski vrt (#restaurant), 46.08004, 14.47299
+150: Gostilna Stari Tisler (#restaurant), 46.05571, 14.5094
+151: Picerija Etna (#restaurant), 46.073059, 14.45006
+152: Operna Klet (#restaurant), 46.052345, 14.50129
+153: Gostilna Mihovec (#restaurant), 46.140366, 14.428639
+154: Bikofe (#restaurant), 46.048489, 14.50457
+155: Namaste Indian Express (#restaurant), 46.05249, 14.5098
+156: Han (#restaurant), 46.067921, 14.545981
+157: Spirit Bar & Kitchen (#restaurant), 46.044079, 14.50651
+158: Gostilna Tavcar (#restaurant), 46.075371, 14.559369
+159: Kras (#restaurant), 46.051739, 14.505
+160: Park Zibert (#restaurant), 46.08913, 14.47203
+161: Cielito Lindo (#restaurant), 46.052174, 14.507422
+162: Dunya Doner Ljubljana (#restaurant), 46.057419, 14.5095
+163: Gostilna Portal (#restaurant), 46.055641, 14.546542
+164: Brunch (#restaurant), 46.066891, 14.54129
+165: Taverna Tatjana (#restaurant), 46.04557, 14.509044
+166: FRKS (#restaurant), 46.050171, 14.50501
+167: Han (#restaurant), 46.050358, 14.504306
+168: Mr and Mrs Green (#restaurant), 46.04966, 14.50577
+169: Lacna koza (#restaurant), 46.053188, 14.50787
+170: Liquid Bar (#restaurant), 46.052246, 14.510824
+171: MoySushi (#restaurant), 46.048939, 14.50613
+172: Franky's Bar (#restaurant), 46.055401, 14.50757
+173: Hallo Leskovac (#restaurant), 46.046337, 14.506741
+174: Gostilna Kosir (#restaurant), 46.117828, 14.46212
+175: Fejstmeni (#restaurant), 46.052792, 14.50257
+176: Gostilnica Marjeta (#restaurant), 46.02467, 14.72907
+177: Separe (#restaurant), 46.035759, 14.48278
+178: Gostilna Kersic (#restaurant), 46.061272, 14.49669
+179: Bazilika Krizanke (#restaurant), 46.047359, 14.50265
+180: Kavarna Sem (#restaurant), 46.054996, 14.51574
+181: Livada (#restaurant), 46.036282, 14.51183
+182: Ajda (#restaurant), 46.053516, 14.504639
+183: Forum bar (#restaurant), 46.051945, 14.508889
+184: Hotspot Bar & Bistro (#restaurant), 46.074402, 14.518099
+185: Izlozba (#restaurant), 46.06422, 14.50577
+186: Balkan Express (#restaurant), 46.06654, 14.54284
+187: The Prince of Orange (#restaurant), 46.052856, 14.511428
+188: Singer Atelier Cafe (#restaurant), 46.046452, 14.508508
+189: Bistro Ftp (#restaurant), 46.050575, 14.460126
+190: Kepca in Klasek (#restaurant), 46.113522, 14.46142
+191: Ns plac (#restaurant), 46.075062, 14.48338
+192: Slascicarna Rasica (#restaurant), 46.102791, 14.53207
+193: Eksperiment Restaurant & Bar (#restaurant), 46.048004, 14.501636
+194: Cesarsko mesto (#restaurant), 46.046421, 14.55173
+195: Restavracija Element (#restaurant), 46.098221, 14.53456
+196: Gas Station (#restaurant), 46.064583, 14.52552
+197: Gostilna Pecaric (#restaurant), 46.044819, 14.45155
+198: Intercontinental - hotel restaurant (#restaurant), 46.033451, 14.52769
+199: Don't Tell Mama Restavracija (#restaurant), 46.037811, 14.49901
+200: Kodila gourmet (#restaurant), 46.051548, 14.509179
+201: Gostilna Nona (#restaurant), 46.034561, 14.46244
+202: Okrepcevalnica Jagoda Kebab (#restaurant), 46.064651, 14.49403
+203: Lars&Sven Burgers (#restaurant), 46.08786, 14.47597
+204: Slascicarna in Kavarna Dulcis Caffe (#restaurant), 46.06654, 14.54284
+205: Pekarna Delfina (#restaurant), 46.052311, 14.5101
+206: Solist (#restaurant), 46.049511, 14.505453
+207: Restavracija Sole (#restaurant), 46.056889, 14.51017
+208: Gostilna Rozna Hisa (#restaurant), 46.04689, 14.48532
+209: Okrepcevalnica Kongo (#restaurant), 46.095879, 14.49794
+210: Kavarna in bistro MihaChef (#restaurant), 46.113434, 14.461594
+211: Bistro Ambient (#restaurant), 46.055309, 14.50868
+212: LP Bar (#restaurant), 46.047611, 14.50471
+213: Pizzeria/Picerija Spagetarija Kavarna Oliva (#restaurant), 46.047329, 14.54543
+214: Torta (#restaurant), 46.051189, 14.507512
+215: Atrium (#restaurant), 46.058121, 14.45178
+216: Clementina Caffe Bar (#restaurant), 46.046349, 14.50834
+217: Subway Bezigrad (#restaurant), 46.07497, 14.51117
+218: Lepa Zoga (#restaurant), 46.06139, 14.496176
+219: Gostilna Raubar (#restaurant), 46.064301, 14.50659
+220: Fast Food BUREK 1 (#restaurant), 46.050709, 14.51217
+221: Soncek (#restaurant), 46.080441, 14.53458
+222: Seherezada (#restaurant), 46.052509, 14.50984
+223: Gostilna Za Pumpo (#restaurant), 46.044491, 14.48565
+224: Tunnel (#restaurant), 46.044788, 14.51049
+225: Horse's Pub (#restaurant), 46.09198, 14.51418
+226: Krakovc (#restaurant), 46.044186, 14.504537
+227: Dobra Vila Pizzeria (#restaurant), 46.063961, 14.49345
+228: Hombre (#restaurant), 46.039379, 14.48703
+229: Holyfood (#restaurant), 46.04808, 14.49931
+230: Tabay Brothers (#restaurant), 46.081993, 14.515556
+231: Restavracija Pri Levu (#restaurant), 46.056149, 14.50244
+232: Pars (#restaurant), 46.06654, 14.54284
+233: Ljubljana (#restaurant), 46.03878, 14.46862
+234: Bar Konoba (#restaurant), 46.047218, 14.50655
+235: Restaurant Union (#restaurant), 46.053387, 14.506235
+236: Utrip - bar bistro kavarna (#restaurant), 46.056156, 14.519107
+237: Gostilna Dobnikar (#restaurant), 46.092209, 14.36991
+238: Konoba - Rival trade (#restaurant), 46.06654, 14.54284
+239: Korean Bistro Suwon (#restaurant), 46.07328, 14.510619
+240: Twenty Caffe (#restaurant), 46.06654, 14.54284
+241: Flancat Ljubljana (#restaurant), 46.052139, 14.50872
+242: PE Pizza Pub (#restaurant), 46.080959, 14.51257
+243: Restavracija B2 (#restaurant), 46.034382, 14.48322
+244: Radha Govinda (#restaurant), 46.062988, 14.49895
+245: La Favela (#restaurant), 46.056042, 14.50377
+246: Nostalgija (#restaurant), 46.045479, 14.50503
+247: Gastro House 151 (#restaurant), 46.080959, 14.51257
+248: Lavine - Ice cream rolls (#restaurant), 46.051456, 14.508657
+249: Gig (#restaurant), 46.053051, 14.507861
+250: Halo Pinki (#restaurant), 46.04932, 14.51723
+251: Gostilnica Orle (#restaurant), 46.015053, 14.570297
+252: Picestavracija Boccaccio (#restaurant), 46.080811, 14.47861
+253: Restavracija Vozi Misko (#restaurant), 46.021912, 14.53653
+254: ZAJCEK BAR (#restaurant), 46.028629, 14.52346
+255: Dok 19 (#restaurant), 46.05204, 14.50839
+256: Emonska Klet (#restaurant), 46.050259, 14.50235
+257: Shakira (#restaurant), 46.051311, 14.50774
+258: Magda (#restaurant), 46.051319, 14.508868
+259: Favola Spageterija & Pizzerija (#restaurant), 46.077999, 14.51193
+260: McDonald's (#restaurant), 46.069553, 14.54743
+261: Zvezda (#restaurant), 46.06654, 14.54284
+262: Majmun restaurant & bar (#restaurant), 46.06921, 14.522131
+263: Gujzina Mencigar Nobile (#restaurant), 46.049351, 14.51621
+264: Sunknzemlja (#restaurant), 46.0508, 14.50355
+265: Pri Kuklju (#restaurant), 46.05127, 14.50307
+266: Dobrote Vzhoda (#restaurant), 46.063599, 14.49396
+267: Curry Life Figovec (#restaurant), 46.053581, 14.51473
+268: Plac (#restaurant), 46.062256, 14.50855
+269: Flo Bistro (#restaurant), 46.046291, 14.508218
+270: Aga Kebap (#restaurant), 46.05191, 14.50505
+271: Gostilna Zlato Runo (#restaurant), 46.060692, 14.51537
+272: Park Bar (#restaurant), 46.056992, 14.51545
+273: Kavarna Mozaik (#restaurant), 46.075989, 14.4813
+274: Art Bread (#restaurant), 46.04533, 14.48084
+275: Barbarella Juicebar Vegan & Vegetarian (#restaurant), 46.053101, 14.50407
+276: Pub Pod Skalco (#restaurant), 46.046631, 14.503881
+277: Grill point (#restaurant), 46.119694, 14.439724
+278: Valentin (#restaurant), 46.050571, 14.50919
+279: Plecnikov Hram Krizanke (#restaurant), 46.046902, 14.50319
+280: Zmoht (#restaurant), 46.05629, 14.53441
+281: Krejan-Levec (#restaurant), 46.05164, 14.50924
+282: Imperio Mexicano (#restaurant), 46.06842, 14.546069
+283: Trnovski zvon (#restaurant), 46.043213, 14.50375
+284: Restavracija Puccini (#restaurant), 46.065598, 14.549586
+285: Restaurant and Pizzeria Grad Kodeljevo (#restaurant), 46.050251, 14.53104
+286: Duff (#restaurant), 46.052471, 14.5049
+287: Gostilna in Pizzerija Breza (#restaurant), 46.06282, 14.56326
+288: Yildiz han (#restaurant), 46.05127, 14.50307
+289: Gostisce Vrbinc (#restaurant), 46.021439, 14.52325
+290: volta cafe (#restaurant), 46.045601, 14.48966
+291: Nim 8 Min (#restaurant), 46.0569, 14.51056
+292: Restavracija Zmajev Paviljon (#restaurant), 46.070278, 14.54197
+293: Buf Gostinstvo (#restaurant), 46.052544, 14.449985
+294: SRCEK (#restaurant), 46.07896, 14.49006
+295: Kavarna Nuk (#restaurant), 46.03857, 14.47018
+296: Gostilna pri Bitencu (#restaurant), 46.083519, 14.41883
+297: Casa Wine & Tapas (#restaurant), 46.063061, 14.544101
+298: Arhiv bar (#restaurant), 46.044979, 14.50673
+299: Pecnikar (#restaurant), 46.090599, 14.57922
+300: To Je Noro (#restaurant), 46.049412, 14.51125
+301: Nisa Lokal Bistro (#restaurant), 46.051479, 14.5087
+302: Gostilna Kirn (#restaurant), 45.975811, 14.422718
+303: DEKANTER Wine boutique (#restaurant), 46.046501, 14.50763
+304: Gostilna Brinovc (#restaurant), 46.09584, 14.58242
+305: +Kantina MSUM (#restaurant), 46.055771, 14.516792
+306: Marjetice (#restaurant), 46.04858, 14.49403
+307: Long Burgers (#restaurant), 46.05711, 14.5186
+308: Cuk Bar (#restaurant), 46.086788, 14.482746
+309: Terra (#restaurant), 46.042099, 14.47658
+310: Okrepcevalnica Podhod (#restaurant), 46.057964, 14.511828
+311: Gostilna Jerincek (#restaurant), 46.028278, 14.52447
+312: Gusterija (#restaurant), 46.044064, 14.506298
+313: Beli Labod (#restaurant), 46.057709, 14.51722
+314: McDonald's (#restaurant), 46.01749, 14.529924
+315: Super Psanc PE Pavilion (#restaurant), 46.027149, 14.43248
+316: Cube burger (#restaurant), 46.061859, 14.54286
+317: Yildiz Han - Turska restavracija (#restaurant), 46.042736, 14.514024
+318: Hotel Restaurant Medno (#restaurant), 46.127731, 14.42883
+319: Subito (#restaurant), 46.070194, 14.548596
+320: Coffe bar Gvarda (#restaurant), 46.05315, 14.50552
+321: Buffalo Burger (#restaurant), 46.050911, 14.50718
+322: Crnuski Dvor (#restaurant), 46.104462, 14.53835
+323: Viski hram Ljubljana (#restaurant), 46.034401, 14.45471
+324: Degustarna (#restaurant), 46.05164, 14.50924
+325: Gostilna Pod Kostanji (#restaurant), 46.07019, 14.52876
+326: Bizeljcan (#restaurant), 46.075218, 14.56068
+327: Gostilnica Stara trta (#restaurant), 46.059872, 14.52561
+328: Ostarija Petrinka (#restaurant), 46.06197, 14.51476
+329: Mlinotest (#restaurant), 46.052879, 14.50211
+330: Superbabi (#restaurant), 46.087002, 14.5146
+331: Ice Cream Bar Grefino (#restaurant), 46.052368, 14.50312
+332: Pub Tivoli (#restaurant), 46.061001, 14.49698
+333: Lunch Cafe (#restaurant), 46.047932, 14.50632
+334: Galerija Bar Trenutek (#restaurant), 46.051991, 14.51639
+335: Svilna Pot (#restaurant), 46.052219, 14.50848
+336: Guliver (#restaurant), 46.060051, 14.5194
+337: Dishi (#restaurant), 46.054508, 14.50167
+338: Gostilna Macek (#restaurant), 46.123192, 14.50291
+339: rybarska basta (#restaurant), 46.05127, 14.50307
+340: Sparkling wine Istenic (#restaurant), 46.06654, 14.54284
+341: Piazza del papa (#restaurant), 46.05127, 14.50307
+342: Pizzeria Luigi (#restaurant), 46.08474, 14.5134
+343: Kavarna Tromostovje (#restaurant), 46.051197, 14.505909
+344: Asian restaurant TLOFT (#restaurant), 46.055164, 14.503682
+345: Colnarna Park Tivoli (#restaurant), 46.052109, 14.494206
+346: Meta in Bazilika (#restaurant), 46.047176, 14.497438
+347: Ristorante Pizzeria Bufalaf (#restaurant), 46.127731, 14.42883
+348: Smiths Salads & Sandwiches (#restaurant), 46.055351, 14.50882
+349: Tombstone Saloon (#restaurant), 46.04311, 14.50351
+350: Habibi (#restaurant), 46.073269, 14.51049
+351: Fnx (#restaurant), 46.062492, 14.56636
+352: Basburek Ljubljana (#restaurant), 46.075062, 14.51098
+353: Restavracija Tartuf (#restaurant), 46.05217, 14.50716
+354: Gostilna Euro Gurman (#restaurant), 46.057369, 14.58402
+355: Gostilna Pekel (#restaurant), 45.890572, 14.37262
+356: Centralna Postaja (#restaurant), 46.052502, 14.509097
+357: El Clasico (#restaurant), 46.05127, 14.50307
+358: Swajger (#restaurant), 46.05127, 14.50307
+359: la storia trattoria (#restaurant), 46.06385, 14.50975
+360: Reformer Pub (#restaurant), 46.052189, 14.5083
+361: Klub 300 (#restaurant), 46.081291, 14.46923
+362: Restavracija 123 Self-Service (#restaurant), 46.088291, 14.47718
+363: Piazza del papa (#restaurant), 46.021839, 14.53591
+364: Farao (#restaurant), 46.099091, 14.54087
+365: Kacji pastir (#restaurant), 46.068588, 14.46849
+366: Zak (#restaurant), 46.053928, 14.50508
+367: Cebela (#restaurant), 46.05619, 14.51376
+368: Okrepcevalnica Bistro Avia Radomir Masovic S.p (#restaurant), 46.08279, 14.51397
+369: Dnevni Bar Krenos (#restaurant), 46.060719, 14.61554
+370: Spanska Vas (#restaurant), 46.063953, 14.544199
+371: Halo Katra (#restaurant), 46.05127, 14.50307
+372: Al Capone (#restaurant), 46.06654, 14.54284
+373: Running Sushi & Wok (#restaurant), 46.021839, 14.53591
+374: Stara Macka (#restaurant), 46.049591, 14.50586
+375: Pizza Marija (#restaurant), 46.06052, 14.50686
+376: HALO PINKI d.o.o. (#restaurant), 46.05793, 14.52863
+377: Kitajski Dvor (#restaurant), 46.06213, 14.50748
+378: Spica Caffe (#restaurant), 46.040844, 14.511699
+379: McDonald's (#restaurant), 46.052059, 14.5047
+380: Galerija Grad (#restaurant), 46.04715, 14.48031
+381: Ribarnica Valentin (#restaurant), 46.050571, 14.50919
+382: Terminal Lounge Bar & Club (#restaurant), 46.057957, 14.510829
+383: Sempre (#restaurant), 46.081291, 14.46923
+384: Gostilna in pizzerija Zajcja dobrava (#restaurant), 46.060459, 14.58668
+385: Bar Kapo Gor (#restaurant), 46.056503, 14.502636
+386: Wild West Saloon (#restaurant), 46.042889, 14.48085
+387: Urbani Piknik (#restaurant), 46.063709, 14.49015
+388: Spanska Vas (#restaurant), 46.063354, 14.5449
+389: Gostilna in taverna Stern (#restaurant), 46.097542, 14.51906
+390: Biljardnica Kaval (#restaurant), 46.108292, 14.46161
+391: Hotel Rakov Skocjan (#restaurant), 46.036961, 14.52231
+392: Lars&Sven burgers Ljubljana city (#restaurant), 46.050705, 14.50271
+393: Trubar (#restaurant), 46.052391, 14.512362
+394: Dvorni Bar (#restaurant), 46.049286, 14.50509
+395: Marley & Me (#restaurant), 46.04808, 14.50625
+396: Spajza (#restaurant), 46.045811, 14.508797
+397: Pizzeria FoculuS (#restaurant), 46.047909, 14.502225
+398: Gostilna Na gradu (#restaurant), 46.04871, 14.508592
+399: Vodnikov Hram (#restaurant), 46.05069, 14.509837
+400: Sushimama (#restaurant), 46.050728, 14.5052
+401: Gostilna Cad (#restaurant), 46.055279, 14.481988
+402: Gostilna As (#restaurant), 46.051464, 14.504783
+403: Fany & Mary (#restaurant), 46.051785, 14.508496
+404: Verace (#restaurant), 46.047112, 14.514503
+405: Nobel burek (#restaurant), 46.056149, 14.507813
+406: Pivnica Union (#restaurant), 46.059662, 14.49854
+407: Vineria Del Ponte (#restaurant), 46.04829, 14.5061
+408: Slovenska Hisa (#restaurant), 46.049824, 14.505622
+409: Sarajevo '84 (#restaurant), 46.052914, 14.503803
+410: Azur - tratorija s picami (#restaurant), 46.045055, 14.473688
+411: AS Aperitivo (#restaurant), 46.051373, 14.504721
+412: Loving Hut Ljubljana Center (#restaurant), 46.057613, 14.508806
+413: Lars&Sven Burgers (#restaurant), 46.020023, 14.536389
+414: Rio Momo (#restaurant), 46.051151, 14.502918
+415: Vander Restaurant (#restaurant), 46.049557, 14.505823
+416: Gostilnica 5-6 Kg (#restaurant), 46.045757, 14.508951
+417: Atelje (#restaurant), 46.052429, 14.505699
+418: Shambala (#restaurant), 46.046329, 14.504428
+419: Libanonske meze in drugi uzitki (#restaurant), 46.052486, 14.511489
+420: Bistro Zvezda (#restaurant), 46.050251, 14.504469
+421: Skuhna (#restaurant), 46.052326, 14.512671
+422: Wine bar Suklje (#restaurant), 46.047371, 14.505277
+423: Gostilna Kovac (#restaurant), 46.081631, 14.534734
+424: Taj Mahal restaurant (#restaurant), 46.050411, 14.514301
+425: Namaste Indian Restaurant (#restaurant), 46.047169, 14.505367
+426: Gostilna Sestica (#restaurant), 46.053284, 14.504043
+427: Restavracija Valentin (#restaurant), 46.050789, 14.509174
+428: Zaziv Vegan Bistro (#restaurant), 46.047691, 14.49785
+429: Kolibri Cocktail Bar (#restaurant), 46.048641, 14.504444
+430: Mediterraneo (#restaurant), 46.050426, 14.507676
+431: Paninoteka Restaurant (#restaurant), 46.048458, 14.505194
+432: Cafe Romeo (#restaurant), 46.048038, 14.505823
+433: Gujzina (#restaurant), 46.049259, 14.506438
+434: Cantina Restaurantes Mexicana (#restaurant), 46.051365, 14.504885
+435: DA BU DA Asian Fusion and Bar (#restaurant), 46.050903, 14.501731
+436: Dezela Okusov (#restaurant), 46.043221, 14.504222
+437: Slon 1552 (#restaurant), 46.052658, 14.504371
+438: JB (#restaurant), 46.057281, 14.508347
+439: Cutty Sark Pub (#restaurant), 46.051365, 14.504791
+440: Gostilna Kaval (#restaurant), 46.108086, 14.46121
+441: Dinner in the Sky (#restaurant), 46.04977, 14.50389
+442: Katrca Hisa piva in kulinarike (#restaurant), 46.050751, 14.485447
+443: Restavracija Osterija Pr'Noni (#restaurant), 46.034473, 14.462591
+444: Pizzeria Osmica (#restaurant), 46.052677, 14.504681
+445: Peti 181 (#restaurant), 46.049168, 14.505
+446: Gostilna Pri Zabarju (#restaurant), 46.04224, 14.46869
+447: Gostilna Jakob Franc (#restaurant), 46.042732, 14.505997
+448: Vino & Ribe (#restaurant), 46.047222, 14.506439
+449: Organic Garden (#restaurant), 46.050636, 14.508365
+450: Lockal (#restaurant), 46.051998, 14.508756
+451: Italijanska Restavracija Mirje (#restaurant), 46.04678, 14.49393
+452: Mala Terasa (#restaurant), 46.053612, 14.504407
+453: Maru Japonska Restavracija Ljubljana (#restaurant), 46.071308, 14.4778
+454: Gostilna Sokol Ljubljana (#restaurant), 46.050289, 14.507371
+455: Zhong Hua Restaurant (#restaurant), 46.05225, 14.512306
+456: Zlata Ribica (#restaurant), 46.050171, 14.505883
+457: Argentino (#restaurant), 46.061977, 14.545586
+458: Aroma Restaurant & Pizzeria (#restaurant), 46.050255, 14.50597
+459: Gostilna Pr Kopac (#restaurant), 46.024128, 14.415865
+460: Maharaja (#restaurant), 46.065704, 14.490673
+461: Barbarella Arkade Bistro (Vegan and Vegeterian) (#restaurant), 46.051422, 14.50836
+462: Tokyo Piknik (#restaurant), 46.049252, 14.505613
+463: OnThai (#restaurant), 46.048103, 14.501695
+464: Ajdovo Zrno (#restaurant), 46.051998, 14.50726
+465: Picerija Garaza (#restaurant), 46.03426, 14.52635
+466: Street Food Valentin (#restaurant), 46.050732, 14.509124
+467: Zlata Ladjica (#restaurant), 46.04837, 14.50544
+468: Bazilika Bistro (#restaurant), 46.049816, 14.4975
+469: Restavracija Neboticnik (#restaurant), 46.053242, 14.503622
+470: Skriti Kot (#restaurant), 46.053463, 14.504775
+471: Hood Burger Center (#restaurant), 46.052448, 14.505625
+472: Burek Olimpija (#restaurant), 46.056744, 14.506021
+473: Soba 102 (#restaurant), 46.052544, 14.502975
+474: Rodizio do Brasil (#restaurant), 46.047928, 14.496871
+475: Tandoori (#restaurant), 46.052151, 14.51313
+476: Mexico Mediterra Place (#restaurant), 46.069092, 14.489716
+477: Gostilna Pri kolovratu (#restaurant), 46.050449, 14.508066
+478: Back Werk (#restaurant), 46.051548, 14.505706
+479: Restavracija Harfa (#restaurant), 46.033726, 14.48252
+480: Gostilnica in pivnica SISKA (#restaurant), 46.066578, 14.492831
+481: Joe Pena's Cantina y Bar (#restaurant), 46.052628, 14.502633
+482: Sato Bento (#restaurant), 46.054054, 14.512528
+483: Saraj Restavracija (#restaurant), 46.05521, 14.519494
+484: Restavracija Pen Klub (#restaurant), 46.05265, 14.4992
+485: 10 v pol (#restaurant), 46.048027, 14.544614
+486: Pizzeria Ljubljanski Dvor (#restaurant), 46.049236, 14.504933
+487: Allegria (#restaurant), 46.052837, 14.504737
+488: Krtina D'Ampezzo (#restaurant), 46.0457, 14.49264
+489: Altroke (#restaurant), 46.047173, 14.506469
+490: Novi Shanghai (#restaurant), 46.050911, 14.51207
+491: Moji struklji (#restaurant), 46.051155, 14.507551
+492: Okrepcevalnica Ribca (#restaurant), 46.0513, 14.506725
+493: Winners Lounge (#restaurant), 46.081833, 14.51331
+494: Makalonca (#restaurant), 46.050247, 14.505625
+495: Piazza Ristorante Pizzeria (#restaurant), 46.064526, 14.503269
+496: The Wok (#restaurant), 46.051655, 14.505362
+497: Gostilna in pizzerija Jurman (#restaurant), 46.056385, 14.556797
+498: SARAJEVSKI GRILL PAVZA (#restaurant), 46.06654, 14.54284
+499: Gostilna Pri Stricku (#restaurant), 46.06974, 14.53919
+500: Taman Organic (#restaurant), 46.052608, 14.504862
+501: Maxim (#restaurant), 46.050488, 14.501292
+502: KUHINJA KRUSIC (#restaurant), 46.05986, 14.5277
+503: Sax Pub (#restaurant), 46.043171, 14.50458
+504: Kavarna Rog (#restaurant), 46.050926, 14.516497
+505: Gostilna Pod Vrbo (#restaurant), 46.040878, 14.503475
+506: Asian Bistro OSHA (#restaurant), 46.052536, 14.511078
+507: Greeko (#restaurant), 46.052288, 14.512503
+508: Gostilna Janezic (#restaurant), 46.095989, 14.59329
+509: Boschtiz (#restaurant), 46.078903, 14.496201
+510: Stara Pumpa (#restaurant), 46.095444, 14.468311
+511: Loving Hut (#restaurant), 46.037319, 14.48194
+512: Repete Jazz & Okrepcila (#restaurant), 46.046257, 14.508219
+513: Gostilna Pri Vodniku (#restaurant), 46.06715, 14.486207
+514: Hot Horse (#restaurant), 46.059978, 14.496444
+515: DiVino Restavracija In Bar (#restaurant), 46.066837, 14.541828
+516: Holidays' Pub (#restaurant), 46.052971, 14.50402
+517: HillBilly`s BBQ SmokeHouse (#restaurant), 46.056042, 14.50377
+518: B-restaurant&bar (#restaurant), 46.057114, 14.50554
+519: Dvor Tacen (#restaurant), 46.117603, 14.462075
+520: Kavarna Tiskarna (#restaurant), 46.075253, 14.510831
+521: Snack Zoki Zoran Jovanovic (#restaurant), 46.082016, 14.515053
+522: Gostilna Jelen (#restaurant), 46.100708, 14.459246
+523: Chuty's - Heart Of Asia (#restaurant), 46.049709, 14.50216
+524: Patrick's Irish Pub (#restaurant), 46.052753, 14.508386
+525: Penzion Kmecki hram (#restaurant), 46.078911, 14.53632
+526: Cafe Antico (#restaurant), 46.047577, 14.506375
+527: Restaurant Angel (#restaurant), 46.08786, 14.47597
+528: Premier Pub (#restaurant), 46.051804, 14.508338
+529: Bangkokstreet (#restaurant), 46.068779, 14.547201
+530: Kavarna Macek (#restaurant), 46.04948, 14.5059
+531: Central Station (#restaurant), 46.052441, 14.508944
+532: Krpan (#restaurant), 46.05389, 14.530328
+533: Maratonec (#restaurant), 46.069012, 14.50171
+534: Gostilna Pod Lipo (#restaurant), 46.047802, 14.499081
+535: Govinda's vegetarian restaurant (#restaurant), 46.062988, 14.49895
+536: Cojzla (#restaurant), 46.06403, 14.544444
+537: Gostilna Cubr (#restaurant), 46.1996, 14.563547
+538: Gostilna Gorjanc (#restaurant), 46.027569, 14.43411
+539: Pri Kovacu (#restaurant), 46.031601, 14.6044
+540: ZMAUC (#restaurant), 46.047668, 14.49834
+541: eVino Wine bar (#restaurant), 46.063931, 14.52668
+542: Brodo (#restaurant), 46.053928, 14.50508
+543: Valvasor (#restaurant), 46.048027, 14.506134
+544: Das ist Valter (#restaurant), 46.056271, 14.519134
+545: Cajna hisa (#restaurant), 46.048351, 14.506203
+546: Druga Violina (#restaurant), 46.046932, 14.506671
+547: Sorbara Steak House (#restaurant), 46.046909, 14.505904
+548: Pop's Place (#restaurant), 46.050423, 14.505957
+549: Most (#restaurant), 46.052036, 14.508612
+550: Restavracija Cubo (#restaurant), 46.064041, 14.527556
+551: Julija (#restaurant), 46.047962, 14.506126
+552: Manna (#restaurant), 46.043331, 14.505167
+553: Le Petit cafe (#restaurant), 46.046982, 14.502627
+554: Pri Skofu (#restaurant), 46.044018, 14.504235
+555: Kralj Zara (#restaurant), 46.050625, 14.504577
+556: Robba (#restaurant), 46.049744, 14.506605
+557: Klobasarna (#restaurant), 46.050488, 14.507859
+558: Vinoteka Movia (#restaurant), 46.049885, 14.506755
+559: Hood Burger (#restaurant), 46.038795, 14.476153
+560: Luda (#restaurant), 46.050606, 14.512692
+561: TaBar (#restaurant), 46.050198, 14.506063
+562: Abi Falafel (#restaurant), 46.052402, 14.510864
+563: Fari's Delice (#restaurant), 46.056854, 14.508333
+564: Ek Bistro (#restaurant), 46.051914, 14.513801
+565: Restavracija Strelec (#restaurant), 46.049042, 14.509033
+566: Restaurant Compa (#restaurant), 46.052441, 14.511179
+567: Monstera bistro (#restaurant), 46.048443, 14.504394
+568: Gostilna Dela (#restaurant), 46.050674, 14.512153
+569: Pizzerija Trta (#restaurant), 46.043694, 14.506672
+570: Zbornica (#restaurant), 46.047333, 14.500088
+571: Hisa Pod Gradom restaurant (#restaurant), 46.049549, 14.511301
