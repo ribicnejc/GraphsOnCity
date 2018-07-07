@@ -24,8 +24,8 @@ St. Stephen's Cathedral Vienna, 48.2084114, 16.373470699999984
 Belvedere Palace Museum Vienna, 48.1915585, 16.38095469999996
 Imperial Palace (Hofburg) Vienna, 48.2076579, 16.36605380000003
 Schonbrunn Palace Vienna, 48.1858124, 16.312764000000016
-Historic Center of Vienna Vienna, 48.2081743, 16.37381890000006
-Ringstrasse Vienna, 48.407653, 15.597141400000055
+Historic Center of Vienna Vienna, 48.208591, 16.369694
+Ringstrasse Vienna, 48.211807, 16.361113
 Karlskirche Vienna, 48.1982453, 16.371828400000027
 Christmas Market on Rathausplatz Vienna, 48.2107384, 16.358306699999957
 Parliament Building Vienna, 48.20808840000001, 16.358608300000014
@@ -42,7 +42,7 @@ Kapuziner Crypt (Kapuzinergruft) Vienna, 48.2057146, 16.3700245
 MAK - Austrian Museum of Applied Arts / Contemporary Art Vienna, 48.2075967, 16.38160330000005
 St. Anna's Church Vienna, 48.20439, 16.37210099999993
 Neue Burg Vienna, 48.205172, 16.364578800000004
-Vienna Woods Vienna, 48.0927289, 15.951823699999977
+Vienna Woods Vienna, 48.27446, 16.336866
 Haus des Meeres - Aqua Terra Zoo Vienna, 48.1976874, 16.35293260000003
 Vienna Pass Vienna, 48.2023309, 16.36978590000001
 Spittelberg Christmas Market Vienna, 48.2034852, 16.355288599999994
@@ -78,7 +78,7 @@ Strauss Monument Vienna, 48.203835, 16.37914610000007
 Hofmobiliendepot (Imperial Furniture Collection) Vienna, 48.1987013, 16.347005399999944
 Botanischer Garten (Botanical Garden of the University of Vienna) Vienna, 48.1938757, 16.383788299999992
 St. Michael's Church Vienna, 48.20807929999999, 16.367088100000046
-The Strudelshow Vienna, 48.18551069999999, 16.313850000000002
+The Strudelshow Vienna, 48.122318, 16.30455
 Griechenkirche zur heiligen Dreifaltigkeit Vienna, 48.210692, 16.37738509999997
 Soviet War Memorial Vienna, 48.1981148, 16.376270100000056
 Museum of Illusions Vienna, 48.2096041, 16.36697849999996
@@ -92,14 +92,13 @@ Anker Clock Vienna, 48.2107483, 16.373648900000035
 Dorotheum Vienna, 48.2061946, 16.36880510000003
 Riesenrad Vienna, 48.2166205, 16.395888900000045
 Trinitarierkirche zum Heiligen Franz von Assisi Vienna, 48.2244893, 16.40535220000004
-Vienna Coffeehouse Conversations Vienna, 35.7565201, -83.96903450000002
+Vienna Coffeehouse Conversations Vienna, 48.210049, 16.381969
 Vienna Museum Vienna, 48.199437, 16.372960000000035
 Meinl am Graben Vienna, 48.2094329, 16.368291399999976
 Russian Orthodox Cathedral of St. Nicholas Vienna, 48.1974525, 16.385062100000027
 Palmenhaus Schoenbrunn Vienna, 48.1842141, 16.30290260000004
 Ernst Happel Stadion Vienna, 48.2072078, 16.420984699999963
 Madame Tussauds Vienna Vienna, 48.2174097, 16.396554899999956
-
 Otto Wagner Pavillon Karlsplatz Vienna, 48.2001979, 16.370537600000034
 Alte Donau Vienna, 48.2359069, 16.42824339999993
 Globe Museum of the Austrian National Library Vienna, 48.209473, 16.36588299999994
@@ -161,7 +160,7 @@ Hofjagd- und Ruestkammer Vienna, 48.2049357, 16.36379050000005
 Flea Market Vienna, 48.19685399999999, 16.35797339999999
 Funeral Museum (Bestattungsmuseum) Vienna, 48.1541304, 16.440418799999975
 Bank Austria Kunstforum Vienna, 48.211486, 16.36625570000001
-Monument to Empress Elisabeth Vienna, 48.2081743, 16.37381890000006
+Monument to Empress Elisabeth Vienna, 48.205959, 16.35788
 Medl-Braeu Vienna, 48.1955196, 16.280296300000032
 Die Burgkapelle (Home of the Vienna Boys' Choir) Vienna, 48.2067898, 16.365607100000034
 Wien Mitte the Mall Vienna, 48.2068707, 16.385254099999997
@@ -171,7 +170,7 @@ Viktor Frankl Center Vienna, 48.21576229999999, 16.35077769999998
 Statue of Johannes Gutenberg Vienna, 48.2098012, 16.374965900000007
 Palais Auersperg Vienna, 48.20735089999999, 16.355091300000026
 Karl-Marx-Hof Vienna, 48.2519679, 16.364983100000018
-The Gates of Violence Monument Vienna, 48.2081743, 16.37381890000006
+The Gates of Violence Monument Vienna, 48.20435, 16.36883
 Vienna Ring Tram Vienna, 48.2116359, 16.377747
 ZOOM Kindermuseum Vienna, 48.20223800000001, 16.359372000000008
 Kirche am Hof Vienna, 48.2109828, 16.368392299999982
@@ -205,13 +204,13 @@ Theater in der Josefstadt Vienna, 48.2095202, 16.351117799999997
 Strandbad Alte Donau Vienna, 48.2422104, 16.416799699999956
 Friedhof der Namenlosen Vienna, 48.1594932, 16.502458700000034
 Chocolate Museum Vienna Vienna, 48.2173761, 16.39653050000004
-Music Mile Vienna, 48.2081743, 16.37381890000006
+Music Mile Vienna, 48.20517, 16.370951
 Stadttempel Synagogue Vienna, 48.2116232, 16.37479559999997
 Museum of Contraception and Abortion Vienna, 48.1949002, 16.339069699999982
 Flakturm Vienna, 48.2258389, 16.3735279
 The Liechtenstein Garden Palace Vienna, 48.2225283, 16.359598799999958
 Burg Leopoldsberg Vienna, 48.27779580000001, 16.346106899999995
-Silvester Gala Vienna Vienna, 48.2081743, 16.37381890000006
+Silvester Gala Vienna Vienna, 48.210056, 16.357523
 Hofmusikkapelle Vienna, 48.2065896, 16.365907600000014
 Grinzinger Pfarrkirche Vienna, 48.2573052, 16.33905219999997
 Haus der Industrie Vienna, 48.1996423, 16.375982600000043
@@ -237,7 +236,7 @@ Potzleinsdorfer Schlosspark Vienna, 48.2413748, 16.300128900000004
 Donaucity-Kirche Christus Hoffnung der Welt Vienna, 48.2330189, 16.415255399999978
 Otto Wagner Hofpavillon Hietzing Vienna, 48.1875235, 16.30595870000002
 Stadionbad Vienna, 48.2036184, 16.422739699999966
-Deutschordenskloster 'Sala Terrena' Vienna, 48.2081743, 16.37381890000006
+Deutschordenskloster 'Sala Terrena' Vienna, 48.207359, 16.3738
 Palais Equitable Vienna, 48.2078233, 16.371399500000052
 Mozart Haus Vienna, 48.2081732, 16.37493440000003
 Kurpark Oberlaa Vienna, 48.1486222, 16.39971259999993
@@ -261,7 +260,7 @@ Falschermuseum Vienna, 48.2077022, 16.393189500000062
 Church of the Piarist Order (Piaristenkirche) Vienna, 48.2102314, 16.35023620000004
 SchokoMuseum (Chocolate Museum) Vienna, 48.151214, 16.33257500000002
 Mariahilfer Kirche Vienna, 48.1989694, 16.353165799999942
-Mariensaule Vienna, 48.1902325, 16.33246680000002
+Mariensaule Vienna, 48.2111567, 16.3678742
 Generali-Arena Vienna, 48.162353, 16.38712799999996
 Schonbrunnerbad Vienna, 48.1793312, 16.31520249999994
 Vienna International Centre Vienna, 48.2356394, 16.416638799999987
@@ -296,7 +295,7 @@ Montesino Casino Vienna, 48.1855769, 16.42104960000006
 Elmayer Dance School Vienna, 48.2068145, 16.36767610000004
 Schloss Neugebaude Vienna, 48.1605059, 16.443900900000017
 Kuffner Observatory (Kuffner-Sternwarte) Vienna, 48.212787, 16.291269199999988
-Triumphwagen des Marc Anton Vienna, 48.2081743, 16.37381890000006
+Triumphwagen des Marc Anton Vienna, 48.200432, 16.36628
 Money Museum Vienna, 48.2038016, 16.361787400000026
 Marienstatue Vienna, 48.2127007, 16.376903999999968
 Goethedenkmal Vienna, 48.2033896, 16.366146100000037
@@ -306,7 +305,7 @@ Arik-Brauer-Haus Vienna, 48.1906256, 16.33982000000003
 Burgerliches Zeughaus Vienna, 48.199437, 16.372960000000035
 Elefant Vienna, 48.2025375, 16.34884980000004
 Globe Wien Vienna, 48.18737549999999, 16.405334100000005
-Open-air Swimming Pools Vienna, 48.2661253, 16.331974299999956
+Open-air Swimming Pools Vienna, 48.23629, 16.30125
 Welt Museum of Anthropoligie Vienna, 48.20496199999999, 16.36371699999995
 Nouvel Tower Vienna, 48.2126725, 16.383518600000002
 Dr.- Karl-Lueger-Gedachtniskirche Vienna, 48.150741, 16.438361999999984
@@ -316,10 +315,10 @@ Palais Lichtenstein Vienna, 48.2225283, 16.359598799999958
 Archives of the Austrian Resistance Vienna, 48.211849, 16.371035500000062
 Yppenplatz Vienna, 48.2130874, 16.335464
 Amalienbad Vienna, 48.1742538, 16.378989100000013
-Statue of Johann Christoph Friedrich von Schiller Vienna, 48.2081743, 16.37381890000006
+Statue of Johann Christoph Friedrich von Schiller Vienna, 48.209641, 16.374689
 Prinz Eugen Statue Vienna, 48.2063576, 16.36317459999998
 Urania Sternwarte Vienna, 48.2115184, 16.384262000000035
-Bohemian Court Chancery Vienna, 48.2081743, 16.37381890000006
+Bohemian Court Chancery Vienna, 48.211819, 16.3706
 Vienna Central Mosque Vienna, 48.245052, 16.397915499999954
 Belvedere Schlossgarten Vienna, 48.1917214, 16.381239999999934
 Koptische St. Markus Orthodoxe Kirche Vienna, 48.2344634, 16.419973099999993
@@ -334,7 +333,7 @@ Kammeroper Vienna, 48.2100385, 16.3779581
 Haus Steiner Vienna, 48.1839013, 16.28321249999999
 Kasino am Schwarzenbergplatz Vienna, 48.2013133, 16.37493070000005
 Austrian Gallery (Osterreichische Galerie) Vienna, 48.1915308, 16.38091399999996
-Pushkin Statue Vienna, 48.2081743, 16.37381890000006
+Pushkin Statue Vienna, 48.145149, 16.398661
 Hohe Brucke Wien Vienna, 48.2127719, 16.36863070000004
 Krapfenwaldlbad Swimming Pool Vienna, 48.2661253, 16.331974299999956
 Marx Halle Vienna, 48.18785829999999, 16.40459379999993
@@ -346,7 +345,7 @@ Vergilius Chapel Museum Vienna, 48.208329, 16.372259999999983
 Osterreichisches Museum fur Volkskunde Vienna, 48.213209, 16.350918999999976
 Floridsdorfer Waterpark Vienna, 48.2508987, 16.39563629999998
 Hannovermarkt Vienna, 48.2317672, 16.368767299999945
-Joseph Graf Radetzky von Radetz Vienna, 48.2081743, 16.37381890000006
+Joseph Graf Radetzky von Radetz Vienna, 48.208488, 16.382021
 Leopoldsbrunnen Vienna, 48.2083672, 16.3703481
 Wiener Symphoniker Vienna, 48.1994137, 16.37730540000007
 Raimundhof Vienna, 48.1995137, 16.35580559999994
@@ -363,8 +362,8 @@ Literature Museum of the Austrian National Library Vienna, 48.2061623, 16.366648
 Gestapo Haus Wien Vienna, 48.2130127, 16.37462419999997
 Karmeliterkirche Vienna, 48.2161992, 16.38016689999995
 Naglergasse Vienna, 48.21029840000001, 16.367475600000034
-Monument to Karl Renner Vienna, 48.2081743, 16.37381890000006
-La Note Bleue - Frederic Chopin Monument Vienna, 48.2081743, 16.37381890000006
+Monument to Karl Renner Vienna, 48.209431, 16.356119
+La Note Bleue - Frederic Chopin Monument Vienna, 48.186981, 16.384291
 Elisabethinenkirche Vienna, 48.2052667, 16.3867209
 Eglise Saint-Francois d'Assise Vienna, 48.2244893, 16.40535220000004
 Kriegsministerium Vienna, 48.209926, 16.382960899999944
@@ -373,21 +372,21 @@ Metropol Theater Vienna, 48.2173573, 16.33433309999998
 English Mondays Vienna, 48.2112579, 16.374977299999955
 Peace Museum Vienna Vienna, 48.2079336, 16.374644699999976
 Barmherzigenkirche Vienna, 48.21474, 16.380242400000043
-Produktenborse Wien Vienna, 48.2081743, 16.37381890000006
+Produktenborse Wien Vienna, 48.214199, 16.380159
 Auhofcenter Vienna, 48.2081423, 16.21883539999999
 Neidhart Fresken Vienna, 48.210811, 16.371202799999992
 Goldenes Quartier Vienna Vienna, 48.2097399, 16.368830300000013
-New Year's Eve in Vienna Vienna, 48.2081743, 16.37381890000006
+New Year's Eve in Vienna Vienna, 48.210873, 16.355061
 Kaiserliche Wagenburg Wien Vienna, 48.1863502, 16.309461499999998
 Museum of Modern Art Ludwig Foundation (MUMOK) Vienna, 48.2037823, 16.357833099999993
 Lugner City Vienna, 48.20395, 16.33451009999999
-Villa Schopp Vienna, 48.2081743, 16.37381890000006
+Villa Schopp Vienna, 48.181358, 16.294769
 Weingut am Reisenberg Vienna, 48.2598748, 16.33142840000005
 Schauspielhaus Vienna, 48.2199578, 16.36139579999997
 Martin Luther Kirche Vienna, 48.2205035, 16.339987199999996
 Planetarium Wien Vienna, 48.21603750000001, 16.3950562
 Molker Bastei Vienna, 48.2127744, 16.362346600000023
-Haus Scheu Vienna, 48.1894323, 16.290723299999968
+Haus Scheu Vienna, 48.183701, 16.29104
 Vienna Peace Pagoda Vienna, 48.1911785, 16.454799800000046
 BahnhofCity Wien Hauptbahnhof Vienna, 48.1849827, 16.376424799999995
 Urania Puppentheater Vienna, 48.2115461, 16.383888699999943
@@ -398,11 +397,11 @@ Rochuskirche Vienna, 48.2022359, 16.390606400000024
 Heiligenkreuzerhof Market Vienna, 48.2096384, 16.377326100000005
 Kaffeemuseum Wien Vienna, 48.1845714, 16.35850370000003
 Marokkanerbrunnen Vienna, 48.19908359999999, 16.379990399999997
-Parish church St Laurentius Vienna, 42.5506396, -91.1145869
+Parish church St Laurentius Vienna, 48.201752, 16.309219
 Galerie Kaiblinger Vienna, 48.2061555, 16.36941569999999
 Denn's Biomarkt Vienna, 48.2141212, 16.380092900000022
 Jubilaumswarte Vienna, 48.2212595, 16.26565579999999
-International Theater Vienna, 48.2112241, 16.371033500000067
+International Theater Vienna, 48.2194495, 16.3629083
 Lilly's Art Vienna, 48.2064124, 16.36970240000005
 Habsburgwarte Vienna, 48.27040059999999, 16.29352229999995
 Servitenkirche Vienna, 48.22067699999999, 16.363751800000045
@@ -419,7 +418,7 @@ Phantastenmuseum Vienna, 48.2062938, 16.36784179999995
 Geymullerschlossl Vienna, 48.2437701, 16.307333599999993
 Haus Wittgenstein - Bulgarisches Kulturinstitut Vienna, 48.203252, 16.394281200000023
 Galerie Artziwna Vienna, 48.2106346, 16.364968800000042
-European Peace Walk Vienna, 48.2081743, 16.37381890000006
+European Peace Walk Vienna, 48.208862, 16.372383
 Albert Schweitzer Haus Vienna, 48.2165331, 16.3568348
 Gruam Vienna, 48.2462485, 16.43954370000006
 Reformierte Stadtkirche Vienna, 48.2067354, 16.368696
@@ -430,7 +429,7 @@ Kaasgrabenkirche Vienna, 48.25323100000001, 16.33293900000001
 Rudolf Bednar Park Vienna, 48.2261456, 16.39675550000004
 Serbisch-Orthodoxe Kirche Christi Auferstehung Vienna, 48.2275023, 16.39928789999999
 Metternichpalais Vienna, 48.19613649999999, 16.38287660000003
-Schokoladenhaus Vienna, 48.2081743, 16.37381890000006
+Schokoladenhaus Vienna, 48.18177, 16.29738
 Josef-von-Schemerl-Brucke Vienna, 48.2592797, 16.369371199999932
 48er Tandler Vienna, 48.1812232, 16.353178999999955
 Tora-San Park Vienna, 48.2518172, 16.3989421
@@ -444,7 +443,7 @@ Denkmal Hans Makart Vienna, 48.204916, 16.379303299999947
 Pfadfindermuseum und Institut fuer Pfadfindergeschichte Vienna, 48.2000037, 16.325846400000046
 Galerie Krinzinger Vienna, 48.2053992, 16.37462329999994
 Justizpalast Vienna, 48.2067349, 16.357716500000038
-Skulptur Stage Set Vienna, 48.2081743, 16.37381890000006
+Skulptur Stage Set Vienna, 48.202969, 16.38184
 St. Johannes der Taufer Vienna, 48.1875503, 16.350793100000033
 Kirche zum heiligen Kreuz - Gardekirche Vienna, 48.1978886, 16.379073300000073
 OFF Theater Vienna, 48.2046675, 16.35139479999998
@@ -454,22 +453,22 @@ Joseph's Square Vienna, 48.20644240000001, 16.36720009999999
 Jan Arnold Gallery Vienna, 48.2040527, 16.35839729999998
 J.E.Schindler Statue Vienna, 48.2047335, 16.379660100000024
 The Danube Wetlands Vienna, 48.1339067, 16.735373200000026
-Rubens Statue Vienna, 48.2081743, 16.37381890000006
+Rubens Statue Vienna, 48.2005, 16.371519
 Lutherische Stadtkirche Vienna, 48.206609, 16.36854399999993
 St. Francis of Assisi Church Vienna, 48.2244893, 16.40535220000004
-Denkmal Hans Canon Vienna, 48.2081743, 16.37381890000006
+Denkmal Hans Canon Vienna, 48.20319, 16.37775
 Schwendermarkt Vienna, 48.1910418, 16.326417600000013
 Heiligen Geist Kirche Vienna, 48.2072763, 16.322421599999984
 Backerstrasse No. 2 Vienna, 48.2094909, 16.375041900000042
 Pygmalion Theater Vienna, 48.2149702, 16.34715959999994
 Ballpark Spenadlwiese Vienna, 48.209031, 16.40486199999998
-Statue Christopher Columbus Vienna, 48.2081743, 16.37381890000006
+Statue Christopher Columbus Vienna, 48.20089, 16.370819
 Mahnmal Aspangbahnhof Vienna, 48.1921332, 16.391661999999997
 Bezirksmuseum Floridsdorf Vienna, 48.2633656, 16.393991700000015
 Esperantopark Vienna, 48.2094732, 16.36571170000002
 Torture museum Vienna, 48.197958, 16.35252600000001
 Austrian Theater Museum Vienna, 48.20559610000001, 16.368534700000055
-Church of St. Joseph Vienna, 36.1769652, -94.23393620000002
+Church of St. Joseph Vienna, 48.20681, 16.341499
 Arbeiterinnenstrand Vienna, 48.24368579999999, 16.41508429999999
 Rumanisch-Orthodoxe Kirche in Wien Vienna, 48.1698574, 16.421561699999984
 Freie Buhne Wieden Vienna, 48.1908292, 16.366234599999984
@@ -481,33 +480,33 @@ Theater des Augenblicks Vienna, 48.22771640000001, 16.345116500000017
 Vienna Ballhaus Vienna, 48.2176438, 16.36015850000001
 Denkmal Josef Ressel Vienna, 48.1992391, 16.370052600000008
 Stumpergasse 31 Vienna, 48.1935003, 16.344499499999984
-Statue Mutter und Kind Vienna, 48.2081743, 16.37381890000006
+Statue Mutter und Kind Vienna, 48.199341, 16.368629
 Unteres Belvedere Vienna, 48.1965754, 16.379872200000023
 Wirtschaftsmuseum Vienna, 48.18384229999999, 16.356790899999964
 Sankt Maria Geburt Vienna, 48.1856411, 16.30195720000006
-Triton- und Nymphenbrunnen Vienna, 48.2081743, 16.37381890000006
+Triton- und Nymphenbrunnen Vienna, 48.214951, 16.370911
 Grillparzerdenkmal Vienna, 48.2081133, 16.361455400000068
 Hietzinger Bad Vienna, 48.1689046, 16.294665699999996
 Galerie Lehner Vienna, 48.2001588, 16.36520829999995
-Weinwanderweg Vienna, 48.107036, 16.26478199999997
+Weinwanderweg Vienna, 48.25106, 16.301189
 Wiener Fischereimuseum Vienna, 48.2828301, 16.384208700000045
 Pratermuseum Vienna, 48.2162356, 16.394952200000034
 Denkmal Amdreas Zelinka Vienna, 48.2062386, 16.380622899999935
 Marktamtsmuseum Vienna, 48.19693110000001, 16.359565900000007
 KosmosTheater Vienna, 48.2024689, 16.35150950000002
-Doll-Wiese Vienna, 48.2081743, 16.37381890000006
+Doll-Wiese Vienna, 48.182121, 16.260889
 Befreiung der Quelle Brunnen Vienna, 48.2048525, 16.38077880000003
-Skulptur Der letzte Mensch Vienna, 48.2081743, 16.37381890000006
+Skulptur Der letzte Mensch Vienna, 48.198421, 16.372761
 AIBC Field Freudenau Vienna, 48.1889637, 16.441053199999942
 Tilgner Brunnen Vienna, 48.19975090000001, 16.369214100000022
 Resselpark Vienna, 48.1995527, 16.36923999999999
-Firma Ingeneur Wolfgang Irzl Vienna, 48.2081743, 16.37381890000006
+Firma Ingeneur Wolfgang Irzl Vienna, 48.23484, 16.43231
 Columbus Center Vienna, 48.1822488, 16.375720600000022
 Denkmal Rudolf von Alt Vienna, 48.20970639999999, 16.36399689999996
-Denkmal Friedrich von Amerling Vienna, 48.2081743, 16.37381890000006
+Denkmal Friedrich von Amerling Vienna, 48.207069, 16.379789
 Denkmal Erzherzog Albrecht Vienna, 48.2043249, 16.368478099999948
-Denkmal Marcus Omufuma Vienna, 48.2081743, 16.37381890000006
-Denkmal Siegfried Marcus Vienna, 48.2081743, 16.37381890000006
+Denkmal Marcus Omufuma Vienna, 48.204559, 16.368959
+Denkmal Siegfried Marcus Vienna, 48.198978, 16.3699
 Denkmal Kaiser Josef II. Vienna, 48.20644240000001, 16.36720009999999
 Denkmal Robert Stolz Vienna, 48.2046904, 16.379223599999932
 Denkmal Kaiser Franz Josef I. von Osterreich Vienna, 48.20381949999999, 16.36596839999993
@@ -522,9 +521,9 @@ Donauweibchenbrunnen Vienna, 48.2041871, 16.379725699999995
 Denkmal Kaiser Franz I. Stephan von Lothringen Vienna, 48.2044985, 16.36517570000001
 Denkmal Abraham a Santa Clara Vienna, 48.2044763, 16.36763700000006
 Labetrunkbrunnen Vienna, 48.2038421, 16.381733499999996
-Sebastian Kneipp Brunnen Vienna, 48.2081743, 16.37381890000006
+Sebastian Kneipp Brunnen Vienna, 48.202129, 16.37958
 Osterreichische Gesellschaft fur Literatur Vienna, 48.2086267, 16.366175699999985
-Fussball Museum Vienna, 48.2081743, 16.37381890000006
+Fussball Museum Vienna, 48.208862, 16.372383
 Vienna Crime Museum Vienna, 48.218241, 16.37839299999996
 The Austrian Architecture Museum (Architekturzentrum Wien) Vienna, 48.2041715, 16.357574099999965
 Villa Wertheimstein Vienna, 48.2421999, 16.355500000000006
@@ -536,17 +535,17 @@ Sankt Johann Nepomuk Vienna, 48.2160788, 16.38633649999997
 Produzentengalerie Wien Vienna, 48.2109921, 16.38802069999997
 Museum of Young Art (MOYA) Vienna, 48.211976, 16.366420000000062
 The Vienna Workshop Gallery Vienna, 48.213324, 16.351152100000036
-The Islamic Cultural Center of Bad Voslau Vienna, 47.9648168, 16.213837000000012
+The Islamic Cultural Center of Bad Voslau Vienna, 48.227791, 16.35914
 Schubert's death house in Vienna Vienna, 48.1945796, 16.3614053
 Pfarre Breitensee Vienna, 48.2016675, 16.3093619
 Wiener Galopprennverein Vienna, 48.2161002, 16.405219699999975
 Kabarett Simpl Vienna, 48.2076078, 16.378387599999996
-Rudolf Moratti Sculpture Vienna, 48.2081743, 16.37381890000006
-Adolf Scharf Monument Vienna, 48.2081743, 16.37381890000006
+Rudolf Moratti Sculpture Vienna, 48.21468, 16.35733
+Adolf Scharf Monument Vienna, 48.208981, 16.357821
 Austria Memphis Vienna, 48.1623041, 16.389033499999982
 Karl Seitz Statue Vienna, 48.210758, 16.36019220000003
 Kaiser Franz II Monument Vienna, 48.2075565, 16.36505980000004
 Rearte Gallery Vienna, 48.1792218, 16.337002299999995
 Peter Kulcsar Antiquitatenhandel Wien Vienna, 48.206412, 16.36973469999998
-Ernst Mach Monument Vienna, 48.2081743, 16.37381890000006
+Ernst Mach Monument Vienna, 48.167191, 16.42535
 Rahlstiege Vienna, 48.2017783, 16.361060500000008
