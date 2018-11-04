@@ -14,6 +14,10 @@ few histograms with important data, which can then be analyzed.
 Data was collected from website 
 www.tripadvisor.com 
 
+## Project
+Project is available on
+http://dev.nejcribic.com/diploma/GraphOnMap/ 
+
 ## Screenshots
 ![alt text](https://github.com/ribicnejc/GraphsOnCity/blob/master/assets/gitscreenpoc2.jpg)
 
