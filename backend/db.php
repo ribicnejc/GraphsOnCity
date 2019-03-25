@@ -29,13 +29,6 @@ class db
                 $this->dbpass = "";
                 $this->dbname = "nejcribic_test";
                 break;
-            case 1:
-                //HOST
-                $this->dbhost = "localhost";
-                $this->dbuser = "nejcribic_nejc";
-                $this->dbpass = "*piF5(QE4xlKw";
-                $this->dbname = "nejcribic_test";
-                break;
             case 2:
                 //BERRY PI
                 $this->dbhost = "localhost";
